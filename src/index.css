@@ -1,68 +1,66 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+/* HEADER */
+.custom-navbar {
+  background-color: white !important;
+  transition: background-color 0.3s;
+}
+
+/* FOOTER */
+#footer {
+  background: black;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.cta {
+  background:#935dab;
+  background-size: cover;
+  padding: 15px 0;
+}
+
+.cta p {
+  color: whitesmoke;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.cta .cta-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 4px;
+  transition: 0.5s;
+  margin-top: 10px;
+  border: 2px solid #fff;
+  color: #fff;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.cta .cta-btn:hover {
+  background: #e7bf77;
+  border-color: #e7bf77;
+  color: #151515;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.social-links a {
+  display: inline-block;
+  /*background: #292929;*/
+  color: #fff;
+  line-height: 1;
+  padding: 0px 0;
+  margin-right: 4px;
+  border-radius: 4px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  transition: 0.3s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.social-links a:hover {
+  color: #ffc451;
+  text-decoration: none;
 }
