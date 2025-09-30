@@ -4,9 +4,48 @@
   transition: background-color 0.3s;
 }
 
+.header-title {
+  font-family: 'Bowlby One SC', sans-serif;
+}
+
+
+.banner-section {
+  position: relative;
+  background-image: url('assets/banner.jpg'); 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); 
+  z-index: 1;
+}
+
+.banner-text {
+  position: relative;
+  z-index: 2;
+  font-size: 2.5rem;
+  color: whitesmoke;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8); 
+}
+
+
 /* FOOTER */
 #footer {
-  background: black;
+  background: #071013;
   align-items: center;
   text-align: center;
   color: #fff;
@@ -14,7 +53,7 @@
 }
 
 .cta {
-  background:#935dab;
+  background:#a54e9e;
   background-size: cover;
   padding: 15px 0;
 }
