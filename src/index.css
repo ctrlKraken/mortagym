@@ -1,3 +1,26 @@
+/* Fuentes */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: "Tondu";
+  src: url("/fonts/Tondu-Beta.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+:root {
+  --font-titulo: "Tondu";
+  --font-text: '';
+  --white: white;
+  --color-primary:#0093D8;
+  --color-secondary:#A54E9E;
+  --color-tertiary:#F2D5F8;
+  --black: #071013;
+}
+
+
 /* HEADER */
 .custom-navbar {
   background-color: white !important;
@@ -103,3 +126,41 @@
   color: #ffc451;
   text-decoration: none;
 }
+
+
+/* BOTON PRINCIPAL */
+
+.btn-principal{
+  height: 40px;
+  width: 140px;
+  background-color: var(--color-primary);
+  color: var(--white);
+  font-weight: bold;
+  
+}
+
+.btn-principal:hover, .btn-secundario:hover{
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.btn-secundario{
+  height: 40px;
+  width: 140px;
+  background-color: var(--color-tertiary);
+  color: var(--black);
+  font-weight: bold;
+}
+
+
+/* TITULO POR PAGINA */
+.titulo-pagina{
+  text-transform: uppercase;
+  font-family: var(--font-titulo);
+  background: linear-gradient(90deg,rgba(0, 147, 216, 1) 0%, rgba(165, 78, 158, 1) 100%);
+  -webkit-background-clip: text; /* Recorta el degradado al texto */
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+  width: 300px;
+}
+
