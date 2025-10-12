@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Disciplina({ titulo, descripcion, precios, fotos, reverse = false }) {
+export default function Disciplina({ titulo, descripcion, subactividad, precios, fotos, reverse = false }) {
 
   const [dias, setDias] = useState(1);
 
@@ -21,6 +21,9 @@ export default function Disciplina({ titulo, descripcion, precios, fotos, revers
                 <h3 className="titulo-actividad mb-8">{titulo}</h3>
                 <div className="descripcion-actividad d-sm-flex mb-14">
                   <p>{descripcion}</p>
+                </div>
+                <div className="sub-actividad">
+                  <p>{subactividad}</p>
                 </div>
                 <div className="precios">
                   <table className='tabla-precios table table-borderless'>
@@ -58,7 +61,6 @@ export default function Disciplina({ titulo, descripcion, precios, fotos, revers
                   <img src={central.src} alt="central" />
                   <div className="overlay"></div>
                 </div>
-
                 <div className="laterales">
                     {fotos
                       .filter((f) => f.id !== central.id)
@@ -73,12 +75,8 @@ export default function Disciplina({ titulo, descripcion, precios, fotos, revers
                         </div>
                       ))}
                 </div>
-             
             </div>
-            
-
           </div>
-        
       </section>
   )
 }

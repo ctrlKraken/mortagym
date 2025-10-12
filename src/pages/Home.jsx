@@ -1,7 +1,14 @@
 import React from 'react'
+import Contacto from '../components/Contacto'
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <p>Home</p>
+
+      <Contacto/>
+    
+    
+    </div>
   )
 }

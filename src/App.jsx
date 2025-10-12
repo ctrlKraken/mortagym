@@ -7,6 +7,7 @@ import Actividades from './pages/Actividades'
 import Horarios from './pages/Horarios'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import Contacto from './components/Contacto'
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/horarios" element={<Horarios />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/contacto" element={<Contacto />} />
         </Routes>
       </main>
       <Footer />

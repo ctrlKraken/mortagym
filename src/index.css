@@ -164,3 +164,65 @@
   width: 300px;
 }
 
+.titulo-seccion{
+  font-family: var(--font-titulo);
+  text-transform: uppercase;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+/* Contacto */
+.seccion-contacto{
+  margin: 25px 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.contacto{
+  display: flex;
+  gap: 4rem;
+}
+.info-contacto{
+  align-content: center;
+
+}
+.dato-contacto{
+  display: flex;
+  align-items: start; 
+  gap: 12px;
+  margin-bottom: 1.3rem;
+}
+
+.icon-contacto{
+  background: var(--color-primary);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo-dato-contacto {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.texto-dato-contacto{
+  margin: 0;
+  font-size: 14px;
+}
+
+.mapa{
+  height: 400px;
+  width: 500px;
+}
+.mapa-container {
+  height: 400px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  
+}

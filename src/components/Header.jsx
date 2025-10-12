@@ -32,7 +32,7 @@ export default function Navbar() {
               <li className="nav-item"><NavLink className="nav-link" to="/">Inicio</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/actividades">Disciplinas</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/horarios">Horarios</NavLink></li>
-              <li className="nav-item"><NavLink className="nav-link" to="/">Contacto</NavLink></li>
+              <li className="nav-item"><NavLink className="nav-link" to="/contacto">Contacto</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/login">Ingresar</NavLink></li>
             </ul>
           </div>
