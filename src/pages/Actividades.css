@@ -21,6 +21,12 @@
   text-transform: uppercase;
 }
 
+.sub-actividad{
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-primary);
+}
+
 .precios{
     margin-top: 2rem;
 }
@@ -103,7 +109,4 @@
 .foto.chica:hover .overlay {
   background: rgba(180, 75, 176, 0.45);
 }
-
-
-
 

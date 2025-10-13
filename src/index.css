@@ -186,185 +186,65 @@ html, body {
   width: 300px;
 }
 
-/* HOME */
-/* Hero */
-.hero-simple {
-  width: 100%;
-  background: none;
-  padding: 3.2rem 1rem;     
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Logo arriba */
-.hero-logo {
-  width: 96px;              
-  height: auto;
-  object-fit: contain;
-}
-
-.hero-titulo {
+.titulo-seccion{
+  font-family: var(--font-titulo);
   text-transform: uppercase;
-  font-family: var(--font-titulo);
-  background: linear-gradient(90deg, rgba(0,147,216,1) 0%, rgba(165,78,158,1) 100%);
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent;
-  font-size: clamp(25px, 4.5vw, 60px); 
-  line-height: 1.02;
-  margin: 0;
-  text-align: center;
-  letter-spacing: 0.02em;
-  width: auto;
-  display: inline-block; 
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 
-/* Si querés un leve sombreado (opcional, muy sutil) */
-.hero-title {
-  text-shadow: 0 1px 0 rgba(0,0,0,0.05);
-}
-
-/* Párrafo debajo: negro, sin fondo y centrado con max-width */
-.hero-title {
-  text-shadow: 0 1px 0 rgba(0,0,0,0.05);
-}
-
-/* Párrafo debajo: negro, sin fondo y centrado con max-width */
-.hero-sub {
-  color: #111; 
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  font-size: 1.5rem;
-  line-height: 1.6;
-  padding: 0 0.5rem; 
-}
-
-.hero-simple {
-  width: 100%;
-  background: none;
-  padding: 3.2rem 1rem;     
+/* Contacto */
+.seccion-contacto{
+  margin: 25px 100px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
 }
+.contacto{
+  display: flex;
+  gap: 4rem;
+}
+.info-contacto{
+  align-content: center;
 
-/* Logo arriba */
-.hero-logo {
-  width: 96px;              
-  height: auto;
-  object-fit: contain;
+}
+.dato-contacto{
+  display: flex;
+  align-items: start; 
+  gap: 12px;
+  margin-bottom: 1.3rem;
 }
 
-
-/* Ajustes responsivos finos */
-@media (min-width: 1200px) {
-  .hero-logo { width: 150px; }
-  .hero-simple { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+.icon-contacto{
+  background: var(--color-primary);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (max-width: 420px) {
-  .titulo-pagina { font-size: clamp(28px, 9vw, 40px); }
-  .hero-logo { width: 72px; }
-  .hero-sub { font-size: 0.98rem; }
+.titulo-dato-contacto {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
-
-/***** Quienes somos *****/
-/* Sección full width */
-.quienes-somos-section {
-  background-color: var(--color-tertiary);
-  width: 100vw; 
-  margin-left: calc(-50vw + 50% + 0.5rem); /* Centra relativo al padre + compensa padding izquierdo del main (p-4) */
-  margin-right: calc(-50vw + 50% + 1.5rem); /* Igual para derecho: extiende sin desbordar */
-  padding: 48px 0; /* Solo padding vertical; horizontal manejado en contenido */
-  box-sizing: border-box;
+.texto-dato-contacto{
+  margin: 0;
+  font-size: 14px;
 }
 
-/* Título centrado arriba */
-.qs-titulo {
-  font-family: var(--font-titulo);
-  color: var(--black);
-  text-align: left;
-  margin: 0 auto 25px;
-  font-size: 2rem;
-  max-width: 1200px;
+.mapa{
+  height: 400px;
+  width: 500px;
+}
+.mapa-container {
+  height: 400px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   
 }
-
-/* Contenedor interno centrado que no limita el fondo pero alinea contenido */
-.qs-content {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 32px;
-  width: 100%;
-  max-width: 1200px;   
-  margin: 0 auto;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
-
-/* Columna izquierda (texto) */
-.qs-left {
-  flex: 0 0 50%;
-  max-width: 50%;
-  color: var(--black);
-}
-
-/* Columna derecha (fotos) */
-.qs-right {
-  flex: 0 0 50%;
-  max-width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-
-/* Fotos: sin efectos, proporciones fijas */
-.qs-foto {
-  overflow: hidden;
-  border-radius: 8px;
-  background: #ddd; /* fallback si imagen no carga */
-}
-
-/* tamaños: chica - 25%, grande - 50% (respetando fila única en desktop) */
-.qs-foto.chica { flex: 0 0 24%; max-width: 24%; }
-.qs-foto.grande { flex: 0 0 40%; max-width: 40%; }
-
-/* imagen ocupando su caja */
-.qs-foto img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* Responsive: si querés que en móviles se apilen, activar este bloque */
-@media (max-width: 900px) {
-  .qs-content {
-    flex-direction: column;
-    align-items: center;
-  }
-  .qs-left, .qs-right {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .qs-right {
-    flex-wrap: nowrap;
-    gap: 12px;
-  }
-  /* mantener las imágenes visibles en móvil pero más chicas */
-  .qs-foto.chica { flex: 0 0 30%; max-width: 30%; }
-  .qs-foto.grande { flex: 0 0 60%; max-width: 60%; }
-}
-
-
-
-
-
-
-
-
