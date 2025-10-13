@@ -1,5 +1,6 @@
 import { NavLink, Link } from 'react-router-dom'
 import logo from '../assets/logo_sf.png'
+import { BsBoxArrowInRight } from "react-icons/bs";
 
 export default function Navbar() {
   return (
@@ -13,7 +14,7 @@ export default function Navbar() {
               height="85"
               className="me-2"
             />
-            </Link>
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -32,8 +33,12 @@ export default function Navbar() {
               <li className="nav-item"><NavLink className="nav-link" to="/">Inicio</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/actividades">Disciplinas</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/horarios">Horarios</NavLink></li>
-              <li className="nav-item"><NavLink className="nav-link" to="/">Contacto</NavLink></li>
-              <li className="nav-item"><NavLink className="nav-link" to="/login">Ingresar</NavLink></li>
+              <li className="nav-item">
+                <NavLink className="nav-link nav-btn d-flex align-items-center" to="/login">
+                  <BsBoxArrowInRight className="me-2" /> Ingresar
+                </NavLink>
+              </li>
+
             </ul>
           </div>
         </div>
