@@ -1,3 +1,10 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 /* Fuentes */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -31,7 +38,6 @@
   font-family: 'Bowlby One SC', sans-serif;
 }
 
-
 .banner-section {
   position: relative;
   background-image: url('assets/banner.jpg'); 
@@ -63,6 +69,22 @@
   font-size: 2.5rem;
   color: whitesmoke;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.8); 
+}
+
+.nav-btn {
+  background-color: var(--color-primary);
+  color: white !important;
+  border-radius: 30px;
+  padding: 0.4rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: var(--color-secondary); 
+  color: white !important;
+  text-decoration: none;
 }
 
 
@@ -123,7 +145,7 @@
 }
 
 .social-links a:hover {
-  color: #ffc451;
+  color: var(--color-tertiary);
   text-decoration: none;
 }
 

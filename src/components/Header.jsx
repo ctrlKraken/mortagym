@@ -1,5 +1,6 @@
 import { NavLink, Link } from 'react-router-dom'
 import logo from '../assets/logo_sf.png'
+import { BsBoxArrowInRight } from "react-icons/bs";
 
 export default function Navbar() {
   return (
@@ -13,7 +14,7 @@ export default function Navbar() {
               height="85"
               className="me-2"
             />
-            </Link>
+          </Link>
 
           <button
             className="navbar-toggler"
