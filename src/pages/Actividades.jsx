@@ -47,7 +47,7 @@ export default function Actividades() {
 
   return (
     
-    <div className=''>
+    <div className='pages-section'>
       <div className='titulo-pagina' id=''>Disciplinas</div>
       
       <Disciplina

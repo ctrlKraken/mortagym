@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,9 +22,9 @@ html, body {
   --font-titulo: "Tondu";
   --font-text: '';
   --white: white;
-  --color-primary:#0093D8;
-  --color-secondary:#A54E9E;
-  --color-tertiary:#F2D5F8;
+  --color-primary: #0093D8;
+  --color-secondary: #A54E9E;
+  --color-tertiary: #F2D5F8;
   --black: #071013;
 }
 
@@ -34,18 +35,39 @@ html, body {
   transition: background-color 0.3s;
 }
 
+.navbar-nav .nav-item {
+  margin-left: 2rem;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  padding: 0.8rem 1.2rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav {
+  transform: scale(1);
+}
+
+.nav-link:not(.nav-btn).active{
+  color: var(--color-primary) !important;
+}
+
 .header-title {
   font-family: 'Bowlby One SC', sans-serif;
 }
 
 .banner-section {
   position: relative;
-  background-image: url('assets/banner.jpg'); 
+  background-image: url('assets/banner.jpg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh; 
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +81,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2); 
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -68,7 +90,7 @@ html, body {
   z-index: 2;
   font-size: 2.5rem;
   color: whitesmoke;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.8); 
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .nav-btn {
@@ -82,13 +104,13 @@ html, body {
 }
 
 .nav-btn:hover {
-  background-color: var(--color-secondary); 
+  background-color: var(--color-secondary);
   color: white !important;
   text-decoration: none;
 }
 
 
-/* FOOTER */
+/*************** FOOTER ******************/
 #footer {
   background: #071013;
   align-items: center;
@@ -97,76 +119,48 @@ html, body {
   font-size: 14px;
 }
 
-.cta {
-  background:#a54e9e;
-  background-size: cover;
-  padding: 15px 0;
-}
-
-.cta p {
-  color: whitesmoke;
-  font-weight: 400;
-  font-size: 1rem;
-}
-
-.cta .cta-btn {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 8px 28px;
-  border-radius: 4px;
-  transition: 0.5s;
-  margin-top: 10px;
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-.cta .cta-btn:hover {
-  background: #e7bf77;
-  border-color: #e7bf77;
-  color: #151515;
-}
-
-
-.social-links a {
-  display: inline-block;
-  /*background: #292929;*/
-  color: #fff;
-  line-height: 1;
-  padding: 0px 0;
-  margin-right: 4px;
-  border-radius: 4px;
-  text-align: center;
-  width: 50px;
-  height: 50px;
-  transition: 0.3s;
-}
-
-.social-links a:hover {
-  color: var(--color-tertiary);
+.social-links:hover {
+  color: var(--color-primary) !important;
   text-decoration: none;
 }
+
+.whatsapp-footer-icon {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 1000;
+  background: #25D366;
+  border-radius: 50%;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.whatsapp-footer-icon:hover {
+  background: #128C7E;
+}
+
+
 
 
 /* BOTON PRINCIPAL */
 
-.btn-principal{
+.btn-principal {
   height: 40px;
   width: 140px;
   background-color: var(--color-primary);
   color: var(--white);
   font-weight: bold;
-  
+
 }
 
-.btn-principal:hover, .btn-secundario:hover{
+.btn-principal:hover,
+.btn-secundario:hover {
   background-color: var(--black);
   color: var(--white);
 }
 
-.btn-secundario{
+.btn-secundario {
   height: 40px;
   width: 140px;
   background-color: var(--color-tertiary);
@@ -176,17 +170,18 @@ html, body {
 
 
 /* TITULO POR PAGINA */
-.titulo-pagina{
+.titulo-pagina {
   text-transform: uppercase;
   font-family: var(--font-titulo);
-  background: linear-gradient(90deg,rgba(0, 147, 216, 1) 0%, rgba(165, 78, 158, 1) 100%);
-  -webkit-background-clip: text; /* Recorta el degradado al texto */
+  background: linear-gradient(90deg, rgba(0, 147, 216, 1) 0%, rgba(165, 78, 158, 1) 100%);
+  -webkit-background-clip: text;
+  /* Recorta el degradado al texto */
   -webkit-text-fill-color: transparent;
   font-size: 40px;
   width: 300px;
 }
 
-.titulo-seccion{
+.titulo-seccion {
   font-family: var(--font-titulo);
   text-transform: uppercase;
   font-size: 30px;
@@ -194,28 +189,31 @@ html, body {
 }
 
 /* Contacto */
-.seccion-contacto{
+.seccion-contacto {
   margin: 25px 100px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.contacto{
+
+.contacto {
   display: flex;
   gap: 4rem;
 }
-.info-contacto{
+
+.info-contacto {
   align-content: center;
 
 }
-.dato-contacto{
+
+.dato-contacto {
   display: flex;
-  align-items: start; 
+  align-items: start;
   gap: 12px;
   margin-bottom: 1.3rem;
 }
 
-.icon-contacto{
+.icon-contacto {
   background: var(--color-primary);
   width: 45px;
   height: 45px;
@@ -231,20 +229,214 @@ html, body {
   margin: 0;
 }
 
-.texto-dato-contacto{
+.texto-dato-contacto {
   margin: 0;
   font-size: 14px;
 }
 
-.mapa{
+.mapa {
   height: 400px;
   width: 500px;
 }
+
 .mapa-container {
   height: 400px;
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***** Quienes somos *****/
+.hero-logo {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+.titulo-pagina {
+  text-transform: uppercase;
+  font-family: var(--font-titulo);
+  background: linear-gradient(90deg, rgba(0, 147, 216, 1) 0%, rgba(165, 78, 158, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(25px, 4.5vw, 60px);
+  line-height: 1.02;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.02em;
+  width: auto;
+  display: inline-block;
+}
+
+.hero-title {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.hero-title {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.hero-sub {
+  color: #111;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  padding: 0 0.5rem;
+}
+
+.hero-simple {
+  width: 100%;
+  background: none;
+  padding: 3.2rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media query para móviles (opcional, si clamp no basta) */
+@media (max-width: 768px) {
+  .titulo-pagina {
+    font-size: 2rem;  
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+/* Quiénes Somos */
+.qs-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.qs-texto {
+  text-align: left;  
+  max-width: 600px;  
+}
+
+.qs-titulo {
+  font-family: var(--font-titulo);  
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: left;  
+  max-width: 1200px;
+}
+
+/* Contacto */
+.contacto-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.contacto-datos {
+  width: 100%;
+  justify-content: space-between;  /* Distribuye los datos en fila */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .qs-content,
+  .contacto-section .container {
+    padding: 0 1rem;
+  }
+
+  .qs-texto {
+    max-width: 100%;
+    padding-left: 0 !important;
+  }
+
+  .contacto-datos {
+    flex-direction: column;  /* En móvil, apila verticalmente */
+    gap: 1rem;
+  }
+}
+
+
+
+
+
+/*********** HORARIOS ***************/
+.pages-section {
+  padding: 4rem 1rem;
+}
+
+.tabla-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.tabla-horarios .table-head{
+  background-color: var(--color-primary) !important;
+  color: white;
+}
+
+.tabla-horarios.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #e0f7ff;  /* Celeste claro; cambia a tu tono preferido, ej. #b3e5fc */
+}
+
+select.form-select {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+/******** LOGIN *********/
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.login-btn {
+  background-color: var(--color-primary);
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.6rem 0;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--color-secondary);
+}
+
+
+
+
+
