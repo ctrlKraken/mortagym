@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Horarios() {
   // ----- Datos simulados -----
@@ -69,6 +70,14 @@ export default function Horarios() {
       ],
     },
   ];
+
+   const location = useLocation();
+
+   useEffect(() => {
+    if (location.state?.filtro) {
+      setFiltro(location.state.filtro);
+    }
+  }, [location.state]);
 
   // ----- Estado del filtro -----
   const [filtro, setFiltro] = useState("Todas");
