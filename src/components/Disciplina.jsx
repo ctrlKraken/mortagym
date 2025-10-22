@@ -39,7 +39,7 @@ export default function Disciplina({
           <div className="row align-items-center">
             <div className={`col-lg-6 ${reverse ? "order-lg-2" : "order-lg-1"}`}>
               <div className="info mw-lg mx-auto mx-lg-0">
-                <h3 className="titulo-actividad mb-8">{titulo}</h3>
+                <h3 className="titulo-actividad mb-8" translate="no">{titulo}</h3>
                 <div className="descripcion-actividad d-sm-flex mb-14">
                   <p>{descripcion}</p>
                 </div>
