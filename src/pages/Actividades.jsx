@@ -1,5 +1,5 @@
 import React from 'react'
-import './Actividades.css'
+import '../styles/Actividades.css'
 import Disciplina from '../components/Disciplina'
 
 

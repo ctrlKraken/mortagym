@@ -1,0 +1,112 @@
+/* ACTIVIDAD */
+
+.contenedor-disciplina{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.titulo-actividad{
+  font-family: var(--font-titulo);
+  text-transform: uppercase;
+}
+
+.sub-actividad{
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-primary);
+}
+
+.precios{
+    margin-top: 2rem;
+}
+
+.precios select{
+    padding: 0.4rem;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+}
+
+.tabla-precios th{
+    font-size: 14px;
+    padding: 4px;
+}
+
+.carrusel-actividad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+
+}
+
+.foto.grande {
+  position: relative;
+  width: 350px;
+  height: 420px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.foto.grande img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.laterales {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.foto.chica {
+  position: relative;
+  width: 170px;
+  height: 240px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.foto.chica img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto.chica:hover {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(180, 75, 176, 0.20); /* tono violeta semi-transparente */
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.foto.chica:hover .overlay {
+  background: rgba(180, 75, 176, 0.45);
+}
+

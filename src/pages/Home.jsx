@@ -4,6 +4,9 @@ import logo from '../assets/logo_sf.png'
 import foto1 from '../assets/foto1.jpg'
 import foto2 from '../assets/foto2.jpg'
 import foto3 from '../assets/foto3.jpg'
+import buffet from '../assets/buffet.jpg'
+import revisacion from '../assets/revisacion.jpg'
+import nutricionista from '../assets/nutricionista.jpg'
 import { RiCalendarScheduleFill, RiPhoneFill, RiMapPin2Fill } from '@remixicon/react';  // Quité RiWhatsappFill
 
 export default function Home() {
@@ -67,6 +70,53 @@ export default function Home() {
                   <button type="button" data-bs-target="#carouselQuienesSomos" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselQuienesSomos" data-bs-slide-to="1" aria-label="Slide 2"></button>
                   <button type="button" data-bs-target="#carouselQuienesSomos" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Servicios - Con tarjetas */}
+      <section id="contacto" className="contacto-section my-5">
+        <div className="container">
+          <h2 className="qs-titulo text-center mb-3">Nuestros Servicios</h2>
+          <div className="row g-4">
+            {/* Buffet */}
+            <div className="col-12 col-md-4">
+              <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                <img src={buffet} className="card-img-top" alt="Buffet" />
+                <div className="card-body text-center">
+                  <h5 className="card-title fw-bold">Buffet Saludable</h5>
+                  <p className="card-text">
+                    Disfrutá de comidas y snacks saludables diseñados para acompañar tu entrenamiento y cuidar tu nutrición.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Revisación médica */}
+            <div className="col-12 col-md-4">
+              <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                <img src={revisacion} className="card-img-top" alt="Revisación médica" />
+                <div className="card-body text-center">
+                  <h5 className="card-title fw-bold">Revisación Médica</h5>
+                  <p className="card-text">
+                    Realizá tu control médico en nuestras instalaciones para garantizar una práctica segura y adaptada a tus necesidades.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Nutricionista */}
+            <div className="col-12 col-md-4">
+              <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                <img src={nutricionista} className="card-img-top" alt="Nutricionista" />
+                <div className="card-body text-center">
+                  <h5 className="card-title fw-bold">Asesoramiento Nutricional</h5>
+                  <p className="card-text">
+                    Contamos con un nutricionista que te ayudará a alcanzar tus objetivos mediante un plan alimenticio personalizado.
+                  </p>
                 </div>
               </div>
             </div>
