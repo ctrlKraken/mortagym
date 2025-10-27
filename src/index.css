@@ -481,22 +481,33 @@ body {
 }
 
 .tabla-container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
+  overflow-x: auto;
 }
 
 .table th,
 .table td {
   vertical-align: middle;
+  text-align: center;
 }
 
-.tabla-horarios .table-head{
+.tabla-horarios .table-head th {
   background-color: var(--color-primary) !important;
   color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.tabla-horarios.table-striped tbody tr:nth-of-type(odd) {
-  background-color: #e0f7ff;  /* Celeste claro; cambia a tu tono preferido, ej. #b3e5fc */
+.celda-hora {
+  background-color: var(--color-secondary) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+
+.tabla-horarios tbody tr:nth-of-type(odd) {
+  background-color: #f7fcff;
 }
 
 select.form-select {
@@ -508,9 +519,19 @@ select.form-select {
 
 @media (max-width: 460px) {
   .pages-section {
-    padding: 1.8rem 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .titulo-pagina {
+    text-align: center;
+  }
+
+  select.form-select {
+    display: block;
+    margin: 0 auto;
   }
 }
+
 
 /******** LOGIN *********/
 .login-card {
