@@ -55,8 +55,8 @@
 
 .foto.grande {
   position: relative;
-  width: 350px;
-  height: 420px;
+  width: 340px;
+  height: 390px;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
@@ -77,8 +77,8 @@
 
 .foto.chica {
   position: relative;
-  width: 170px;
-  height: 240px;
+  width: 180px;
+  height: 260px;
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
@@ -110,3 +110,183 @@
   background: rgba(180, 75, 176, 0.45);
 }
 
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; 
+}
+
+.modal-react {
+  background: white;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  outline: none;
+
+  width: 90%;
+  animation: fadeInUp 0.3s ease;
+
+}
+
+.modal-header .close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  color: #555;
+}
+
+.btns{
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-tabs {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+}
+
+.nav-tabs .nav-item {
+  margin-right: 10px;
+}
+
+.nav-tabs .nav-link {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+}
+
+.nav-tabs .nav-link.active {
+  color: #000;
+  border-bottom-color: #007bff;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.tab-actividad h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px) {
+
+  .contenedor-disciplina {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .info {
+    text-align: center;
+    align-items: center;
+  }
+
+  .titulo-actividad {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .descripcion-actividad p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .sub-actividad {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .tabla-precios {
+    font-size: 13px;
+  }
+
+  .precios select {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .btns {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .btns button {
+    width: 80%;
+  }
+
+  .carrusel-actividad {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .foto.grande {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+
+  .foto.chica {
+    width: 140px;
+    height: 200px;
+  }
+
+  .modal-react {
+    width: 95%;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 460px) {
+   .foto.grande {
+    width: 100%;
+    max-width: 150px;
+    height: 200px;
+  }
+
+  .foto.chica {
+    width: 150px;
+    height: 200px;
+  }
+
+  .contenedor-disciplina {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .modal-react {
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .nav-tabs .nav-item {
+    margin: 0px;
+  }
+
+  .nav-tabs .nav-link {
+    padding: 8px;
+  }
+}

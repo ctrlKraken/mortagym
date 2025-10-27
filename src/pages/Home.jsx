@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="home-container">
       {/* Sección Hero - Como estaba */}
-      <section className="hero-simple d-flex flex-column align-items-center justify-content-center text-center py-5">
+      <section className="hero-simple d-flex flex-column align-items-center justify-content-center text-center">
         <img src={logo} alt="Morta Gym" className="hero-logo mb-3" />
         <h1 className="titulo-pagina hero-title">
           Bienvenido a Morta Gym

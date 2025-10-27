@@ -45,6 +45,30 @@ export default function Actividades() {
     { id: 2, src: '/assets/natacion2.jpg' },
   ];
 
+  const modalNatacion = [
+    { id: 'adultos', titulo: 'Adultos',
+      descripcion: 'Clases enfocadas en técnica, resistencia y nado continuo. Ideal para quienes ya tienen experiencia en el agua.',
+    },
+    { id: 'iniciales', titulo: 'Adultos Iniciales',
+      descripcion: 'Clases para quienes recién comienzan. Se trabaja la familiarización con el medio acuático y las técnicas básicas.',
+    },
+    { id: 'hidrogimnasia', titulo: 'Hidrogimnasia',
+      descripcion: 'Actividad acuática de bajo impacto, ideal para mejorar movilidad, circulación y fuerza muscular.',
+    },
+  ];
+
+  const modalFuncional = [
+    {id: 'mixto', titulo: 'Mixto', descripcion: 'Se trabaja con rutinas variadas, aplicables y utiles como base para distintos deportes.'},
+    {id: 'mayores', titulo: 'Adultos Mayores', descripcion: ''},
+    {id: 'kids', titulo: 'Kids', descripcion: ''},
+    {id: 'adolescentes', titulo: 'Adolescentes', descripcion: ''},
+  ]
+
+  const modalPilates = [
+    {id: 'pfuncional', titulo: 'Pilates Funcional', 
+      descripcion: 'Mejora tu capacidad para moverte con seguridad, fuerza y sin dolor en todas tus actividades cotidianas'}
+  ]
+
   return (
     
     <div className='pages-section'>
@@ -62,18 +86,20 @@ export default function Actividades() {
         titulo="Pilates"
         descripcion="Conecta cuerpo y mente con ejercicios que mejoran tu postura,
          flexibilidad y control corporal"
-        subactividad="Pilates - Pilates Funcional"
+        subactividad="Pilates Funcional"
         precios={preciosMusculacion}
         fotos={fotosPilates}
+         modalData={modalPilates}
         reverse
       />
 
       <Disciplina
         titulo="Funcional"
         descripcion="Trabaja con movimientos naturales para ganar fuerza, agilidad y rendimiento en tu día a día."
-        subactividad="Funcional Mixto - Funcional Adultos Mayores - Funcional Kids"
+        subactividad="Funcional Mixto - Adultos Mayores - Adolescentes - Kids"
         precios={preciosMusculacion}
         fotos={fotosFuncional}
+        modalData={modalFuncional}
       />
       <Disciplina
         titulo="Spinning"
@@ -95,15 +121,11 @@ export default function Actividades() {
         subactividad="Natación Adultos - Natación Adultos Iniciales - Pileta Libre - Hidrogimnasia"
         precios={preciosMusculacion}
         fotos={fotosNatacion}
+        modalData={modalNatacion}
         reverse
       />
 
-      <div className="sub-actividades">
-        <div className="card">
-          <div className="box">
-          </div>
-        </div>
-      </div>
+  
     </div>
   )
 }
