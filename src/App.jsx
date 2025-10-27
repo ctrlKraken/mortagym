@@ -8,6 +8,7 @@ import Horarios from './pages/Horarios'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Contacto from './components/Contacto'
+import Perfil from './pages/Perfil'
 import './App.css'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/perfil" element={<Perfil />} />
         </Routes>
       </main>
       <Footer />

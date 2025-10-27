@@ -1,6 +1,17 @@
-import logo from '../assets/logo_sf.png'
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo_sf.png";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Evita el refresco de la página
+
+    // (Opcional) Podés agregar validaciones aquí
+    // Por ahora redirigimos directamente al perfil
+    navigate("/perfil");
+  };
+
   return (
     <div className="login-page d-flex align-items-center justify-content-center mt-5">
       <div className="card shadow p-4 login-card">
@@ -10,9 +21,11 @@ export default function Login() {
 
         <h3 className="text-center mb-4 fw-bold">Ingresar</h3>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="dni" className="form-label fw-semibold">DNI</label>
+            <label htmlFor="dni" className="form-label fw-semibold">
+              DNI
+            </label>
             <input
               type="text"
               className="form-control"
@@ -23,7 +36,9 @@ export default function Login() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="password" className="form-label fw-semibold">Contraseña</label>
+            <label htmlFor="password" className="form-label fw-semibold">
+              Contraseña
+            </label>
             <input
               type="password"
               className="form-control"
