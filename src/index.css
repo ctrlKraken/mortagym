@@ -244,6 +244,13 @@ body {
   background: #128C7E;
 }
 
+@media (max-width: 460px) {
+  .whatsapp-footer-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+}
+}
 
 /* BOTON PRINCIPAL */
 
@@ -558,7 +565,7 @@ select.form-select {
 
 
 /************* PERFIL ******************/
-.container {
+.container.perfil {
   max-width: 900px;
 }
 
@@ -574,4 +581,32 @@ select.form-select {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+
+/* SERVICIOS */
+
+.card-img{
+  height: 55%;
+}
+
+.card-img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.dato-servicio{
+  margin-bottom: 5px;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.enlace-cafeteria{
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.enlace-cafeteria:hover{
+  color: var(--color-secondary);
+  font-weight: 700;
 }

@@ -11,7 +11,7 @@ export default function Perfil() {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container perfil mt-5">
       {/* Encabezado */}
       <div className="text-center mb-5">
         <h2 className="fw-bold">Hola, {usuario.nombre}</h2>

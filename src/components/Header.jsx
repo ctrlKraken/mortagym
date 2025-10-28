@@ -43,7 +43,7 @@ export default function Navbar() {
               <li className="nav-item"><NavLink className="nav-link" to="/actividades" onClick={cerrarMenu}>Disciplinas</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/horarios" onClick={cerrarMenu}>Horarios</NavLink></li>
               <li className="nav-item">
-                <NavLink className="nav-link nav-btn px-4" to="/login">
+                <NavLink className="nav-link nav-btn px-4" to="/login" onClick={cerrarMenu}>
                   <BsBoxArrowInRight className="me-2" /> Ingresar
                 </NavLink>
               </li>
