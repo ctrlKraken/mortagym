@@ -89,7 +89,7 @@ export default function Disciplina({
                         overlayClassName="modal-overlay"
                       >
                         <div className="modal-header">
-                          <h6 className="modal-title" id="">{titulo} - Actividades</h6>
+                          <h6 className="modal-title" id="" translate="no">{titulo} - Actividades</h6>
                           <button type="button" className="close" onClick={() => setIsModalOpen(false)}>
                             <span aria-hidden="true">&times;</span>
                           </button>

@@ -44,22 +44,24 @@
 }
 
 .carrusel-actividad{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
   margin: 2rem 0;
   flex-wrap: wrap;
-
 }
 
 .foto.grande {
   position: relative;
-  width: 340px;
-  height: 390px;
+  /*width: 340px;
+  height: 390px;*/
+  width: 55%;
+  aspect-ratio: 4 / 5;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
 }
 
 .foto.grande img {
@@ -68,17 +70,20 @@
   object-fit: cover;
 }
 
-
 .laterales {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
+  flex: 1;
 }
 
 .foto.chica {
   position: relative;
-  width: 180px;
-  height: 260px;
+  /*width: 180px;
+  height: 260px;*/
+  width: 100%;
+  aspect-ratio: 3 / 4;
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
@@ -97,11 +102,12 @@
 
 .overlay {
   position: absolute;
-  top: 0;
+  inset: 0;
+  /*top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: rgba(180, 75, 176, 0.20); /* tono violeta semi-transparente */
+  height: 100%;*/
+  background: rgba(180, 75, 176, 0.20);
   pointer-events: none;
   transition: background 0.3s ease;
 }
@@ -131,10 +137,8 @@
   padding: 20px;
   position: relative;
   outline: none;
-
   width: 90%;
   animation: fadeInUp 0.3s ease;
-
 }
 
 .modal-header .close {
@@ -186,9 +190,7 @@
   margin-bottom: 10px;
 }
 
-
 @media (max-width: 768px) {
-
   .contenedor-disciplina {
     flex-direction: column;
     padding: 1.5rem;
@@ -208,6 +210,7 @@
   .descripcion-actividad p {
     font-size: 1rem;
     text-align: center;
+    margin-bottom: 0.5rem;
   }
 
   .sub-actividad {
@@ -215,6 +218,9 @@
     text-align: center;
   }
 
+  .precios{
+    margin-top: 1rem;
+  }
   .tabla-precios {
     font-size: 13px;
   }
@@ -238,19 +244,12 @@
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    margin-top: 2rem;
+    overflow-x: auto;
+    gap: 0.5rem;
   }
 
-  .foto.grande {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    aspect-ratio: 3 / 4;
-  }
-
-  .foto.chica {
-    width: 140px;
-    height: 200px;
+  .laterales {
+    flex-direction: row;
   }
 
   .modal-react {
@@ -258,18 +257,21 @@
     max-height: 85vh;
     overflow-y: auto;
   }
+  .nav-tabs .nav-link {
+    padding: 8px;
+  }
 }
 
 @media (max-width: 460px) {
-   .foto.grande {
-    width: 100%;
-    max-width: 150px;
-    height: 200px;
+  .carrusel-actividad {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: auto;
   }
 
-  .foto.chica {
-    width: 150px;
-    height: 200px;
+  .laterales {
+    flex-direction: row;
   }
 
   .contenedor-disciplina {

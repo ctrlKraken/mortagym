@@ -55,6 +55,7 @@ export default function Actividades() {
     { id: 'hidrogimnasia', titulo: 'Hidrogimnasia',
       descripcion: 'Actividad acuática de bajo impacto, ideal para mejorar movilidad, circulación y fuerza muscular.',
     },
+    { id: 'libre', titulo: 'Pileta Libre', descripcion: ''}
   ];
 
   const modalFuncional = [

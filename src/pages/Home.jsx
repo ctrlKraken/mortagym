@@ -4,7 +4,7 @@ import logo from '../assets/logo_sf.png'
 import foto1 from '../assets/foto1.jpg'
 import foto2 from '../assets/foto2.jpg'
 import foto3 from '../assets/foto3.jpg'
-import buffet from '../assets/buffet.jpg'
+import buffet from '/assets/cafeteria.png'
 import revisacion from '../assets/revisacion.jpg'
 import nutricionista from '../assets/nutricionista.jpg'
 import { RiCalendarScheduleFill, RiPhoneFill, RiMapPin2Fill } from '@remixicon/react';  // Quité RiWhatsappFill
@@ -78,18 +78,24 @@ export default function Home() {
       </section>
 
       {/* Servicios - Con tarjetas */}
-      <section id="contacto" className="contacto-section my-5">
+      <section id="servicio" className="contacto-section my-5">
         <div className="container">
           <h2 className="qs-titulo text-center mb-3">Nuestros Servicios</h2>
           <div className="row g-4">
             {/* Buffet */}
             <div className="col-12 col-md-4">
               <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                <img src={buffet} className="card-img-top" alt="Buffet" />
+                <div className="card-img">
+                  <img src={buffet} className="card-img-top" alt="Buffet" />
+                </div>
+               
                 <div className="card-body text-center">
-                  <h5 className="card-title fw-bold">Buffet Saludable</h5>
+                  <h5 className="card-title fw-bold">Cafetería Saludable</h5>
                   <p className="card-text">
                     Disfrutá de comidas y snacks saludables diseñados para acompañar tu entrenamiento y cuidar tu nutrición.
+                  </p>
+                  <p className="dato-servicio">
+                    Siguenos y conoce nuestros platos: <a className='enlace-cafeteria' href="https://www.instagram.com/xlafuerzaco25/" target='_blank'>X La Fuerza</a>
                   </p>
                 </div>
               </div>
@@ -98,11 +104,19 @@ export default function Home() {
             {/* Revisación médica */}
             <div className="col-12 col-md-4">
               <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                <img src={revisacion} className="card-img-top" alt="Revisación médica" />
+                <div className="card-img">
+                  <img src={revisacion} className="card-img-top" alt="Revisación médica" />  
+                </div>
                 <div className="card-body text-center">
                   <h5 className="card-title fw-bold">Revisación Médica</h5>
                   <p className="card-text">
                     Realizá tu control médico en nuestras instalaciones para garantizar una práctica segura y adaptada a tus necesidades.
+                  </p>
+                  <p className="dato-servicio">
+                    Lunes, Miércoles y Viernes - 21:00 a 22:00 Hs
+                  </p>
+                  <p className="dato-servicio">
+                    Martes y Jueves - 8:00 a 9:00 Hs
                   </p>
                 </div>
               </div>
@@ -111,11 +125,17 @@ export default function Home() {
             {/* Nutricionista */}
             <div className="col-12 col-md-4">
               <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                <img src={nutricionista} className="card-img-top" alt="Nutricionista" />
+                <div className="card-img">
+                  <img src={nutricionista} className="card-img-top" alt="Nutricionista" />
+                </div>
+              
                 <div className="card-body text-center">
                   <h5 className="card-title fw-bold">Asesoramiento Nutricional</h5>
                   <p className="card-text">
                     Contamos con un nutricionista que te ayudará a alcanzar tus objetivos mediante un plan alimenticio personalizado.
+                  </p>
+                  <p className="dato-servicio">
+                    Martes y Jueves - 14:00 a 18:00 Hs
                   </p>
                 </div>
               </div>
