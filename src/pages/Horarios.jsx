@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import '../styles/Horarios.css'
 
 export default function Horarios() {
   const disciplinas = [
@@ -15,7 +16,11 @@ export default function Horarios() {
     {
       dia: "Lunes",
       clases: [
-        { hora: "07:00", disciplina: "Musculación" },
+        { hora: "07:00", actividades: [
+            { disciplina: "Musculación", profe: "Juan" },
+            { disciplina: "Pilates", profe: "Laura" }
+          ]
+        },
         { hora: "09:00", disciplina: "Pilates" },
         { hora: "11:00", disciplina: "Funcional" },
         { hora: "14:00", disciplina: "Spinning" },
@@ -29,8 +34,12 @@ export default function Horarios() {
         { hora: "07:00", disciplina: "Musculación" },
         { hora: "10:00", disciplina: "Spinning" },
         { hora: "12:00", disciplina: "Pilates" },
-        { hora: "17:00", disciplina: "Natación" },
-        { hora: "19:00", disciplina: "Funcional" },
+        { hora: "17:00", actividades: [
+            { disciplina: "Natación Niños", profe: "Carla" },
+            { disciplina: "Funcional", profe: "José" }
+          ]
+        },
+       
       ],
     },
     {
@@ -93,10 +102,23 @@ export default function Horarios() {
   const getClase = (dia, hora) => {
     const diaData = horarios.find((d) => d.dia === dia);
     if (!diaData) return "";
-    const clase = diaData.clases.find((c) => c.hora === hora);
-    if (!clase) return "";
-    if (filtro !== "Todas" && clase.disciplina !== filtro) return "";
-    return clase.disciplina;
+
+    /*const clase = diaData.clases.find((c) => c.hora === hora);
+      if (!clase) return "";
+      if (filtro !== "Todas" && clase.disciplina !== filtro) return "";
+      return clase;
+    */
+    const horario = diaData.clases.find((c) => c.hora === hora);
+    if (!horario) return [];
+
+    if (horario.actividades) return horario.actividades;
+
+    return [{
+      disciplina: horario.disciplina,
+      profe: horario.profe || ""
+    }];
+
+    
   };
 
   return (
@@ -134,11 +156,32 @@ export default function Horarios() {
               {todasLasHoras.map((hora) => (
                 <tr key={hora}>
                   <td className="fw-bold celda-hora">{hora}</td>
-                  {dias.map((dia) => (
+                  {dias.map((dia) => {
+
+                    const actividades = getClase(dia, hora);
+                    return (
+                    
                     <td key={`${dia}-${hora}`}>
-                      {getClase(dia, hora) || "-"}
+                      {actividades.length > 0 ?(
+                        actividades.map((act, index) => (
+                          <div key={index} className="mb-1">
+                            <p className="nombre-actividad">{act.disciplina}</p>
+                            {act.profe && (
+                              <p className="profesor text-muted small">{act.profe}</p>
+                            )}
+                            {index < actividades.length - 1 && <hr className="m-1" />}
+                          </div>
+
+                        ))
+                      ) : (
+                        "-"
+                                              
+                      )}
                     </td>
-                  ))}
+                    );
+
+                  })}
+
                 </tr>
               ))}
             </tbody>

@@ -1,13 +1,16 @@
 import React from 'react'
 import Contacto from '../components/Contacto'
 import logo from '../assets/logo_sf.png'
-import foto1 from '../assets/foto1.jpg'
-import foto2 from '../assets/foto2.jpg'
-import foto3 from '../assets/foto3.jpg'
-import buffet from '/assets/cafeteria.png'
+import foto1 from '../assets/banner2.jpeg'
+import foto2 from '../assets/foto5.jpeg'
+import foto3 from '../assets/foto10.jpg'
+import foto4 from '../assets/foto8.jpg'
+import buffet from '../assets/cafeteria.png'
 import revisacion from '../assets/revisacion.jpg'
-import nutricionista from '../assets/nutricionista.jpg'
-import { RiCalendarScheduleFill, RiPhoneFill, RiMapPin2Fill } from '@remixicon/react';  // Quité RiWhatsappFill
+import nutricionista from '../assets/nutricion.jpeg'
+import { RiCalendarScheduleFill, RiPhoneFill, RiMapPin2Fill, RiInstagramFill } from '@remixicon/react';  // Quité RiWhatsappFill
+
+import '../styles/Home.css'
 
 export default function Home() {
   return (
@@ -49,13 +52,16 @@ export default function Home() {
               <div id="carouselQuienesSomos" className="carousel slide">
                 <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src={foto1} className="d-block w-100" alt="Actividad 1" />
+                    <img src={foto1} className="d-block" alt="Actividad 1" />
                   </div>
                   <div className="carousel-item">
-                    <img src={foto2} className="d-block w-100" alt="Actividad 2" />
+                    <img src={foto2} className="d-block" alt="Actividad 2" />
                   </div>
                   <div className="carousel-item">
-                    <img src={foto3} className="d-block w-100" alt="Actividad 3" />
+                    <img src={foto3} className="d-block" alt="Actividad 3" />
+                  </div>
+                  <div className="carousel-item">
+                    <img src={foto4} className="d-block" alt="Actividad 4" />
                   </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselQuienesSomos" data-bs-slide="prev">
@@ -70,6 +76,7 @@ export default function Home() {
                   <button type="button" data-bs-target="#carouselQuienesSomos" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselQuienesSomos" data-bs-slide-to="1" aria-label="Slide 2"></button>
                   <button type="button" data-bs-target="#carouselQuienesSomos" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselQuienesSomos" data-bs-slide-to="3" aria-label="Slide 4"></button>
                 </div>
               </div>
             </div>
@@ -95,7 +102,12 @@ export default function Home() {
                     Disfrutá de comidas y snacks saludables diseñados para acompañar tu entrenamiento y cuidar tu nutrición.
                   </p>
                   <p className="dato-servicio">
-                    Siguenos y conoce nuestros platos: <a className='enlace-cafeteria' href="https://www.instagram.com/xlafuerzaco25/" target='_blank'>X La Fuerza</a>
+                    Seguinos y conocé nuestros platos:
+                  </p>
+                  <p className="dato-servicio">
+                    <a className='enlace-cafeteria' href="https://www.instagram.com/xlafuerzaco25/" target='_blank' rel="noopener noreferrer">
+                    <RiInstagramFill size={24} />X La Fuerza
+                    </a>
                   </p>
                 </div>
               </div>
@@ -110,7 +122,8 @@ export default function Home() {
                 <div className="card-body text-center">
                   <h5 className="card-title fw-bold">Revisación Médica</h5>
                   <p className="card-text">
-                    Realizá tu control médico en nuestras instalaciones para garantizar una práctica segura y adaptada a tus necesidades.
+                    Realizá el control médico obligatorio en nuestras instalaciones, 
+                    requisito indispensable para practicar natación de forma segura.
                   </p>
                   <p className="dato-servicio">
                     Lunes, Miércoles y Viernes - 21:00 a 22:00 Hs
@@ -132,10 +145,14 @@ export default function Home() {
                 <div className="card-body text-center">
                   <h5 className="card-title fw-bold">Asesoramiento Nutricional</h5>
                   <p className="card-text">
-                    Contamos con un nutricionista que te ayudará a alcanzar tus objetivos mediante un plan alimenticio personalizado.
+                    Contamos con la presencia de la Lic. Angeloni Andrea, nutricionista que te ayudará a alcanzar tus objetivos
+                     mediante un plan alimenticio personalizado.
                   </p>
                   <p className="dato-servicio">
                     Martes y Jueves - 14:00 a 18:00 Hs
+                  </p >
+                  <p className="dato-servicio">
+                    Turnos al: 2974048254
                   </p>
                 </div>
               </div>

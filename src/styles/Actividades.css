@@ -6,14 +6,14 @@
     align-items: flex-start;
     gap: 2rem;
     padding: 2rem;
-    border-radius: 12px;
+    
 }
 .info{
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  margin-bottom: 20px;
+  
 }
 
 .titulo-actividad{
@@ -22,25 +22,51 @@
 }
 
 .sub-actividad{
-  font-weight: 700;
+  font-weight: 600;
   font-size: 15px;
   color: var(--color-primary);
 }
 
 .precios{
     margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
 }
 
 .precios select{
-    padding: 0.4rem;
-    border-radius: 5px;
+    padding: 0.3rem 0;
     border: none;
-    background-color: white;
+    background-color: transparent;
+}
+
+
+.precios thead th,
+.precios tbody td {
+  vertical-align: middle;
+  text-align: start;
+  border-bottom: 1px solid lavender;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+.precios tfoot td{
+   background-color: transparent;
+}
+
+.tabla-precios tfoot p{
+  text-align: end;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.tabla-precios tfoot .matricula{
+  text-align: start;
 }
 
 .tabla-precios th{
-    font-size: 14px;
-    padding: 4px;
+  font-size: 14px;
+  padding: 4px;
 }
 
 .carrusel-actividad{
@@ -54,13 +80,11 @@
 
 .foto.grande {
   position: relative;
-  /*width: 340px;
-  height: 390px;*/
   width: 55%;
   aspect-ratio: 4 / 5;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
 }
 
@@ -80,8 +104,6 @@
 
 .foto.chica {
   position: relative;
-  /*width: 180px;
-  height: 260px;*/
   width: 100%;
   aspect-ratio: 3 / 4;
   border-radius: 5px;
@@ -103,17 +125,13 @@
 .overlay {
   position: absolute;
   inset: 0;
-  /*top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;*/
-  background: rgba(180, 75, 176, 0.20);
+  background: rgba(153, 142, 169, 0.2);
   pointer-events: none;
   transition: background 0.3s ease;
 }
 
 .foto.chica:hover .overlay {
-  background: rgba(180, 75, 176, 0.45);
+  background: rgba(180, 75, 177, 0.323);
 }
 
 .modal-overlay {
@@ -134,7 +152,7 @@
   border-radius: 10px;
   max-width: 600px;
   margin: auto;
-  padding: 20px;
+  padding: 15px 20px;
   position: relative;
   outline: none;
   width: 90%;
@@ -157,9 +175,11 @@
   gap: 1rem;
 }
 
+.modal-header{
+  border-bottom: 2px solid #ddd;
+}
 .nav-tabs {
   display: flex;
-  border-bottom: 2px solid #ddd;
 }
 
 .nav-tabs .nav-item {
@@ -178,11 +198,11 @@
 
 .nav-tabs .nav-link.active {
   color: #000;
-  border-bottom-color: #007bff;
+  border-bottom-color: var(--color-primary);
 }
 
 .tab-content {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .tab-actividad h5 {
@@ -290,5 +310,44 @@
 
   .nav-tabs .nav-link {
     padding: 8px;
+  }
+
+ /*---------------------*/
+
+  .tabla-precios select,
+  .natacion select {
+    width: 45%;
+  }
+ 
+  .tabla-precios thead, 
+  .natacion thead {
+    display: none;
+  }
+
+  .tabla-precios tbody tr,
+  .natacion tbody tr {
+    display: block;
+    padding: 0.5rem;
+  }
+
+  .tabla-precios td,
+  .natacion td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+
+  .tabla-precios td::before,
+  .natacion td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #3c3c3c;
+    align-content: center;
+  }
+
+  .tabla-precios tfoot td,
+  .natacion tfoot td{
+    font-size: 12px;
+    justify-content: center;
   }
 }
