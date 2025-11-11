@@ -2,6 +2,8 @@ import React from 'react'
 import { RiFacebookBoxFill, RiInstagramFill } from '@remixicon/react';
 import { FaWhatsapp } from 'react-icons/fa';
 
+import '../styles/Footer.css'
+
 function Footer() {
   return (
     <>

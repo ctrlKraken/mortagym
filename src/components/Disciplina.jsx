@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
 
+import TablaNatacion from './TablaNatacion';
 Modal.setAppElement('#root'); 
 
 
@@ -13,6 +14,7 @@ export default function Disciplina({
   fotos, 
   reverse = false,
   modalData = [],
+  matricula
  }) {
 
   const [dias, setDias] = useState(1);
@@ -31,6 +33,7 @@ export default function Disciplina({
     navigate("/horarios", { state: { filtro: titulo } });
   };
 
+
   return (
     
     <>
@@ -46,30 +49,58 @@ export default function Disciplina({
                 <div className="sub-actividad">
                   <p>{subactividad}</p>
                 </div>
-                <div className="precios">
-                  <table className='tabla-precios table table-borderless'>
-                    <thead>
-                      <tr>
-                        <th>Cantidad de dias por semana</th>
-                        <th>Debito/Transferencia</th>
-                        <th>Efectivo </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">
-                          <select name="" id="" value={dias} onChange={(e) => setDias(Number(e.target.value))}>
-                            {Object.keys(precios).map((dia) => (
-                                <option key={dia} value={dia}>{dia} vez/veces por semana</option>
-                            ))}
-                          </select>
-                        </th>
-                        <td><span>${precios[dias].debito.toLocaleString()} </span></td>
-                        <td><span>${precios[dias].efectivo.toLocaleString()} </span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                {titulo === "Natación" ? (
+                    <>
+                      <TablaNatacion matricula={matricula}/>
+                    </>
+                  ) : (
+                    <>
+                    <div className="precios">
+                      <table className='tabla-precios table table-borderless'>
+                        <thead>
+                          <tr>
+                            <th>Cantidad de días por semana</th>
+                            <th>Efectivo </th>
+                            <th>Débito/Transferencia</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Días por semana">
+                              <select name="" id="" value={dias} 
+                              onChange={(e) => setDias((e.target.value))}>
+                                
+                                {Object.keys(precios).map((dia) => (
+                                    <option key={dia} value={dia}>
+                                      {dia === "clase"
+                                        ? "1 clase por día"
+                                        : `${dia} ${dia === "1" ? "vez" : "veces"} por semana`}
+                                    </option>
+                                ))}
+                              </select>
+                            </td>
+                            <td data-label="Efectivo">
+                              <span>${precios[dias].efectivo.toLocaleString()} </span>
+                            </td>
+                            <td data-label="Débito/Transferencia">
+                            <span>${precios[dias].debito.toLocaleString()} </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                  
+                            <td colSpan="3">
+                              <p className="text-muted">Con tarjeta de crédito: +25%</p>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+
+                    </div>
+                    </>
+                )}
+                
                 <div className="btns">
                   <button className="btn-principal btn btn-sm" type="button"
                   onClick={irAHorarios}>
@@ -89,12 +120,6 @@ export default function Disciplina({
                         overlayClassName="modal-overlay"
                       >
                         <div className="modal-header">
-                          <h6 className="modal-title" id="" translate="no">{titulo} - Actividades</h6>
-                          <button type="button" className="close" onClick={() => setIsModalOpen(false)}>
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div className="modal-body">
                           <ul className="nav nav-tabs">
                             {modalData.map((tab) => (
                               <li key={tab.id} className="nav-item">
@@ -107,7 +132,15 @@ export default function Disciplina({
                               </li>
                             ))}
                           </ul>
-                          <div className="tab-content mt-4">
+                          <button type="button" className="close" 
+                          onClick={() => setIsModalOpen(false)}>
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+
+                        </div>
+                        <div className="modal-body">
+                          
+                          <div className="tab-content mt-3 mb-2">
                             {modalData.map(
                               (tab) =>
                                 activeTab === tab.id && (
@@ -153,10 +186,14 @@ export default function Disciplina({
                 </div>
             </div>
           </div>
-      </section>
-
+      </section>    
       
+       
   </>
   )
+
+
 }
+
+
 

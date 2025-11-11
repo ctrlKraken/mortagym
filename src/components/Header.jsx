@@ -3,6 +3,8 @@ import { NavLink, Link } from 'react-router-dom'
 import logo from '../assets/logo_sf.png'
 import { BsBoxArrowInRight } from "react-icons/bs";
 
+import '../styles/Header.css'
+
 export default function Navbar() {
 
   const [menuAbierto, setMenuAbierto] = useState(false);

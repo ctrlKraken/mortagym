@@ -1,0 +1,46 @@
+/*********** HORARIOS ***************/
+.pages-section {
+  padding: 4rem 1rem;
+}
+
+.tabla-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.tabla-horarios .table-head th {
+  background-color: var(--color-primary) !important;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.celda-hora {
+  background-color: var(--color-secondary) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+
+.tabla-horarios tbody tr:nth-of-type(odd) {
+  background-color: #f7fcff;
+}
+
+select.form-select {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nombre-actividad,
+.profesor{
+  margin: 0;
+}
