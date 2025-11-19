@@ -46,33 +46,33 @@ export default function Actividades() {
   };
 
   const fotosMusculacion = [
-    { id: 1, src: '/assets/musculacion.png' },
-    { id: 2, src: '/assets/musculacion2.png' },
+    { id: 1, src: '/disciplinas/musculacion.png' },
+    { id: 2, src: '/disciplinas/musculacion2.png' },
   ];
 
   const fotosPilates = [
-    { id: 1, src: '/assets/pilates1.jpg' },
-    { id: 2, src: '/assets/pilates2.jpg' },
+    { id: 1, src: '/disciplinas/pilates1.jpg' },
+    { id: 2, src: '/disciplinas/pilates2.jpg' },
   ];
   
   const fotosFuncional = [
-    { id: 1, src: '/assets/funcional.jpg' },
-    { id: 2, src: '/assets/spinning2.jpg' },
+    { id: 1, src: '/disciplinas/funcional.jpg' },
+    { id: 2, src: '/disciplinas/funcional2.jpg' },
   ];
 
   const fotosEntrenamiento = [
-    { id: 1, src: '/assets/entrenamiento.jpg' },
-    { id: 2, src: '/assets/entrenamiento2.jpg' },
+    { id: 1, src: '/disciplinas/entrenamiento.jpg' },
+    { id: 2, src: '/disciplinas/entrenamiento2.jpg' },
   ];
   
   const fotosSpinning = [
-    { id: 1, src: '/assets/spinning.jpg' },
-    { id: 2, src: '/assets/spinning2.jpg' },
+    { id: 1, src: '/disciplinas/spinning.jpg' },
+    { id: 2, src: '/disciplinas/spinning2.jpg' },
   ];
   
   const fotosNatacion = [
-    { id: 1, src: '/assets/natacion.jpg' },
-    { id: 2, src: '/assets/natacion2.jpg' },
+    { id: 1, src: '/disciplinas/natacion.jpg' },
+    { id: 2, src: '/disciplinas/natacion2.jpg' },
   ];
 
   const modalNatacion = [

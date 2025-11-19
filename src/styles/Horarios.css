@@ -44,3 +44,26 @@ select.form-select {
 .profesor{
   margin: 0;
 }
+
+.filtro-pdf{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 460px) {
+  .tabla-horarios .table-head th,
+  .tabla-horarios .celda-hora{
+    font-size: 14px;
+  }
+
+  .filtro-pdf{
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  }
+}
+
+
+
