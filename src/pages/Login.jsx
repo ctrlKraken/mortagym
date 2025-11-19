@@ -19,8 +19,8 @@ export default function Login() {
           <img src={logo} alt="Morta Gym logo" height="100" />
         </div>
 
-        <h3 className="text-center mb-4 fw-bold">Ingresar</h3>
-
+        <h3 className="text-center titulo-pagina mb-2">Ingresar</h3>
+        <h5 className="text-center fw-bold mb-4">Próximamente</h5>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="dni" className="form-label fw-semibold">
@@ -49,7 +49,7 @@ export default function Login() {
           </div>
 
           <div className="d-grid">
-            <button type="submit" className="btn btn-primary login-btn">
+            <button disabled type="submit" className="btn btn-primary login-btn">
               Ingresar
             </button>
           </div>

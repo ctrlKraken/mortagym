@@ -1,13 +1,13 @@
 import React from 'react'
 import Contacto from '../components/Contacto'
 import logo from '../assets/logo_sf.png'
-import foto1 from '../assets/banner2.jpeg'
-import foto2 from '../assets/foto5.jpeg'
-import foto3 from '../assets/foto10.jpg'
-import foto4 from '../assets/foto8.jpg'
-import buffet from '../assets/cafeteria.png'
-import revisacion from '../assets/revisacion.jpg'
-import nutricionista from '../assets/nutricion.jpeg'
+import foto1 from '../assets/foto4.jpg'
+import foto2 from '../assets/foto7.jpg'
+import foto3 from '../assets/foto5.jpeg'
+import foto4 from '../assets/foto6.jpg'
+import buffet from '../assets/cafeteria.jpeg'
+import revisacion from '../assets/revisacion-med.jpeg'
+import nutricionista from '../assets/nutricionista.jpeg'
 import { RiCalendarScheduleFill, RiPhoneFill, RiMapPin2Fill, RiInstagramFill } from '@remixicon/react';  // Quité RiWhatsappFill
 
 import '../styles/Home.css'
@@ -85,8 +85,8 @@ export default function Home() {
       </section>
 
       {/* Servicios - Con tarjetas */}
-      <section id="servicio" className="contacto-section my-5">
-        <div className="container">
+      <section id="servicio" className="contacto-section">
+        <div className="container mt-5">
           <h2 className="qs-titulo text-center mb-3">Nuestros Servicios</h2>
           <div className="row g-4">
             {/* Buffet */}
@@ -105,7 +105,7 @@ export default function Home() {
                     Seguinos y conocé nuestros platos:
                   </p>
                   <p className="dato-servicio">
-                    <a className='enlace-cafeteria' href="https://www.instagram.com/xlafuerzaco25/" target='_blank' rel="noopener noreferrer">
+                    <a className='enlace' href="https://www.instagram.com/xlafuerzaco25/" target='_blank' rel="noopener noreferrer">
                     <RiInstagramFill size={24} />X La Fuerza
                     </a>
                   </p>
@@ -145,14 +145,19 @@ export default function Home() {
                 <div className="card-body text-center">
                   <h5 className="card-title fw-bold">Asesoramiento Nutricional</h5>
                   <p className="card-text">
-                    Contamos con la presencia de la Lic. Angeloni Andrea, nutricionista que te ayudará a alcanzar tus objetivos
-                     mediante un plan alimenticio personalizado.
+                    La Lic. en nutrición Andrea Angeloni te ayudará a lograr tus objetivos
+                     con un plan alimenticio personalizado.
                   </p>
                   <p className="dato-servicio">
                     Martes y Jueves - 14:00 a 18:00 Hs
                   </p >
                   <p className="dato-servicio">
                     Turnos al: 2974048254
+                  </p>
+                  <p className="dato-servicio">
+                    <a className='enlace' href="https://www.instagram.com/nutricionenmovimientoaa/" target='_blank' rel="noopener noreferrer">
+                    <RiInstagramFill size={24} />Nutrición en Movimiento
+                    </a>
                   </p>
                 </div>
               </div>

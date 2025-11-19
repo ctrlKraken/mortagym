@@ -2,6 +2,7 @@
 /* Fuentes */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap');
 
 @font-face {
   font-family: "Tondu";
@@ -10,6 +11,7 @@
   font-style: normal;
 }
 
+
 html,
 body {
   margin: 0;
@@ -17,11 +19,12 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
   background-color: ghostwhite;
+  font-family: var(--font-text);
 }
 
 :root {
   --font-titulo: "Tondu";
-  --font-text: '';
+  --font-text: 'Hind Madurai', sans-serif;
   --white: white;
   --color-primary: #0093D8;
   --color-secondary: #A54E9E;
@@ -36,9 +39,9 @@ body {
   height: 40px;
   width: 140px;
   background-color: var(--color-primary);
+ 
   color: var(--white);
   font-weight: bold;
-
 }
 
 .btn-principal:hover,
@@ -136,3 +139,4 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
+

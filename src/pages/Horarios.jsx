@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import '../styles/Horarios.css'
 
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable";
+
+
 export default function Horarios() {
   const disciplinas = [
     "Musculación",
@@ -16,71 +20,163 @@ export default function Horarios() {
     {
       dia: "Lunes",
       clases: [
-        { hora: "07:00", actividades: [
-            { disciplina: "Musculación", profe: "Juan" },
-            { disciplina: "Pilates", profe: "Laura" }
-          ]
-        },
-        { hora: "09:00", disciplina: "Pilates" },
-        { hora: "11:00", disciplina: "Funcional" },
-        { hora: "14:00", disciplina: "Spinning" },
-        { hora: "18:00", disciplina: "Entrenamiento Deportivo" },
-        { hora: "20:00", disciplina: "Natación" },
+        { hora: "07:00", disciplina: "Entrenamiento Deportivo", actividad: "Entrenamiento Deportivo", profe: "Profe Belen" },
+        { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "07:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "08:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Belen" },
+        { hora: "09:00", disciplina: "Funcional", actividad: "Funcional Adultos Mayores", profe: "Profe Belen" },
+        { hora: "09:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
+        { hora: "10:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Belen" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
+        { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        { hora: "11:00", disciplina: "Natación", actividad: "Niños 8 a 11 años Avanz.", profe: "" },
+        
+        { hora: "12:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        
+        { hora: "13:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
+        
+        { hora: "14:00", disciplina: "Natación", actividad: "Niños 5 a 7 años", profe: "" },
+        { hora: "15:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Patricia" },
+        { hora: "15:00", disciplina: "Natación", actividad: "Nat. Adolescentes +12 años", profe: "" },
+        { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
+        { hora: "16:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
+        { hora: "17:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "18:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
+        { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" },
+        { hora: "19:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
+        { hora: "20:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Agustina" },
+        { hora: "20:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio", profe: "" },
+        { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
+
       ],
     },
     {
       dia: "Martes",
       clases: [
-        { hora: "07:00", disciplina: "Musculación" },
-        { hora: "10:00", disciplina: "Spinning" },
-        { hora: "12:00", disciplina: "Pilates" },
-        { hora: "17:00", actividades: [
-            { disciplina: "Natación Niños", profe: "Carla" },
-            { disciplina: "Funcional", profe: "José" }
-          ]
-        },
+        { hora: "07:00", disciplina: "Entrenamiento Deportivo", actividad: "Entrenamiento Deportivo", profe: "Profe Belen" },
+        { hora: "07:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        { hora: "08:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Belen" },
+        { hora: "08:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        { hora: "09:00", disciplina: "Funcional", actividad: "Funcional Adultos Mayores", profe: "Profe Belen" },
+        { hora: "09:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        
+        { hora: "10:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Belen" },
+        { hora: "10:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        { hora: "11:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        
+        { hora: "12:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        { hora: "13:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "14:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "15:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "16:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "17:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "18:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "19:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "20:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "21:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "15:00", disciplina: "Pilates", actividad: "Pilates Funcional", profe: "Profe Alicia" },
+        
+        { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Francisco" },
        
       ],
     },
     {
       dia: "Miércoles",
       clases: [
-        { hora: "08:00", disciplina: "Pilates" },
-        { hora: "09:00", disciplina: "Musculación" },
-        { hora: "11:00", disciplina: "Natación" },
-        { hora: "18:00", disciplina: "Funcional" },
+        { hora: "07:00", disciplina: "Entrenamiento Deportivo", actividad: "Entrenamiento Deportivo", profe: "Profe Belen" },
+        { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        
+        { hora: "08:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Belen" },
+        { hora: "09:00", disciplina: "Funcional", actividad: "Funcional Adultos Mayores", profe: "Profe Belen" },
+        { hora: "09:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
+        { hora: "10:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Belen" },
+        { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        
+        { hora: "14:00", disciplina: "Pilates", actividad: "Pilates Funcional", profe: "Profe Alicia" },
+        { hora: "15:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Patricia" },
+        { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
+        { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
+        { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" },
+        { hora: "20:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Agustina" }
       ],
     },
     {
       dia: "Jueves",
       clases: [
-        { hora: "07:00", disciplina: "Musculación" },
-        { hora: "09:00", disciplina: "Spinning" },
-        { hora: "12:00", disciplina: "Pilates" },
-        { hora: "19:00", disciplina: "Entrenamiento Deportivo" },
+        
+        { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        
+        { hora: "12:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        { hora: "13:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "14:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "15:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "16:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "17:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "18:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "19:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "20:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "21:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+
+        { hora: "15:00", disciplina: "Pilates", actividad: "Pilates Funcional", profe: "Profe Alicia" },
+        { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Francisco" },
+        
       ],
     },
     {
       dia: "Viernes",
       clases: [
-        { hora: "08:00", disciplina: "Musculación" },
-        { hora: "10:00", disciplina: "Funcional" },
-        { hora: "14:00", disciplina: "Pilates" },
-        { hora: "18:00", disciplina: "Natación" },
+        { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        
+        { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        { hora: "09:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
+        { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        
+        { hora: "12:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
+        { hora: "13:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "14:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "15:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "16:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "17:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "18:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
+        { hora: "19:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "20:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "21:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+
+        { hora: "14:00", disciplina: "Pilates", actividad: "Pilates Funcional", profe: "Profe Alicia" },
+        { hora: "15:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Patricia" },
+        { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
+        { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
+        { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" },
+        { hora: "20:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Agustina" }
       ],
     },
     {
       dia: "Sábado",
       clases: [
-        { hora: "09:00", disciplina: "Spinning" },
-        { hora: "10:00", disciplina: "Musculación" },
-        { hora: "11:00", disciplina: "Entrenamiento Deportivo" },
+        
+        { hora: "10:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "11:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "12:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "13:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "11:00", disciplina: "Natación", actividad: "Nat. Adulto", profe: "" },
+        { hora: "12:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "13:00", disciplina: "Natación", actividad: "Pileta Familiar", profe: "" },
       ],
     },
   ];
 
   const location = useLocation();
-  const [filtro, setFiltro] = useState("Todas");
+  const [filtro, setFiltro] = useState(disciplinas[0]);
 
   useEffect(() => {
     if (location.state?.filtro) {
@@ -101,48 +197,124 @@ export default function Horarios() {
   // Buscar clase por día y hora
   const getClase = (dia, hora) => {
     const diaData = horarios.find((d) => d.dia === dia);
-    if (!diaData) return "";
+    if (!diaData) return [];
 
-    /*const clase = diaData.clases.find((c) => c.hora === hora);
-      if (!clase) return "";
-      if (filtro !== "Todas" && clase.disciplina !== filtro) return "";
-      return clase;
-    */
-    const horario = diaData.clases.find((c) => c.hora === hora);
-    if (!horario) return [];
-
-    if (horario.actividades) return horario.actividades;
-
-    return [{
-      disciplina: horario.disciplina,
-      profe: horario.profe || ""
-    }];
-
+    let clases = diaData.clases.filter((c) => c.hora === hora);
+    //if (!clases) return [];
     
+    clases = clases.filter((c) => c.disciplina === filtro);
+  
+    //if (filtro !== "Todas" && clases.disciplina !== filtro) return [];
+    
+    return clases;  
   };
+
+  
+  const generarPDF = async () => {
+    const pdf = new jsPDF("landscape", "pt", "a4");
+    pdf.setFontSize(14);
+    pdf.text(`Horarios - ${filtro}`, 40, 40);
+
+    const todasLasHoras = [
+      ...new Set(
+        horarios.flatMap((d) => d.clases.map((c) => c.hora))
+      ),
+    ].sort((a, b) => a.localeCompare(b));
+
+    const columnas = ["Hora", ...horarios.map((d) => d.dia)];
+
+    const filas = todasLasHoras.map((hora) => {
+      const row = [hora];
+
+      horarios.forEach((diaData) => {
+        const claseHora = diaData.clases.filter((c) => c.hora === hora);
+        if(claseHora.length === 0){
+          row.push("-");
+          return;
+        }
+
+        const clasesFiltradas = claseHora.filter((c) => c.disciplina === filtro);
+
+        if (clasesFiltradas.length === 0) {
+          row.push("-");
+          return;
+        }
+        const textoCelda = clasesFiltradas
+            .map((c) => {
+              const prof = c.profe ? ` (${c.profe})` : "";
+              return `${c.actividad}${prof}`;
+            })
+            .join("\n---\n");
+
+          row.push(textoCelda);
+        });
+
+      return row;
+    });
+
+    autoTable(pdf, {
+      head: [columnas],
+      body: filas,
+      startY: 60,
+      theme: "grid",
+      styles: {
+        fontSize: 9,
+        cellPadding: 3,
+        halign: "center",
+        valign: "middle",
+      },
+      headStyles: {
+        fillColor: [32, 104, 190],
+        textColor: 255,
+        fontStyle: "bold",
+      },
+      tableWidth: "auto",
+      margin: { left: 20, right: 20 },
+    }); 
+    
+    const blob = pdf.output("blob");
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.download = `horarios-${filtro}.pdf`;
+    a.click();
+
+    URL.revokeObjectURL(url);
+  }
 
   return (
     <section className="pages-section">
       <div className="container">
-        <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
+        <div className=" mb-4">
           <h2 className="titulo-pagina mb-3 mb-md-0">Horarios</h2>
-          <div className="mb-4 text-center text-md-start">
+                    
+          <div className="filtro-pdf text-center text-md-start mt-4">
             <select
               className="form-select d-inline-block w-auto"
               value={filtro}
               onChange={(e) => setFiltro(e.target.value)}
             >
-              <option value="Todas">Todas las disciplinas</option>
+              {/*<option value="Todas">Todas las disciplinas</option>*/}
               {disciplinas.map((d) => (
                 <option key={d} value={d}>
                   {d}
                 </option>
               ))}
             </select>
+            <button className="btn btn-principal btn-horario" onClick={generarPDF}>
+              Ver Horario
+            </button>
           </div>
         </div>
 
         <div className="tabla-container">
+          <div className="btn-pdf">
+            
+          </div>
+         
+
           <table className="table table-bordered text-center align-middle tabla-horarios">
             <thead className="table-head">
               <tr>
@@ -156,30 +328,29 @@ export default function Horarios() {
               {todasLasHoras.map((hora) => (
                 <tr key={hora}>
                   <td className="fw-bold celda-hora">{hora}</td>
+                  
                   {dias.map((dia) => {
 
                     const actividades = getClase(dia, hora);
-                    return (
-                    
-                    <td key={`${dia}-${hora}`}>
-                      {actividades.length > 0 ?(
-                        actividades.map((act, index) => (
-                          <div key={index} className="mb-1">
-                            <p className="nombre-actividad">{act.disciplina}</p>
-                            {act.profe && (
-                              <p className="profesor text-muted small">{act.profe}</p>
-                            )}
-                            {index < actividades.length - 1 && <hr className="m-1" />}
-                          </div>
 
-                        ))
-                      ) : (
-                        "-"
-                                              
+                    return (
+                  
+                    <td key={`${dia}-${hora}`}>
+                    
+                      {actividades.length > 0 ? (
+                          actividades.map((actividad, index) => (     
+                            <div key={index} className="mb-1">
+                              <p className="nombre-actividad">{actividad.actividad}</p>
+                              {actividad.profe && (
+                                <p className="profesor text-muted small">{actividad.profe}</p>
+                              )}
+                            </div>
+                          ))
+                        ) : (
+                        "-"                   
                       )}
                     </td>
                     );
-
                   })}
 
                 </tr>
@@ -187,6 +358,7 @@ export default function Horarios() {
             </tbody>
           </table>
         </div>
+
       </div>
     </section>
   );

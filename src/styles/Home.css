@@ -1,3 +1,10 @@
+.home-section,
+.contacto-section{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
 /***** Quienes somos *****/
 .hero-logo {
   width: 150px;
@@ -93,7 +100,7 @@
 }
 
 .carousel-item  img{
-  height: 380px;
+  height: 360px;
   width: 100%;
    aspect-ratio: 16/9;
   object-fit: cover;
@@ -122,6 +129,11 @@
 @media (max-width: 460px) {
    .carousel-item img {
     height: 250px;
+  }
+  .home-section,
+  .contacto-section{
+    margin-top: 0;
+    margin-bottom: 2rem;
   }
 }
 
@@ -161,13 +173,13 @@
 
 .titulo-dato-contacto {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
 .texto-dato-contacto {
   margin: 0;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .mapa {
@@ -202,8 +214,7 @@
   font-weight: 600;
 }
 
-.enlace-cafeteria{
-  color: var(--color-secondary);
+.dato-servicio .enlace{
   text-decoration: none;
   display: flex;
   align-content: center;
@@ -211,7 +222,7 @@
   margin: 0;
   padding: 0;
 }
-.enlace-cafeteria:hover{
+.dato-servicio .enlace:hover{
   color: var(--color-secondary);
   font-weight: 700;
 }

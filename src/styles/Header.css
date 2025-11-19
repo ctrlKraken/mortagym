@@ -1,7 +1,8 @@
 /* HEADER */
 .custom-navbar {
-  background-color: white !important;
+  background-color: ghostwhite !important;
   transition: background-color 0.3s;
+  padding: 5px 20px;
 }
 
 .navbar-nav .nav-item {
@@ -13,7 +14,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: #333;
-  padding: 0.8rem 1.2rem;
+  padding: 0.7rem 1.2rem;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
@@ -24,7 +25,6 @@
 
 .nav-item:hover, .nav-link:hover{
   color: var(--color-secondary);
-  
 }
 
 .nav-link:not(.nav-btn).active{
@@ -34,8 +34,6 @@
 .header-title {
   font-family: 'Bowlby One SC', sans-serif;
 }
-
-
 
 .banner-section {
   position: relative;
@@ -65,9 +63,10 @@
 .banner-text {
   position: relative;
   z-index: 2;
-  font-size: 2.5rem;
+  font-size: 2.9rem;
   color: whitesmoke;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 6px rgba(87, 75, 101, 0.796);
+  
 }
 
 .nav-btn {
@@ -106,7 +105,7 @@
     text-align: center;
   }
 
-   .custom-toggler .close-icon {
+  .custom-toggler .close-icon {
     position: absolute;
     font-size: 28px;
     color: rgba(0, 0, 0, 0.8);
@@ -134,8 +133,18 @@
   .banner-section{
     height: 40vh;
   }
-}
 
+  .navbar-collapse{
+    height: 25vh;
+  }
+  .custom-navbar {
+    padding: 5px 10px;
+  }
+
+  .banner-text{
+    font-size: 2.3rem;
+  }
+}
 
 .custom-toggler {
   border: none;
@@ -181,5 +190,5 @@
   opacity: 1;
   transform: rotate(90deg);
   justify-self: center;
-  margin-left: 8px;
+  
 }
