@@ -21,7 +21,7 @@ export default function Login() {
 
         <h3 className="text-center titulo-pagina mb-2">Ingresar</h3>
         <h5 className="text-center fw-bold mb-4">Próximamente</h5>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} hidden>
           <div className="mb-3">
             <label htmlFor="dni" className="form-label fw-semibold">
               DNI
