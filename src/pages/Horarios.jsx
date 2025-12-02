@@ -56,10 +56,14 @@ export default function Horarios() {
         { hora: "08:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Belen" },
         { hora: "09:00", disciplina: "Funcional", actividad: "Funcional Adultos Mayores", profe: "Profe Belen" },
         { hora: "10:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Belen" },
+        { hora: "08:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        { hora: "17:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "18:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "19:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "20:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
         { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
-
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
 
         { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" },
@@ -80,9 +84,14 @@ export default function Horarios() {
 
         { hora: "08:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Belen" },
         { hora: "09:00", disciplina: "Funcional", actividad: "Funcional Adultos Mayores", profe: "Profe Belen" },
+        { hora: "08:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "10:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Belen" },
-        
+        { hora: "17:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "18:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "19:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "20:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
       
         { hora: "13:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
         { hora: "14:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Gastón" },
@@ -103,7 +112,6 @@ export default function Horarios() {
         { hora: "10:00", disciplina: "Natación", actividad: "Niños 3 a 4 años", profe: "" },
         { hora: "11:00", disciplina: "Natación", actividad: "Niños 5 a 7 años", profe: "" },
         { hora: "12:00", disciplina: "Natación", actividad: "Nat. Adultos", profe: "" },
-       
         { hora: "13:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
         { hora: "14:00", disciplina: "Natación", actividad: "Niños 3 a 4 años", profe: "" },
         { hora: "15:00", disciplina: "Natación", actividad: "Niños 8 a 11 años", profe: "" },
@@ -139,10 +147,15 @@ export default function Horarios() {
         { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
 
         { hora: "10:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Belen" },
+        { hora: "08:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         
         { hora: "14:00", disciplina: "Pilates", actividad: "Pilates Funcional", profe: "Profe Alicia" },
+        { hora: "17:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "18:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "19:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "20:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
         { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
         { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" },
@@ -168,8 +181,9 @@ export default function Horarios() {
     {
       dia: "Jueves",
       clases: [
-        
+        { hora: "08:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "07:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "08:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "09:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
@@ -187,6 +201,10 @@ export default function Horarios() {
         { hora: "21:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
 
         { hora: "15:00", disciplina: "Pilates", actividad: "Pilates Funcional", profe: "Profe Alicia" },
+        { hora: "17:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "18:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "19:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "20:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Francisco" },
 
         { hora: "07:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
@@ -212,8 +230,9 @@ export default function Horarios() {
       clases: [
         { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
         { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        
+        { hora: "08:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
+        { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "09:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
         { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
         { hora: "11:00", disciplina: "Natación", actividad: "Niños 8 a 11 años Avanz.", profe: "" },
@@ -227,8 +246,6 @@ export default function Horarios() {
         { hora: "19:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
         { hora: "20:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio", profe: "" },
         { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
-
-        { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "07:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "08:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "09:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
@@ -246,6 +263,10 @@ export default function Horarios() {
         { hora: "21:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
 
         { hora: "14:00", disciplina: "Pilates", actividad: "Pilates Funcional", profe: "Profe Alicia" },
+        { hora: "17:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "18:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "19:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
+        { hora: "20:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
         { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
         { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" }
