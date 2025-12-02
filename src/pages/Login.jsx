@@ -1,15 +1,35 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import logo from "../assets/logo_sf.png";
+import { usuarios } from "../data/usuarios";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Evita el refresco de la página
+    e.preventDefault();
 
-    // (Opcional) Podés agregar validaciones aquí
-    // Por ahora redirigimos directamente al perfil
-    navigate("/perfil");
+    const dni = e.target.dni.value.trim();
+    const password = e.target.password.value.trim();
+
+    const usuarioEncontrado = usuarios.find(
+      (u) => u.dni === dni && u.password === password
+    );
+
+    if (!usuarioEncontrado) {
+      alert("Credenciales incorrectas");
+      return;
+    }
+
+    // Guardar usuario logueado
+    localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioEncontrado));
+
+    // Redirección según rol
+    if (usuarioEncontrado.rol === "admin") navigate("/admin");
+    else if (usuarioEncontrado.rol === "profesor") navigate("/profesor");
+    else if (usuarioEncontrado.rol === "usuario") navigate("/perfil");
+    else navigate("/recepcion");
   };
 
   return (
@@ -20,16 +40,20 @@ export default function Login() {
         </div>
 
         <h3 className="text-center titulo-pagina mb-2">Ingresar</h3>
-        <h5 className="text-center fw-bold mb-4">Próximamente</h5>
-        <form onSubmit={handleSubmit} hidden>
+
+        {error && (
+          <div className="alert alert-danger text-center py-2">{error}</div>
+        )}
+
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="dni" className="form-label fw-semibold">
               DNI
             </label>
             <input
               type="text"
+              name="dni"
               className="form-control"
-              id="dni"
               placeholder="Ej: 40123456"
               required
             />
@@ -41,15 +65,15 @@ export default function Login() {
             </label>
             <input
               type="password"
+              name="password"
               className="form-control"
-              id="password"
               placeholder="********"
               required
             />
           </div>
 
           <div className="d-grid">
-            <button disabled type="submit" className="btn btn-primary login-btn">
+            <button type="submit" className="btn btn-primary login-btn">
               Ingresar
             </button>
           </div>
