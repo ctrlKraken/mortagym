@@ -1,0 +1,28 @@
+/* Contenedor principal */
+.admin-layout {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #dff1fb; /* celeste como tu captura */
+  border-right: 1px solid #cfdde5;
+  padding: 1.5rem 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+
+/* Contenido */
+.admin-content {
+  margin-left: 260px; /* MISMO ancho del sidebar */
+  padding: 2rem;
+  width: calc(100% - 260px);
+}
+

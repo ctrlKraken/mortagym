@@ -16,7 +16,7 @@ export default function Profesor() {
         <h2 className="fw-bold">Hola, {usuario?.nombre}</h2>
 
         <div className="row">
-          <div className="col-6 d-flex justify-content-end">
+          <div className="col-4 d-flex justify-content-center">
             <p className="fs-5 mt-3">
               {usuario?.cuotaAlDia ? (
                 <span className="badge bg-success p-2 fs-6">✅ Cuota al día</span>
@@ -25,7 +25,16 @@ export default function Profesor() {
               )}
             </p>
           </div>
-          <div className="col-6 d-flex justify-content-start">
+          <div className="col-4 d-flex justify-content-center">
+            <p className="fs-5 mt-3">
+              {usuario?.cuotaAlDia ? (
+                <span className="badge bg-success p-2 fs-6">✅ Matrícula al día</span>
+              ) : (
+                <span className="badge bg-danger p-2 fs-6">❌ Matrícula vencida</span>
+              )}
+            </p>
+          </div>
+          <div className="col-4 d-flex justify-content-center">
             <p className="fs-5 mt-3">
               {usuario?.fichaMedica ? (
                 <span className="badge bg-success p-2 fs-6">✅ Presento Ficha Médica</span>

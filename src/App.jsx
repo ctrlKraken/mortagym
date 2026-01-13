@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -15,11 +15,13 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const location = useLocation();
+  const esAdmin = location.pathname.startsWith("/admin");
 
   return (
     <>
-      <Header />
-      <main className="container mx-auto p-4">
+      <Header mostrarBanner={!esAdmin} />
+      <main className={esAdmin ? "admin-wrapper" : "container mx-auto p-4"}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/actividades" element={<Actividades />} />

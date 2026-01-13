@@ -5,10 +5,9 @@ import { BsBoxArrowInRight } from "react-icons/bs";
 
 import '../styles/Header.css'
 
-export default function Navbar() {
+export default function Navbar({ mostrarBanner = true }) {
 
   const [menuAbierto, setMenuAbierto] = useState(false);
-  
   const cerrarMenu = () => setMenuAbierto(false);
 
   return (
@@ -27,19 +26,19 @@ export default function Navbar() {
           <button
             className={`navbar-toggler custom-toggler ${menuAbierto ? "open" : ""}`}
             type="button"
-           
-            
+
+
             aria-controls="navbarNav"
             aria-expanded={menuAbierto}
             aria-label="Toggle navigation"
-            
+
             onClick={() => setMenuAbierto(!menuAbierto)}
           >
             <span className="navbar-toggler-icon"></span>
             <span className="close-icon">&times;</span>
           </button>
 
-          <div className={`collapse navbar-collapse ${menuAbierto  ? "show" : ""}`} id="mainNav">
+          <div className={`collapse navbar-collapse ${menuAbierto ? "show" : ""}`} id="mainNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item"><NavLink className="nav-link" to="/" onClick={cerrarMenu}>Inicio</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/actividades" onClick={cerrarMenu}>Disciplinas</NavLink></li>
@@ -55,9 +54,13 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <section className="banner-section d-flex align-items-center justify-content-center text-center">
-        <h2 className='banner-text fst-italic fw-bold'>Si lo crees lo creas,  <br /> el cambio comienza en vos</h2>
-      </section>
+      {mostrarBanner && (
+        <section className="banner-section">
+          <h2 className="banner-text">
+            Si lo crees lo creas, <br /> el cambio comienza en vos
+          </h2>
+        </section>
+      )}
     </>
 
   )
