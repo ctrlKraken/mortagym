@@ -34,7 +34,7 @@ function App() {
           <Route path="/recepcion" element={<Recepcion />} />
         </Routes>
       </main>
-      <Footer />
+      {!esAdmin && <Footer />}
     </>
   )
 }
