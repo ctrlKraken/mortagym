@@ -8,7 +8,7 @@ export default function AdminSidebar() {
       {/* LOGO */}
       <div className="sidebar-logo">
         <img src={logo} alt="Morta Gym" />
-        <span>Morta Gym</span>
+        <span>Administrador</span>
       </div>
 
       {/* MENU */}

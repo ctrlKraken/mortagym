@@ -1,8 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import AdminSidebar from "../components/AdminSidebar";
 import "../styles/Admin.css";
 import logo from '../assets/logo_sf.png'
+import Alumnos from "./admin/Alumnos";
 
 export default function Admin() {
   const navigate = useNavigate();
@@ -16,8 +17,9 @@ export default function Admin() {
       </aside>
 
       <main className="admin-content">
-        <h2>Dashboard</h2>
-        <p>Contenido del panel</p>
+        <Routes>
+          <Route path="alumnos" element={<Alumnos />} />
+        </Routes>
       </main>
     </div>
   )
