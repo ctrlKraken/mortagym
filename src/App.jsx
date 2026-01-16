@@ -11,6 +11,10 @@ import Perfil from './pages/Perfil'
 import Profesor from './pages/Profesor'
 import Recepcion from './pages/Recepcion'
 import Admin from './pages/Admin'
+
+import FormRutina from './pages/FormRutina'
+import AlumnosPorProfesor from './pages/AlumnosPorProfesor'
+
 import './App.css'
 
 function App() {
@@ -32,6 +36,8 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/profesor" element={<Profesor />} />
           <Route path="/recepcion" element={<Recepcion />} />
+          <Route path="/form-rutina" element={<FormRutina />} />
+          <Route path="/alumnos-profesor" element={<AlumnosPorProfesor />} />
         </Routes>
       </main>
       {!esAdmin && <Footer />}

@@ -5,6 +5,15 @@ import '../styles/perfiles.css'
 export default function Profesor() {
     const navigate = useNavigate();
 
+    
+    const irAFormRutina = () => {
+        navigate("/form-rutina");
+    };
+
+    const irAAlumnos = () => {
+        navigate("/alumnos-profesor");
+    };
+
     const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
     console.log("Guardado en localStorage:", localStorage.getItem("usuarioLogueado"));
 
@@ -33,7 +42,6 @@ export default function Profesor() {
             {/* Cards */}
             <div className="row g-4 justify-content-center">
 
-                {/* Card Actividades */}
                 <div className="col-12 col-md-6">
                     <div className="card shadow-sm border-1 text-center h-100">
                         <div className="card-body d-flex flex-column justify-content-between">
@@ -43,7 +51,7 @@ export default function Profesor() {
                                     Ver el listado de alumnos inscriptos a tus disciplinas.
                                 </p>
                             </div>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
+                            <button className="btn btn-principal w-75 mx-auto my-auto" onClick={irAAlumnos}>
                                 Ver alumnos
                             </button>
                         </div>
@@ -60,7 +68,7 @@ export default function Profesor() {
                                     Carga los planes de entrenamiento para tus alumnos.
                                 </p>
                             </div>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
+                            <button className="btn btn-principal w-75 mx-auto my-auto" onClick={irAFormRutina}>
                                 Cargar rutina
                             </button>
                         </div>
