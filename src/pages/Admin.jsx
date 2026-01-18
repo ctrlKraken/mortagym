@@ -4,6 +4,8 @@ import AdminSidebar from "../components/AdminSidebar";
 import "../styles/Admin.css";
 import logo from '../assets/logo_sf.png'
 import Alumnos from "./admin/Alumnos";
+import Profesores from "./admin/Profesores";
+
 
 export default function Admin() {
   const navigate = useNavigate();
@@ -19,6 +21,7 @@ export default function Admin() {
       <main className="admin-content">
         <Routes>
           <Route path="alumnos" element={<Alumnos />} />
+          <Route path="profesores" element={<Profesores />} />
         </Routes>
       </main>
     </div>
