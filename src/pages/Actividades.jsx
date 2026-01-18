@@ -6,43 +6,37 @@ import Disciplina from '../components/Disciplina'
 export default function Actividades() {
 
   const preciosMusculacion = {
-    clase: { debito: 13000, efectivo: 10000 },
-    1: { debito: 30000, efectivo: 25000},
-    2: { debito: 37000, efectivo: 30000},
-    3: { debito: 44000, efectivo: 36000},
-    4: { debito: 52000, efectivo: 42000},
-    5: { debito: 59000, efectivo: 54000},
-    6: { debito: 66000, efectivo: 60000},
+    clase: { debito: 17000, efectivo: 14000 },
+    1: { debito: 33000, efectivo: 28000},
+    2: { debito: 41000, efectivo: 33000},
+    3: { debito: 49000, efectivo: 40000},
+    4: { debito: 58000, efectivo: 47000},
+    5: { debito: 65000, efectivo: 60000},
+    6: { debito: 73000, efectivo: 66000},
   };
 
   const preciosFuncional = {
-    clase: { debito: 13000, efectivo: 12000 },
-    1: { debito: 37000, efectivo: 30000},
-    2: { debito: 43000, efectivo: 36000},
-    3: { debito: 52000, efectivo: 42000},
-    4: { debito: 59000, efectivo: 48000},
-    5: { debito: 65000, efectivo: 54000},
-    6: { debito: 73000, efectivo: 60000},
+    clase: { debito: 17000, efectivo: 14000 },
+    1: { debito: 41000, efectivo: 33000},
+    2: { debito: 48000, efectivo: 40000},
+    3: { debito: 58000, efectivo: 47000},
+    4: { debito: 65000, efectivo: 53000},
+    5: { debito: 72000, efectivo: 60000},
+    6: { debito: 81000, efectivo: 66000},
   };
 
   const preciosPilates = {
-    clase: { debito: 15000, efectivo: 12000 },
-    1: { debito: 37000, efectivo: 30000},
-    2: { debito: 43000, efectivo: 36000},
-    3: { debito: 52000, efectivo: 42000},
-    4: { debito: 59000, efectivo: 48000},
-    5: { debito: 65000, efectivo: 54000},
-    6: { debito: 73000, efectivo: 60000},
+    clase: { debito: 17000, efectivo: 14000 },
+    1: { debito: 41000, efectivo: 33000},
+    2: { debito: 48000, efectivo: 40000},
+    3: { debito: 58000, efectivo: 47000},
+    4: { debito: 65000, efectivo: 53000},
+    5: { debito: 72000, efectivo: 60000},
+    6: { debito: 81000, efectivo: 66000},
   };
 
-  const preciosSpinning = {
-    clase: { debito: 15000, efectivo: 12000 },
-    1: { debito: 37000, efectivo: 30000},
-    2: { debito: 43000, efectivo: 36000},
-    3: { debito: 52000, efectivo: 42000},
-    4: { debito: 59000, efectivo: 48000},
-    5: { debito: 65000, efectivo: 54000},
-    6: { debito: 73000, efectivo: 60000},
+  const preciosJudo = {
+    clase: { debito: 50000, efectivo: 45000 }
   };
 
   const fotosMusculacion = [
@@ -65,9 +59,9 @@ export default function Actividades() {
     { id: 2, src: '/disciplinas/entrenamiento2.jpg' },
   ];
   
-  const fotosSpinning = [
-    { id: 1, src: '/disciplinas/spinning.jpg' },
-    { id: 2, src: '/disciplinas/spinning2.jpg' },
+  const fotosJudo = [
+    { id: 1, src: '/disciplinas/df1.jpg' },
+    { id: 2, src: '/disciplinas/df2.jpg' },
   ];
   
   const fotosNatacion = [
@@ -132,10 +126,10 @@ export default function Actividades() {
         modalData={modalFuncional}
       />
       <Disciplina
-        titulo="Spinning"
-        descripcion="Activa tu energía con sesiones intensas de ciclismo indoor que mejoran tu resistencia cardiovascular"
-        precios={preciosSpinning}
-        fotos={fotosSpinning}
+        titulo="Judo"
+        descripcion="Entrena la fuerza del respeto y la disciplina para caer, levantarte y superar tus límites"
+        precios={preciosJudo}
+        fotos={fotosJudo}
         reverse
       />
 

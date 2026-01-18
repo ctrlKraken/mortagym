@@ -56,7 +56,7 @@ export default function Navbar({ mostrarBanner = true }) {
 
       {mostrarBanner && (
         <section className="banner-section">
-          <h2 className="banner-text">
+          <h2 className="banner-text fst-italic fw-bold">
             Si lo crees lo creas, <br /> el cambio comienza en vos
           </h2>
         </section>

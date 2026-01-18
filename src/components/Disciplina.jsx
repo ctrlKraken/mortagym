@@ -10,14 +10,15 @@ export default function Disciplina({
   titulo, 
   descripcion, 
   subactividad, 
-  precios, 
+  precios = {}, 
   fotos, 
   reverse = false,
   modalData = [],
   matricula
  }) {
 
-  const [dias, setDias] = useState(1);
+  const opcionesDias = Object.keys(precios);
+  const [dias, setDias] = useState(opcionesDias[0] || "");
   const [central, setCentral] = useState(fotos[0]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -33,6 +34,10 @@ export default function Disciplina({
     navigate("/horarios", { state: { filtro: titulo } });
   };
 
+
+  const precioSeleccionado = precios[dias];
+  
+  const tieneUnaSolaOpcion = opcionesDias.length === 1;
 
   return (
     
@@ -67,29 +72,44 @@ export default function Disciplina({
                         <tbody>
                           <tr>
                             <td data-label="Días por semana">
-                              <select name="" id="" value={dias} 
-                              onChange={(e) => setDias((e.target.value))}>
-                                
-                                {Object.keys(precios).map((dia) => (
-                                    <option key={dia} value={dia}>
-                                      {dia === "clase"
-                                        ? "1 clase por día"
-                                        : `${dia} ${dia === "1" ? "vez" : "veces"} por semana`}
-                                    </option>
-                                ))}
-                              </select>
+                              {!tieneUnaSolaOpcion ? (
+                                <select name="" id="" value={dias} 
+                                onChange={(e) => setDias((e.target.value))}>
+                                  
+                                  {opcionesDias.map((dia) => (
+                                      <option key={dia} value={dia}>
+                                        {dia === "clase"
+                                          ? "1 clase por día"
+                                          : `${dia} ${dia === "1" ? "vez" : "veces"} por semana`}
+                                      </option>
+                                  ))}
+                                </select>
+                              ):(
+                                <span>
+                                  {opcionesDias[0] === "clase"
+                                    ? "3 veces por semana"
+                                    : `${opcionesDias[0]} veces por semana`}
+                                </span>
+                              )}
                             </td>
                             <td data-label="Efectivo">
-                              <span>${precios[dias].efectivo.toLocaleString()} </span>
+                              {precioSeleccionado ? (
+                                <span>${precioSeleccionado.efectivo.toLocaleString()} </span>
+                               ):(
+                                <span>-</span>
+                               )}
                             </td>
                             <td data-label="Débito/Transferencia">
-                            <span>${precios[dias].debito.toLocaleString()} </span>
+                              {precioSeleccionado ? (
+                                <span>${precioSeleccionado.debito.toLocaleString()} </span>
+                              ) : (
+                                <span>-</span>
+                              )}
                             </td>
                           </tr>
                         </tbody>
                         <tfoot>
                           <tr>
-                  
                             <td colSpan="3">
                               <p className="text-muted">Con tarjeta de crédito: +25%</p>
                             </td>
@@ -158,7 +178,6 @@ export default function Disciplina({
                         </div>
                         
                       </Modal>
-
                     </>
                   )}
                 </div>

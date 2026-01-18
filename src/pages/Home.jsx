@@ -2,7 +2,7 @@ import React from 'react'
 import Contacto from '../components/Contacto'
 import logo from '../assets/logo_sf.png'
 import foto1 from '../assets/foto4.jpg'
-import foto2 from '../assets/foto7.jpg'
+import foto2 from '../assets/foto9.jpg'
 import foto3 from '../assets/foto5.jpeg'
 import foto4 from '../assets/foto6.jpg'
 import buffet from '../assets/cafeteria.jpeg'
@@ -40,7 +40,7 @@ export default function Home() {
                 </p>
                 <p className="fs-5">
                   Contamos con diversas disciplinas para todos los gustos:{" "}
-                  <strong>Pilates, Spinning, Musculación</strong> y una{" "}
+                  <strong>Pilates, Musculación, </strong> una{" "}
                   <strong>pileta climatizada</strong> para entrenamientos funcionales y natación.
                 </p>
                 <p className="fs-5">
