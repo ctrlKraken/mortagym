@@ -2,27 +2,28 @@ import { useState } from "react";
 
 const preciosNatacion = {
   "Pileta libre": {
-    clase: { debito: 20000, efectivo: 18000 },
-    1: { debito: 60000, efectivo: 48000 },
-    2: { debito: 66000, efectivo: 54000 },
-    3: { debito: 73000, efectivo: 60000 },
-    4: { debito: 81000, efectivo: 63000 },
-    5: { debito: 88000, efectivo: 71000 },
-    6: { debito: 95000, efectivo: 78000 },
+    clase: { debito: 22000, efectivo: 18000 },
+    1: { debito: 66000, efectivo: 53000 },
+    2: { debito: 73000, efectivo: 60000 },
+    3: { debito: 81000, efectivo: 66000 },
+    4: { debito: 90000, efectivo: 70000 },
+    5: { debito: 97000, efectivo: 79000 },
+    6: { debito: 105000, efectivo: 86000 },
   },
   "Con profesor": {
     clase: { debito: 20000, efectivo: 18000 },
-    1: { debito: 60000, efectivo: 58000 },
-    2: { debito: 66000, efectivo: 62000 },
-    3: { debito: 73000, efectivo: 69000 },
-    4: { debito: 81000, efectivo: 79000 },
-    5: { debito: 88000, efectivo: 83000 },
-    6: { debito: 95000, efectivo: 93000 },
+    1: { debito: 66000, efectivo: 64000 },
+    2: { debito: 73000, efectivo: 69000 },
+    3: { debito: 81000, efectivo: 76000 },
+    4: { debito: 90000, efectivo: 87000 },
+    5: { debito: 97000, efectivo: 92000 },
+    6: { debito: 105000, efectivo: 103000 },
   },
-  Aquagym: {
-    2: { debito: 72000, efectivo: 62000 },
-    3: { debito: 80000, efectivo: 69000 },
-    5: { debito: 93000, efectivo: 85000 },
+  Hidrogym: {
+    clase: { debito: 22000, efectivo: 18000 },
+    2: { debito: 80000, efectivo: 50200 },
+    3: { debito: 88000, efectivo: 55800 },
+    5: { debito: 103000, efectivo: 62000 },
   },
 };
 

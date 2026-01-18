@@ -50,6 +50,11 @@
   background-color: #FAF0FF;
 }
 
+.horario-real{
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
 select.form-select {
   border-radius: 8px;
   padding: 0.5rem 1rem;
