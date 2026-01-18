@@ -10,14 +10,13 @@
 .admin-sidebar {
   width: 260px;
   height: 100vh;
-  background-color: #dff1fb; /* celeste como tu captura */
+  background-color: var(--color-tertiary);
   border-right: 1px solid #cfdde5;
   padding: 1.5rem 1rem;
   position: fixed;
   left: 0;
   top: 0;
 }
-
 
 /* Contenido */
 .admin-content {
@@ -26,3 +25,17 @@
   width: calc(100% - 260px);
 }
 
+/* BOTONES */
+
+.btn-admin {
+  height: 40px;
+  background-color: var(--color-primary);
+ 
+  color: var(--white);
+  font-weight: bold;
+}
+
+.btn-admin:hover{
+  background-color: var(--color-secondary);
+  color: var(--white);
+}

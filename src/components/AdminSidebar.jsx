@@ -8,7 +8,7 @@ export default function AdminSidebar() {
       {/* LOGO */}
       <div className="sidebar-logo">
         <img src={logo} alt="Morta Gym" />
-        <span>Morta Gym</span>
+        <span>Administrador</span>
       </div>
 
       {/* MENU */}
@@ -18,9 +18,9 @@ export default function AdminSidebar() {
           <span>Alumnos</span>
         </NavLink>
 
-        <NavLink to="/admin/profes" className="sidebar-item">
+        <NavLink to="/admin/profesores" className="sidebar-item">
           <i className="ri-team-line"></i>
-          <span>Profes</span>
+          <span>Profesores</span>
         </NavLink>
 
         <NavLink to="/admin/gastos" className="sidebar-item">
@@ -33,7 +33,12 @@ export default function AdminSidebar() {
           <span>Disciplinas</span>
         </NavLink>
 
-        <NavLink to="/admin/molinete" className="sidebar-item">
+        <NavLink to="/admin/disciplinas" className="sidebar-item">
+          <i className="ri-boxing-line"></i>
+          <span>Servicios</span>
+        </NavLink>
+
+        <NavLink hidden to="/admin/molinete" className="sidebar-item">
           <i className="ri-door-lock-line"></i>
           <span>Molinete</span>
         </NavLink>

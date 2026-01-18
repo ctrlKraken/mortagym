@@ -22,7 +22,7 @@ export default function Recepcion() {
             <div className="row g-4 justify-content-center">
 
                 {/* Card Actividades */}
-                <div className="col-12 col-md-4">
+                <div hidden className="col-12 col-md-3">
                     <div className="card shadow-sm border-1 text-center h-100">
                         <div className="card-body d-flex flex-column justify-content-between">
                             <div>
@@ -39,7 +39,7 @@ export default function Recepcion() {
                 </div>
 
                 {/* Card Rutinas */}
-                <div className="col-12 col-md-4">
+                <div className="col-12 col-md-3">
                     <div className="card shadow-sm border-1 text-center h-100">
                         <div className="card-body d-flex flex-column justify-content-between">
                             <div>
@@ -51,12 +51,35 @@ export default function Recepcion() {
                             <button className="btn btn-principal w-75 mx-auto my-auto">
                                 Renovación
                             </button>
+                            <button className="btn btn-principal w-75 mx-auto my-auto">
+                                Molinete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Card Rutinas */}
+                <div className="col-12 col-md-3">
+                    <div className="card shadow-sm border-1 text-center h-100">
+                        <div className="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <h4 className="card-title fw-bold mb-3">Información</h4>
+                            </div>
+                            <button className="btn btn-principal w-75 mx-auto my-auto">
+                                Ver listados
+                            </button>
+                            <button className="btn btn-principal w-75 mx-auto my-auto">
+                                Ver pagos
+                            </button>
+                            <button className="btn btn-principal w-75 mx-auto my-auto">
+                                Ver cupos
+                            </button>
                         </div>
                     </div>
                 </div>
 
                 {/* Card Horarios */}
-                <div className="col-12 col-md-4">
+                <div className="col-12 col-md-3">
                     <div className="card shadow-sm border-1 text-center h-100">
                         <div className="card-body d-flex flex-column justify-content-between">
                             <div>
