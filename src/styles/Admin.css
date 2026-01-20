@@ -39,3 +39,34 @@
   background-color: var(--color-secondary);
   color: var(--white);
 }
+
+
+/************* DASHBOARD ******************/
+.nav-link{
+  margin-right: 5px !important;
+}
+
+.navlink-active{
+  color: var(--color-primary);
+  text-decoration: underline !important;
+}
+
+/* Tabla de Servicios */
+.table-servicios th:nth-child(1),
+.table-servicios td:nth-child(1),
+.table-servicios th:nth-child(2),
+.table-servicios td:nth-child(2),
+.table-servicios th:nth-child(3),
+.table-servicios td:nth-child(3),
+.table-servicios th:nth-child(4),
+.table-servicios td:nth-child(4) {
+  width: 20%;
+}
+
+.table-servicios th:nth-child(5),
+.table-servicios td:nth-child(5),
+.table-servicios th:nth-child(6),
+.table-servicios td:nth-child(6) {
+  width: 10%;
+  text-align: center;
+}

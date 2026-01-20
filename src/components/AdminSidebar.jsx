@@ -29,11 +29,11 @@ export default function AdminSidebar() {
         </NavLink>
 
         <NavLink to="/admin/disciplinas" className="sidebar-item">
-          <i className="ri-boxing-line"></i>
+          <i class="ri-run-fill"></i>
           <span>Disciplinas</span>
         </NavLink>
 
-        <NavLink to="/admin/disciplinas" className="sidebar-item">
+        <NavLink to="/admin/servicios" className="sidebar-item">
           <i className="ri-boxing-line"></i>
           <span>Servicios</span>
         </NavLink>
