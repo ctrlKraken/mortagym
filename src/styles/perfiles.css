@@ -43,3 +43,41 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+<<<<<<< HEAD
+=======
+
+/***** Perfil Profesor ******/
+.breadcrumb{
+  color: darkslategrey;
+}
+
+.pages-section {
+  padding: 4rem 1rem;
+}
+
+.cargar-rutina{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-rutina .campo{
+  padding-bottom: 20px;
+  width: 600px;
+}
+
+.form-rutina select{
+  color: darkslategray;
+}
+.filtro-alumnos{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.btn-guardar{
+  width: auto;
+  margin: 10px auto;
+}
+>>>>>>> 991135d02d79fee659624ab848a52d702b6c906f
