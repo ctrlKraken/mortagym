@@ -11,7 +11,7 @@ export default function Horarios() {
     "Musculación",
     "Pilates",
     "Funcional",
-    "Spinning",
+    "Judo",
     "Entrenamiento Deportivo",
     "Natación",
   ];
@@ -21,7 +21,7 @@ export default function Horarios() {
       dia: "Lunes",
       clases: [
         { hora: "07:00", disciplina: "Entrenamiento Deportivo", actividad: "Entrenamiento Deportivo", profe: "Profe Belen" },
-        { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+      
         { hora: "07:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "08:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "09:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
@@ -38,20 +38,23 @@ export default function Horarios() {
         { hora: "20:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
         { hora: "21:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
 
-        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+         { hora: "07:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio/Avanzados", profe: "" },
         { hora: "09:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
-        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
-        { hora: "11:00", disciplina: "Natación", actividad: "Niños 8 a 11 años Avanz.", profe: "" },
-        { hora: "12:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "13:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
-        { hora: "14:00", disciplina: "Natación", actividad: "Niños 5 a 7 años", profe: "" },
-        { hora: "15:00", disciplina: "Natación", actividad: "Nat. Adolescentes +12 años", profe: "" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 8 años", profe: "" },
+        { hora: "11:00", disciplina: "Natación", actividad: "Niños 9 a 10 años", profe: "" },
+        { hora: "12:00", disciplina: "Natación", actividad: "Nat. Bebes (+6 meses y 3 a 4 años)", profe: "" },
+        { hora: "13:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "14:00", disciplina: "Natación", actividad: "Niños 5 a 6 años", profe: "" },
+        { hora: "15:00", disciplina: "Natación", actividad: "Adolescentes +12 años", profe: "" },
         { hora: "16:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "17:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "17:00", disciplina: "Natación", actividad: "Niños 7 a 8 años", profe: "" },
         { hora: "18:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
-        { hora: "19:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
+        { hora: "19:00", disciplina: "Natación", actividad: "Niños 9 a 11 años", profe: "" },
         { hora: "20:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio", profe: "" },
         { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
+
+
 
         { hora: "08:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Belen" },
         { hora: "09:00", disciplina: "Funcional", actividad: "Funcional Adultos Mayores", profe: "Profe Belen" },
@@ -66,9 +69,9 @@ export default function Horarios() {
         { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
 
-        { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" },
-
-
+        { hora: "18:00", disciplina: "Judo", actividad: "Judo 4 a 12 años", profe: "", horarioReal: "18:30 a 19:30"},
+        { hora: "20:00", disciplina: "Judo", actividad: "Judo 12 a 18 años", profe: "", horarioReal: "20:00 a 21:30"},
+        { hora: "21:00", disciplina: "Judo", actividad: "Judo +13 años", profe: "", horarioReal: "21:30 a 22:45"},
       ],
     },
     {
@@ -106,21 +109,22 @@ export default function Horarios() {
         { hora: "15:00", disciplina: "Pilates", actividad: "Pilates Funcional", profe: "Profe Alicia" },
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Francisco" },
 
-        { hora: "07:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "08:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "09:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "10:00", disciplina: "Natación", actividad: "Niños 3 a 4 años", profe: "" },
-        { hora: "11:00", disciplina: "Natación", actividad: "Niños 5 a 7 años", profe: "" },
-        { hora: "12:00", disciplina: "Natación", actividad: "Nat. Adultos", profe: "" },
+        { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "09:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 8 años Iniciales", profe: "" },
+        { hora: "11:00", disciplina: "Natación", actividad: "Niños 5 a 6 años", profe: "" },
+        { hora: "12:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
         { hora: "13:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
         { hora: "14:00", disciplina: "Natación", actividad: "Niños 3 a 4 años", profe: "" },
-        { hora: "15:00", disciplina: "Natación", actividad: "Niños 8 a 11 años", profe: "" },
-        { hora: "16:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "15:00", disciplina: "Natación", actividad: "Niños 9 a 10 años", profe: "" },
+        { hora: "16:00", disciplina: "Natación", actividad: "Nat. Adolescentes +12 años", profe: "" },
         { hora: "17:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "18:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
-        { hora: "19:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "20:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "21:00", disciplina: "Natación", actividad: "Pileta Familiar", profe: "" },
+        { hora: "18:00", disciplina: "Natación", actividad: "Hidrogym", profe: "" },
+        { hora: "19:00", disciplina: "Natación", actividad: "Niños 11 a 12 años", profe: "" },
+        { hora: "20:00", disciplina: "Natación", actividad: "Niños 8 a 9 años", profe: "" },
+        { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+
        
       ],
     },
@@ -128,23 +132,26 @@ export default function Horarios() {
       dia: "Miércoles",
       clases: [
         { hora: "07:00", disciplina: "Entrenamiento Deportivo", actividad: "Entrenamiento Deportivo", profe: "Profe Belen" },
-        { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "08:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Belen" },
-        { hora: "09:00", disciplina: "Funcional", actividad: "Funcional Adultos Mayores", profe: "Profe Belen" },
+
+        { hora: "07:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio/Avanzados", profe: "" },
         { hora: "09:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
-        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
-        { hora: "11:00", disciplina: "Natación", actividad: "Niños 8 a 11 años Avanz.", profe: "" },
-        { hora: "12:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "13:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
-        { hora: "14:00", disciplina: "Natación", actividad: "Niños 5 a 7 años", profe: "" },
-        { hora: "15:00", disciplina: "Natación", actividad: "Nat. Adolescentes +12 años", profe: "" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 8 años", profe: "" },
+        { hora: "11:00", disciplina: "Natación", actividad: "Niños 9 a 10 años", profe: "" },
+        { hora: "12:00", disciplina: "Natación", actividad: "Nat. Bebes (+6 meses y 3 a 4 años)", profe: "" },
+        { hora: "13:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "14:00", disciplina: "Natación", actividad: "Niños 5 a 6 años", profe: "" },
+        { hora: "15:00", disciplina: "Natación", actividad: "Adolescentes +12 años", profe: "" },
         { hora: "16:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "17:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "17:00", disciplina: "Natación", actividad: "Niños 7 a 8 años", profe: "" },
         { hora: "18:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
-        { hora: "19:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
+        { hora: "19:00", disciplina: "Natación", actividad: "Niños 9 a 11 años", profe: "" },
         { hora: "20:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio", profe: "" },
         { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
+
+        { hora: "08:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Belen" },
+        { hora: "09:00", disciplina: "Funcional", actividad: "Funcional Adultos Mayores", profe: "Profe Belen" },
+      
 
         { hora: "10:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Belen" },
         { hora: "08:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
@@ -158,7 +165,7 @@ export default function Horarios() {
         { hora: "20:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
         { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
-        { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" },
+    
 
         { hora: "07:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "08:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
@@ -175,6 +182,9 @@ export default function Horarios() {
         { hora: "19:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
         { hora: "20:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
         { hora: "21:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+        { hora: "18:00", disciplina: "Judo", actividad: "Judo 4 a 12 años", profe: "", horarioReal: "18:30 a 19:30"},
+        { hora: "20:00", disciplina: "Judo", actividad: "Judo 12 a 18 años", profe: "", horarioReal: "20:00 a 21:30"},
+        { hora: "21:00", disciplina: "Judo", actividad: "Judo +13 años", profe: "", horarioReal: "21:30 a 22:45"},
        
       ],
     },
@@ -207,45 +217,48 @@ export default function Horarios() {
         { hora: "20:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Kids", profe: "Profe Francisco" },
 
-        { hora: "07:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "08:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "09:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "10:00", disciplina: "Natación", actividad: "Niños 3 a 4 años", profe: "" },
-        { hora: "11:00", disciplina: "Natación", actividad: "Niños 5 a 7 años", profe: "" },
-        { hora: "12:00", disciplina: "Natación", actividad: "Nat. Adultos", profe: "" },
+        { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "09:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 8 años Iniciales", profe: "" },
+        { hora: "11:00", disciplina: "Natación", actividad: "Niños 5 a 6 años", profe: "" },
+        { hora: "12:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
         { hora: "13:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
         { hora: "14:00", disciplina: "Natación", actividad: "Niños 3 a 4 años", profe: "" },
-        { hora: "15:00", disciplina: "Natación", actividad: "Niños 8 a 11 años", profe: "" },
-        { hora: "16:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
+        { hora: "15:00", disciplina: "Natación", actividad: "Niños 9 a 10 años", profe: "" },
+        { hora: "16:00", disciplina: "Natación", actividad: "Nat. Adolescentes +12 años", profe: "" },
         { hora: "17:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "18:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
-        { hora: "19:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "20:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "21:00", disciplina: "Natación", actividad: "Pileta Familiar", profe: "" },
+        { hora: "18:00", disciplina: "Natación", actividad: "Hidrogym", profe: "" },
+        { hora: "19:00", disciplina: "Natación", actividad: "Niños 11 a 12 años", profe: "" },
+        { hora: "20:00", disciplina: "Natación", actividad: "Niños 8 a 9 años", profe: "" },
+        { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
         
       ],
     },
     {
       dia: "Viernes",
       clases: [
-        { hora: "07:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "07:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "08:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio/Avanzados", profe: "" },
+        { hora: "09:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
+        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 8 años", profe: "" },
+        { hora: "11:00", disciplina: "Natación", actividad: "Niños 9 a 10 años", profe: "" },
+        { hora: "12:00", disciplina: "Natación", actividad: "Nat. Bebes (+6 meses y 3 a 4 años)", profe: "" },
+        { hora: "13:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "14:00", disciplina: "Natación", actividad: "Niños 5 a 6 años", profe: "" },
+        { hora: "15:00", disciplina: "Natación", actividad: "Nat.Adolescentes +12 años", profe: "" },
+        { hora: "16:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
+        { hora: "17:00", disciplina: "Natación", actividad: "Niños 7 a 8 años", profe: "" },
+        { hora: "18:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
+        { hora: "19:00", disciplina: "Natación", actividad: "Niños 9 a 11 años", profe: "" },
+        { hora: "20:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio", profe: "" },
+        { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
+
+        
         { hora: "08:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "09:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
         { hora: "10:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Nadia" },
-        { hora: "09:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
-        { hora: "10:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
-        { hora: "11:00", disciplina: "Natación", actividad: "Niños 8 a 11 años Avanz.", profe: "" },
-        { hora: "12:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "13:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
-        { hora: "14:00", disciplina: "Natación", actividad: "Niños 5 a 7 años", profe: "" },
-        { hora: "15:00", disciplina: "Natación", actividad: "Nat. Adolescentes +12 años", profe: "" },
-        { hora: "16:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" },
-        { hora: "17:00", disciplina: "Natación", actividad: "Pileta Libre", profe: "" },
-        { hora: "18:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
-        { hora: "19:00", disciplina: "Natación", actividad: "Niños 7 a 9 años", profe: "" },
-        { hora: "20:00", disciplina: "Natación", actividad: "Nat. Adultos Intermedio", profe: "" },
-        { hora: "21:00", disciplina: "Natación", actividad: "Nat. Adultos Avanzados", profe: "" },
+
         { hora: "07:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "08:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
         { hora: "09:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Araceli" },
@@ -269,7 +282,10 @@ export default function Horarios() {
         { hora: "20:00", disciplina: "Pilates", actividad: "Pilates", profe: "Profe Lucía" },
         { hora: "16:00", disciplina: "Funcional", actividad: "Funcional Adolescentes", profe: "Profe Francisco" },
         { hora: "17:00", disciplina: "Funcional", actividad: "Funcional Mixto", profe: "Profe Francisco" },
-        { hora: "19:00", disciplina: "Spinning", actividad: "Spinning", profe: "Profe Karina" }
+        
+        { hora: "18:00", disciplina: "Judo", actividad: "Judo 4 a 12 años", profe: "", horarioReal: "18:30 a 19:30"},
+        { hora: "20:00", disciplina: "Judo", actividad: "Judo 12 a 18 años", profe: "", horarioReal: "20:00 a 21:30"},
+        { hora: "21:00", disciplina: "Judo", actividad: "Judo +13 años", profe: "", horarioReal: "21:30 a 22:45"},
    
       ],
     },
@@ -280,9 +296,11 @@ export default function Horarios() {
         { hora: "11:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
         { hora: "12:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
         { hora: "13:00", disciplina: "Musculación", actividad: "Musculación", profe: "Profe Belén" },
+
+        { hora: "10:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" }, 
+        { hora: "11:00", disciplina: "Natación", actividad: "Nat. Adultos Iniciales", profe: "" }, 
         { hora: "12:00", disciplina: "Natación", actividad: "Pileta Familiar", profe: "" }, 
-        { hora: "13:00", disciplina: "Natación", actividad: "Nat. Adultos", profe: "" },
-        { hora: "14:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
+        { hora: "13:00", disciplina: "Natación", actividad: "Hidrogimnasia", profe: "" },
       ],
     },
   ];
@@ -448,6 +466,9 @@ export default function Horarios() {
                             actividades.map((actividad, index) => (     
                               <div key={index} className="mb-1">
                                 <p className="nombre-actividad" translate="no">{actividad.actividad}</p>
+                                <small className="horario-real">
+                                  {actividad.horarioReal}
+                                </small>
                                 {actividad.profe && (
                                   <p className="profesor text-muted small">{actividad.profe}</p>
                                 )}
