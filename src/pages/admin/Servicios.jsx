@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "react-modal";
+import Swal from "sweetalert2";
 import "../../styles/Admin.css";
 
 Modal.setAppElement("#root");
@@ -8,6 +9,7 @@ export default function Servicios() {
   const [paginaActual, setPaginaActual] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [servicioSeleccionado, setServicioSeleccionado] = useState(null);
+  const [modoNuevo, setModoNuevo] = useState(false);
 
   const servicios = [
     {
@@ -41,14 +43,37 @@ export default function Servicios() {
   const serviciosPagina = servicios.slice(inicio, inicio + filasPorPagina);
   const totalPaginas = Math.ceil(servicios.length / filasPorPagina);
 
+  const [formServicio, setFormServicio] = useState({
+    nombre: "",
+    descripcion: "",
+    extra: "",
+    redes: "",
+    activo: true,
+  });
+
+
   return (
     <>
       {/* HEADER */}
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h3>Gestión de Servicios</h3>
-        <button className="btn btn-admin">
+        <button
+          className="btn btn-admin"
+          onClick={() => {
+            setModoNuevo(true);
+            setFormServicio({
+              nombre: "",
+              descripcion: "",
+              extra: "",
+              redes: "",
+              activo: true,
+            });
+            setIsModalOpen(true);
+          }}
+        >
           <i className="ri-add-line"></i> Nuevo servicio
         </button>
+
       </div>
 
       {/* TABLA */}
@@ -80,16 +105,42 @@ export default function Servicios() {
                   <button
                     className="btn btn-sm btn-outline-secondary me-2"
                     onClick={() => {
+                      setModoNuevo(false);
                       setServicioSeleccionado(s);
+                      setFormServicio({
+                        nombre: s.nombre,
+                        descripcion: s.descripcion,
+                        extra: s.extra,
+                        redes: s.redes,
+                        activo: s.activo,
+                      });
                       setIsModalOpen(true);
                     }}
                   >
                     <i className="ri-pencil-fill"></i>
                   </button>
 
-                  <button className="btn btn-sm btn-outline-danger">
+                  <button
+                    className="btn btn-sm btn-outline-danger"
+                    onClick={() => {
+                      Swal.fire({
+                        title: "¿Deshabilitar servicio?",
+                        text: "El servicio dejará de estar disponible en la página web",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#dc3545",
+                        cancelButtonText: "Cancelar",
+                        confirmButtonText: "Sí, deshabilitar",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          console.log("Servicio deshabilitado:", s.id);
+                        }
+                      });
+                    }}
+                  >
                     <i className="ri-close-circle-fill"></i>
                   </button>
+
                 </td>
               </tr>
             ))}
@@ -128,7 +179,10 @@ export default function Servicios() {
         overlayClassName="modal-overlay"
       >
         <div className="modal-header">
-          <h5 className="modal-title">Editar servicio</h5>
+          <h5 className="modal-title">
+            {modoNuevo ? "Nuevo servicio" : "Editar servicio"}
+          </h5>
+
           <button
             type="button"
             className="close"
@@ -139,36 +193,78 @@ export default function Servicios() {
         </div>
 
         <div className="modal-body">
-          {servicioSeleccionado && (
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">
-                <strong>Nombre:</strong> {servicioSeleccionado.nombre}
-              </li>
-              <li className="list-group-item">
-                <strong>Descripción:</strong> {servicioSeleccionado.descripcion}
-              </li>
-              <li className="list-group-item">
-                <strong>Extra:</strong> {servicioSeleccionado.extra}
-              </li>
-              <li className="list-group-item">
-                <strong>Redes sociales:</strong> {servicioSeleccionado.redes}
-              </li>
-              <li className="list-group-item">
-                <strong>Activo:</strong>{" "}
-                {servicioSeleccionado.activo ? "Sí" : "No"}
-              </li>
-            </ul>
-          )}
+          <div className="mb-3">
+            <label className="form-label">Nombre</label>
+            <input
+              type="text"
+              className="form-control"
+              value={formServicio.nombre}
+              onChange={(e) =>
+                setFormServicio({ ...formServicio, nombre: e.target.value })
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Descripción</label>
+            <textarea
+              className="form-control"
+              rows="3"
+              value={formServicio.descripcion}
+              onChange={(e) =>
+                setFormServicio({ ...formServicio, descripcion: e.target.value })
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Extra</label>
+            <input
+              type="text"
+              className="form-control"
+              value={formServicio.extra}
+              onChange={(e) =>
+                setFormServicio({ ...formServicio, extra: e.target.value })
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Redes sociales</label>
+            <input
+              type="text"
+              className="form-control"
+              value={formServicio.redes}
+              onChange={(e) =>
+                setFormServicio({ ...formServicio, redes: e.target.value })
+              }
+            />
+          </div>
+
         </div>
 
+
         <div className="modal-footer">
-          <button
-            className="btn btn-secondary"
-            onClick={() => setIsModalOpen(false)}
-          >
+          <button className="btn btn-secondary me-2" onClick={() => setIsModalOpen(false)}>
             Cerrar
           </button>
+          <button
+            className="btn btn-admin"
+            onClick={() => {
+              if (modoNuevo) {
+                console.log("Nuevo servicio:", formServicio);
+              } else {
+                console.log("Editar servicio:", formServicio);
+              }
+              setModoNuevo(false);
+              setIsModalOpen(false);
+            }}
+
+          >
+            Guardar cambios
+          </button>
         </div>
+
       </Modal>
     </>
   );
