@@ -1,18 +1,32 @@
 import { NavLink } from "react-router-dom";
 import "../styles/AdminSidebar.css";
-import logo from "../assets/logo_sf.png";
+import icon from "/favicon2.png"
 
-export default function AdminSidebar() {
+export default function AdminSidebar({ collapsed, setCollapsed }) {
   return (
-    <>
-      {/* LOGO */}
-      <div className="sidebar-logo">
-        <img src={logo} alt="Morta Gym" />
-        <span>Administrador</span>
+    <div className="sidebar-container">
+      <div className="sidebar-header">
+        {!collapsed && (
+          <div className="mt-4">
+            <img src={icon} alt="Morta Gym" height={30} className="me-2" />
+            <span className="sidebar-title">Administrador</span>
+          </div>
+        )}
+
+        <button
+          className="sidebar-collapse-btn"
+          onClick={() => setCollapsed(!collapsed)}
+          aria-label="Toggle sidebar"
+        >
+          {collapsed ? (
+            <i className="ri-arrow-right-double-line"></i>
+          ) : (
+            <i className="ri-arrow-left-double-line"></i>
+          )}
+        </button>
       </div>
 
-      {/* MENU */}
-      <nav className="sidebar-menu">
+      <nav className={`sidebar-menu ${collapsed ? "collapsed" : ""}`}>
         <NavLink to="/admin/alumnos" className="sidebar-item">
           <i className="ri-user-3-line"></i>
           <span>Alumnos</span>
@@ -29,7 +43,7 @@ export default function AdminSidebar() {
         </NavLink>
 
         <NavLink to="/admin/disciplinas" className="sidebar-item">
-          <i class="ri-run-fill"></i>
+          <i className="ri-run-line"></i>
           <span>Disciplinas</span>
         </NavLink>
 
@@ -37,12 +51,7 @@ export default function AdminSidebar() {
           <i className="ri-boxing-line"></i>
           <span>Servicios</span>
         </NavLink>
-
-        <NavLink hidden to="/admin/molinete" className="sidebar-item">
-          <i className="ri-door-lock-line"></i>
-          <span>Molinete</span>
-        </NavLink>
       </nav>
-    </>
+    </div>
   );
 }

@@ -14,31 +14,29 @@ export default function Navbar({ mostrarBanner = true }) {
     <>
       <nav className="navbar navbar-expand-lg custom-navbar shadow-sm">
         <div className="container-fluid mx-2">
-          <Link className="navbar-brand header-title" to="/">
-            <img
-              src={logo}
-              alt="Morta Gym logo"
-              height="85"
-              className="me-2"
-            />
-          </Link>
+          {mostrarBanner && (
+            <Link className="navbar-brand header-title" to="/">
+              <img
+                src={logo}
+                alt="Morta Gym logo"
+                height="85"
+                className="me-2"
+              />
+            </Link>
+          )}
+
 
           <button
-            className={`navbar-toggler custom-toggler ${menuAbierto ? "open" : ""}`}
+            className="navbar-toggler custom-toggler ms-auto"
             type="button"
-
-
-            aria-controls="navbarNav"
             aria-expanded={menuAbierto}
             aria-label="Toggle navigation"
-
             onClick={() => setMenuAbierto(!menuAbierto)}
           >
-            <span className="navbar-toggler-icon"></span>
-            <span className="close-icon">&times;</span>
+            <i class="ri-menu-line"></i>
           </button>
 
-          <div className={`collapse navbar-collapse ${menuAbierto ? "show" : ""}`} id="mainNav">
+          <div className={`py-2 collapse navbar-collapse ${menuAbierto ? "show" : "py-2"}`} id="mainNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item"><NavLink className="nav-link" to="/" onClick={cerrarMenu}>Inicio</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/actividades" onClick={cerrarMenu}>Disciplinas</NavLink></li>
