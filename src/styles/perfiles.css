@@ -47,6 +47,18 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+.btn-perfil {
+  height: 40px;
+  background-color: var(--color-primary);
+  color: var(--white);
+  font-weight: bold;
+}
+
+.btn-perfil:hover {
+  background-color: var(--color-secondary);
+  color: var(--white);
+}
+
 
 /***** Perfil Profesor ******/
 .breadcrumb{

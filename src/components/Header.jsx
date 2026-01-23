@@ -71,7 +71,7 @@ export default function Navbar({ tipoBanner = "normal" }) {
             className="w-100 banner-img"
           />
           <h1 className="banner-alt-text fst-italic fw-bold">
-            Hola Mundo
+            Nombre de Usuario
           </h1>
         </section>
       )}
