@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { NavLink, Link } from 'react-router-dom'
 import logo from '../assets/logo_sf.png'
+import fondo from '../assets/fondo-gradiente.jpg'
 import { BsBoxArrowInRight } from "react-icons/bs";
 
 import '../styles/Header.css'
 
-export default function Navbar({ mostrarBanner = true }) {
+export default function Navbar({ tipoBanner = "normal" }) {
 
   const [menuAbierto, setMenuAbierto] = useState(false);
   const cerrarMenu = () => setMenuAbierto(false);
@@ -14,7 +15,7 @@ export default function Navbar({ mostrarBanner = true }) {
     <>
       <nav className="navbar navbar-expand-lg custom-navbar shadow-sm">
         <div className="container-fluid mx-2">
-          {mostrarBanner && (
+          {tipoBanner === "normal" || tipoBanner === "alternativo" && (
             <Link className="navbar-brand header-title" to="/">
               <img
                 src={logo}
@@ -52,13 +53,31 @@ export default function Navbar({ mostrarBanner = true }) {
         </div>
       </nav>
 
-      {mostrarBanner && (
+      {/* BANNER NORMAL */}
+      {tipoBanner === "normal" && (
         <section className="banner-section">
           <h2 className="banner-text fst-italic fw-bold">
             Si lo crees lo creas, <br /> el cambio comienza en vos
           </h2>
         </section>
       )}
+
+      {/* BANNER ALTERNATIVO */}
+      {tipoBanner === "alternativo" && (
+        <section className="banner-alt position-relative">
+          <img
+            src={fondo}
+            alt="Banner alternativo"
+            className="w-100 banner-img"
+          />
+          <h1 className="banner-alt-text fst-italic fw-bold">
+            Hola Mundo
+          </h1>
+        </section>
+      )}
+
+      {/* tipoBanner === "none" → no renderiza nada */}
+
     </>
 
   )

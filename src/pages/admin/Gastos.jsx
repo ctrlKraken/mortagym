@@ -5,6 +5,9 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend
 } from "recharts";
 import Modal from "react-modal";
+import TablaMovimientos from "../../components/admin/TablaMovimientos";
+import ModalMovimiento from "../../components/admin/ModalMovimiento";
+
 
 
 export default function Gastos() {
@@ -47,7 +50,7 @@ export default function Gastos() {
   const COLORS = ["#dc3545", "#ffc107", "#6c757d"];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [tipoMovimiento, setTipoMovimiento] = useState(""); // "Ingreso" | "Egreso"
+  const [tipoMovimiento, setTipoMovimiento] = useState("");
 
   const [formData, setFormData] = useState({
     categoria: "",
@@ -57,7 +60,6 @@ export default function Gastos() {
 
   const abrirModal = (tipo) => {
     setTipoMovimiento(tipo);
-    setFormData({ categoria: "", descripcion: "", monto: "" });
     setIsModalOpen(true);
   };
 
@@ -65,6 +67,11 @@ export default function Gastos() {
     setIsModalOpen(false);
     setTipoMovimiento("");
   };
+
+  const registrarMovimiento = (movimiento) => {
+    console.log("Movimiento registrado:", movimiento);
+  };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -124,53 +131,11 @@ export default function Gastos() {
       {/* TABLA */}
       <div className="row mb-4">
         <div className="col-md-8">
-          <div className="card admin-card">
-            <div class="card-body">
-              <h5 class="card-title">Registro de Movimientos</h5>
-              <div className="table-responsive border my-2">
-                <table className="table table-hover align-middle">
-                  <thead className="table-light">
-                    <tr>
-                      <th>Fecha</th>
-                      <th>Tipo</th>
-                      <th>Categoría</th>
-                      <th>Descripción</th>
-                      <th>Monto</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {movimientosPagina.map((m) => (
-                      <tr key={m.id}>
-                        <td>{m.fecha}</td>
-                        <td>
-                          <span className={`badge ${m.tipo === "Ingreso" ? "bg-success" : "bg-danger"}`}>
-                            {m.tipo}
-                          </span>
-                        </td>
-                        <td>{m.categoria}</td>
-                        <td>{m.descripcion}</td>
-                        <td>${m.monto.toLocaleString()}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* PAGINACIÓN */}
-              <nav className="d-flex justify-content-center">
-                <ul className="pagination">
-                  {Array.from({ length: totalPaginas }).map((_, i) => (
-                    <li key={i} className={`nav-item ${paginaActual === i + 1 ? "navlink-active" : ""}`}>
-                      <button className="nav-link" onClick={() => setPaginaActual(i + 1)}>
-                        {i + 1}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-          </div>
-
+          <TablaMovimientos
+            movimientos={movimientos}
+            paginaActual={paginaActual}
+            setPaginaActual={setPaginaActual}
+          />
         </div>
 
         <div className="col-md-4">
@@ -235,83 +200,12 @@ export default function Gastos() {
       </div>
 
       {/* MODAL */}
-      <Modal
+      <ModalMovimiento
         isOpen={isModalOpen}
-        onRequestClose={cerrarModal}
-        contentLabel="Registrar movimiento"
-        className="modal-react"
-        overlayClassName="modal-overlay"
-      >
-        <div className="modal-header">
-          <h5 className="modal-title">
-            {tipoMovimiento === "Ingreso" ? "Registrar ingreso" : "Registrar egreso"}
-          </h5>
-          <button type="button" className="close" onClick={cerrarModal}>
-            <span>&times;</span>
-          </button>
-        </div>
-
-        <div className="modal-body">
-          <p className="text-muted my-3">
-            <strong>Fecha:</strong> {new Date().toLocaleDateString()} <br />
-            <strong>Tipo:</strong>{" "}
-            <span className={tipoMovimiento === "Ingreso" ? "text-success" : "text-danger"}>
-              {tipoMovimiento}
-            </span>
-          </p>
-
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Categoría</label>
-              <input
-                type="text"
-                className="form-control"
-                name="categoria"
-                value={formData.categoria}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Descripción</label>
-              <input
-                type="text"
-                className="form-control"
-                name="descripcion"
-                value={formData.descripcion}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Monto</label>
-              <input
-                type="number"
-                className="form-control"
-                name="monto"
-                value={formData.monto}
-                onChange={handleChange}
-                required
-                min="0"
-              />
-            </div>
-
-            <div className="modal-footer px-0">
-              <button type="button" className="btn btn-secondary me-2" onClick={cerrarModal}>
-                Cancelar
-              </button>
-              <button
-                type="submit"
-                className="btn btn-admin"
-              >
-                Guardar
-              </button>
-            </div>
-          </form>
-        </div>
-      </Modal>
+        onClose={cerrarModal}
+        tipoMovimiento={tipoMovimiento}
+        onSubmit={registrarMovimiento}
+      />
 
     </>
   );

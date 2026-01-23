@@ -23,7 +23,11 @@
 
 
 /************* PERFIL ******************/
-
+.perfil-logo {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
 
 .badge {
   font-size: 1rem;
@@ -43,8 +47,6 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-<<<<<<< HEAD
-=======
 
 /***** Perfil Profesor ******/
 .breadcrumb{
@@ -80,4 +82,3 @@
   width: auto;
   margin: 10px auto;
 }
->>>>>>> 991135d02d79fee659624ab848a52d702b6c906f

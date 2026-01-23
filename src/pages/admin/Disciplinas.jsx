@@ -302,6 +302,22 @@ export default function Disciplinas() {
           </div>
 
           <div className="mb-3">
+            <label className="form-label d-block">Imagen</label>
+
+            <label htmlFor="imagen" className="btn btn-admin">
+              Seleccionar imagen
+            </label>
+
+            <input
+              id="imagen"
+              type="file"
+              className="d-none"
+              accept="image/*"
+            />
+          </div>
+
+
+          <div className="mb-3">
             <label className="form-label">Profesor</label>
             <input
               className="form-control"
@@ -478,6 +494,20 @@ export default function Disciplinas() {
                 />
               </div>
 
+              <div className="col">
+                <input
+                  type="time"
+                  className="form-control"
+                  value={h.hora}
+                  disabled={!editandoHorarios}
+                  onChange={(e) => {
+                    const copia = [...horarios];
+                    copia[index].hora = e.target.value;
+                    setHorarios(copia);
+                  }}
+                />
+              </div>
+              <div className="col-md-1 text-center"><p> - </p></div>
               <div className="col">
                 <input
                   type="time"

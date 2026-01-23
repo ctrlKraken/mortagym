@@ -1,104 +1,143 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import logo from '../assets/logo_sf.png'
+import React, { useState } from "react";
+import logo from "../assets/logo_sf.png";
+import TablaMovimientos from "../components/admin/TablaMovimientos";
+import ModalMovimiento from "../components/admin/ModalMovimiento";
+import "../styles/perfiles.css";
 
 export default function Recepcion() {
-    const navigate = useNavigate();
+  const [tabActiva, setTabActiva] = useState("usuarios");
 
-    const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
-    console.log("Guardado en localStorage:", localStorage.getItem("usuarioLogueado"));
+  /* ================= DATOS MOCK (luego API) ================= */
 
+  const [movimientos, setMovimientos] = useState([
+    {
+      id: 1,
+      fecha: "2025-01-17",
+      tipo: "Ingreso",
+      categoria: "Cuotas",
+      descripcion: "Cuota mensual",
+      monto: 15000,
+    },
+    {
+      id: 2,
+      fecha: "2025-01-17",
+      tipo: "Egreso",
+      categoria: "Servicios",
+      descripcion: "Luz",
+      monto: 8000,
+    },
+  ]);
 
-    return (
-        <div className="container perfil mt-5">
+  const [paginaActual, setPaginaActual] = useState(1);
 
-            {/* Encabezado */}
-            <div className="text-center mb-5">
-                <img src={logo} alt="Morta Gym" className="hero-logo mb-3" />
-                <h2 className="fw-bold">{usuario?.nombre}</h2>
-            </div>
+  /* ================= MODAL ================= */
 
-            {/* Cards */}
-            <div className="row g-4 justify-content-center">
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [tipoMovimiento, setTipoMovimiento] = useState("");
 
-                {/* Card Actividades */}
-                <div hidden className="col-12 col-md-3">
-                    <div className="card shadow-sm border-1 text-center h-100">
-                        <div className="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h4 className="card-title fw-bold mb-3">Instructivos</h4>
-                            </div>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
-                                Perfil
-                            </button>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
-                                Cambio de horario
-                            </button>
-                        </div>
-                    </div>
-                </div>
+  const abrirModal = (tipo) => {
+    setTipoMovimiento(tipo);
+    setIsModalOpen(true);
+  };
 
-                {/* Card Rutinas */}
-                <div className="col-12 col-md-3">
-                    <div className="card shadow-sm border-1 text-center h-100">
-                        <div className="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h4 className="card-title fw-bold mb-3">Usuarios</h4>
-                            </div>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
-                                Inscripción
-                            </button>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
-                                Renovación
-                            </button>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
-                                Molinete
-                            </button>
-                        </div>
-                    </div>
-                </div>
+  const cerrarModal = () => {
+    setIsModalOpen(false);
+    setTipoMovimiento("");
+  };
 
-                {/* Card Rutinas */}
-                <div className="col-12 col-md-3">
-                    <div className="card shadow-sm border-1 text-center h-100">
-                        <div className="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h4 className="card-title fw-bold mb-3">Información</h4>
-                            </div>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
-                                Ver listados
-                            </button>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
-                                Ver pagos
-                            </button>
-                            <button className="btn btn-principal w-75 mx-auto my-auto">
-                                Ver cupos
-                            </button>
-                        </div>
-                    </div>
-                </div>
+  const registrarMovimiento = (nuevoMovimiento) => {
+    setMovimientos((prev) => [
+      ...prev,
+      { ...nuevoMovimiento, id: Date.now() },
+    ]);
+  };
 
-                {/* Card Horarios */}
-                <div className="col-12 col-md-3">
-                    <div className="card shadow-sm border-1 text-center h-100">
-                        <div className="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h4 className="card-title fw-bold mb-3">Caja</h4>
-                            </div>
-                            <button className="btn btn-principal w-75 mx-auto" onClick={() => navigate("/horarios")}>
-                                Ingresos
-                            </button>
-                            <button className="btn btn-principal w-75 mx-auto mt-2" onClick={() => navigate("/horarios")}>
-                                Egresos
-                            </button>
-                            <button className="btn btn-principal w-75 mx-auto mt-2" onClick={() => navigate("/horarios")}>
-                                Resumen del día
-                            </button>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div className="container perfil">
 
-            </div>
+      {/* ENCABEZADO */}
+      <div hidden className="text-center mb-4">
+        <img src={logo} alt="Morta Gym" className="perfil-logo mb-3" />
+        <span className="fw-bold fs-2 ms-2">Recepción</span>
+      </div>
+
+      {/* TABS */}
+      <ul className="nav nav-tabs justify-content-center mb-4">
+        <li className="nav-item">
+          <button
+            className={`nav-link ${tabActiva === "usuarios" ? "active" : ""}`}
+            onClick={() => setTabActiva("usuarios")}
+          >
+            Usuarios
+          </button>
+        </li>
+
+        <li className="nav-item">
+          <button
+            className={`nav-link ${tabActiva === "caja" ? "active" : ""}`}
+            onClick={() => setTabActiva("caja")}
+          >
+            Caja
+          </button>
+        </li>
+      </ul>
+
+      {/* TAB USUARIOS */}
+      {tabActiva === "usuarios" && (
+        <div className="card shadow-sm">
+          <div className="card-body text-center">
+            <h4 className="fw-bold mb-3">Usuarios</h4>
+            <button className="btn btn-principal w-75 mb-2">
+              Inscripción / Renovación
+            </button>
+            <button className="btn btn-principal w-75 mb-2">
+              Ver Listados
+            </button>
+            <button className="btn btn-principal w-75">
+              Molinete
+            </button>
+          </div>
         </div>
-    );
+      )}
+
+      {/* TAB CAJA */}
+      {tabActiva === "caja" && (
+        <>
+          {/* BOTONES */}
+          <div className="d-flex justify-content-end gap-2 mb-4">
+            <button
+              className="btn btn-success"
+              onClick={() => abrirModal("Ingreso")}
+            >
+              <i className="ri-add-line me-1"></i>
+              Registrar ingreso
+            </button>
+
+            <button
+              className="btn btn-danger"
+              onClick={() => abrirModal("Egreso")}
+            >
+              <i className="ri-subtract-line me-1"></i>
+              Registrar egreso
+            </button>
+          </div>
+
+          {/* TABLA */}
+          <TablaMovimientos
+            movimientos={movimientos}
+            paginaActual={paginaActual}
+            setPaginaActual={setPaginaActual}
+          />
+        </>
+      )}
+
+      {/* MODAL */}
+      <ModalMovimiento
+        isOpen={isModalOpen}
+        onClose={cerrarModal}
+        tipoMovimiento={tipoMovimiento}
+        onSubmit={registrarMovimiento}
+      />
+    </div>
+  );
 }

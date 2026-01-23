@@ -4,12 +4,12 @@ import icon from "/favicon2.png"
 
 export default function AdminSidebar({ collapsed, setCollapsed }) {
   return (
-    <div className="sidebar-container">
+    <div className="sidebar-container bg-dark">
       <div className="sidebar-header">
         {!collapsed && (
           <div className="mt-4">
             <img src={icon} alt="Morta Gym" height={30} className="me-2" />
-            <span className="sidebar-title">Administrador</span>
+            <span className="sidebar-title text-white">Administrador</span>
           </div>
         )}
 
