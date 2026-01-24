@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Modal from "react-modal";
 import "../../styles/Admin.css";
 
 Modal.setAppElement("#root");
 
 export default function Alumnos() {
+  const navigate = useNavigate();
   const [paginaActual, setPaginaActual] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [alumnoSeleccionado, setAlumnoSeleccionado] = useState(null);
@@ -85,7 +88,7 @@ export default function Alumnos() {
       {/* HEADER */}
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h3>Gestión de Alumnos</h3>
-        <button className="btn btn-admin">
+        <button className="btn btn-admin" onClick={() => navigate("/admin/alumnos/nuevo")}>
           <i className="ri-add-line"></i> Nuevo alumno
         </button>
       </div>
@@ -116,9 +119,8 @@ export default function Alumnos() {
                 </td>
                 <td>
                   <span
-                    className={`badge ${
-                      a.ficha ? "bg-success" : "bg-warning text-dark"
-                    }`}
+                    className={`badge ${a.ficha ? "bg-success" : "bg-warning text-dark"
+                      }`}
                   >
                     {a.ficha ? "Sí" : "Pendiente"}
                   </span>
@@ -134,13 +136,31 @@ export default function Alumnos() {
                     <i className="ri-eye-fill"></i>
                   </button>
 
-                  <button className="btn btn-sm btn-outline-secondary me-2">
+                  <button className="btn btn-sm btn-outline-secondary me-2" onClick={() => navigate("/admin/alumnos/nuevo")}>
                     <i className="ri-pencil-fill"></i>
                   </button>
 
-                  <button className="btn btn-sm btn-outline-danger">
-                    <i className="ri-delete-bin-fill"></i>
+                  <button
+                    className="btn btn-sm btn-outline-danger"
+                    onClick={() => {
+                      Swal.fire({
+                        title: "¿Eliminar alumno?",
+                        text: "Se eliminará el alumno de los registros",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#dc3545",
+                        confirmButtonText: "Sí, eliminar",
+                        cancelButtonText: "Cancelar",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          console.log("Alumno eliminado:", d.id);
+                        }
+                      });
+                    }}
+                  >
+                    <i className="ri-close-circle-fill"></i>
                   </button>
+
                 </td>
               </tr>
             ))}

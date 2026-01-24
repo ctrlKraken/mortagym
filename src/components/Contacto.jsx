@@ -1,6 +1,5 @@
 import React from 'react'
 import { RiCalendarScheduleFill, RiPhoneFill, RiMapPin2Fill } from '@remixicon/react';
-import Mapa from './Mapa';
 
 export default function Contacto() {
     return (

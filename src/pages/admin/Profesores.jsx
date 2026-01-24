@@ -1,13 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Modal from "react-modal";
+import Swal from "sweetalert2";
+import ModalAsistencia from "../../components/admin/ModalAsistencia";
 import "../../styles/Admin.css";
 
 Modal.setAppElement("#root");
 
 export default function Profesores() {
+  const navigate = useNavigate();
   const [paginaActual, setPaginaActual] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profeSeleccionado, setProfeSeleccionado] = useState(null);
+
+  const asistenciasMock = [
+    { fecha: "2025-09-01", entrada: "08:15", salida: "09:30" },
+    { fecha: "2025-09-03", entrada: "18:00", salida: "19:10" },
+    { fecha: "2025-09-05", entrada: "08:10", salida: "09:25" },
+  ];
+
+  const [mostrarAsistencia, setMostrarAsistencia] = useState(false);
 
   const profes = [
     {
@@ -85,7 +97,7 @@ export default function Profesores() {
       {/* HEADER */}
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h3>Gestión de Profesores</h3>
-        <button className="btn btn-admin">
+        <button className="btn btn-admin" onClick={() => navigate("/admin/profesores/nuevoprofesor")}>
           <i className="ri-add-line"></i> Nuevo profesor
         </button>
       </div>
@@ -120,17 +132,39 @@ export default function Profesores() {
                     <i className="ri-eye-fill"></i>
                   </button>
 
-                  <button className="btn btn-sm btn-outline-secondary me-2">
-                    <i class="ri-calendar-2-fill"></i>
+                  <button
+                    className="btn btn-sm btn-outline-secondary me-2"
+                    onClick={() => setMostrarAsistencia(true)}
+                  >
+                    <i className="ri-calendar-2-fill"></i>
                   </button>
 
-                  <button className="btn btn-sm btn-outline-secondary me-2">
+
+                  <button className="btn btn-sm btn-outline-secondary me-2" onClick={() => navigate("/admin/profesores/nuevoprofesor")}>
                     <i className="ri-pencil-fill"></i>
                   </button>
 
-                  <button className="btn btn-sm btn-outline-danger">
-                    <i className="ri-delete-bin-fill"></i>
+                  <button
+                    className="btn btn-sm btn-outline-danger"
+                    onClick={() => {
+                      Swal.fire({
+                        title: "¿Eliminar profesor?",
+                        text: "Se eliminará el profesor de los registros",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#dc3545",
+                        confirmButtonText: "Sí, eliminar",
+                        cancelButtonText: "Cancelar",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          console.log("Profesor eliminado:", d.id);
+                        }
+                      });
+                    }}
+                  >
+                    <i className="ri-close-circle-fill"></i>
                   </button>
+
                 </td>
               </tr>
             ))}
@@ -157,7 +191,7 @@ export default function Profesores() {
         </ul>
       </nav>
 
-      {/* MODAL */}
+      {/* MODALES */}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={() => {
@@ -208,6 +242,13 @@ export default function Profesores() {
           </button>
         </div>
       </Modal>
+
+      <ModalAsistencia
+        isOpen={mostrarAsistencia}
+        onClose={() => setMostrarAsistencia(false)}
+        asistencias={asistenciasMock}
+      />
+
     </>
   );
 }
