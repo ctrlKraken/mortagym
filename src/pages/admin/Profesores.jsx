@@ -121,6 +121,10 @@ export default function Profesores() {
                   </button>
 
                   <button className="btn btn-sm btn-outline-secondary me-2">
+                    <i class="ri-calendar-2-fill"></i>
+                  </button>
+
+                  <button className="btn btn-sm btn-outline-secondary me-2">
                     <i className="ri-pencil-fill"></i>
                   </button>
 

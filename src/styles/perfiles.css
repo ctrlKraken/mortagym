@@ -59,6 +59,10 @@
   color: var(--white);
 }
 
+.info-cupo{
+  background-color: var(--color-tertiary);
+}
+
 
 /***** Perfil Profesor ******/
 .breadcrumb{

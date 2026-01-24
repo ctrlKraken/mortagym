@@ -131,11 +131,17 @@ export default function Gastos() {
       {/* TABLA */}
       <div className="row mb-4">
         <div className="col-md-8">
-          <TablaMovimientos
-            movimientos={movimientos}
-            paginaActual={paginaActual}
-            setPaginaActual={setPaginaActual}
-          />
+          <div className="card admin-card">
+            <div className="card-body">
+              <h5 className="card-title">Registro de Movimientos</h5>
+              <TablaMovimientos
+                movimientos={movimientos}
+                paginaActual={paginaActual}
+                setPaginaActual={setPaginaActual}
+              />
+            </div>
+          </div>
+
         </div>
 
         <div className="col-md-4">
