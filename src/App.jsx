@@ -14,10 +14,17 @@ import Login from './pages/Login'
 import Contacto from './components/Contacto'
 
 /* Perfiles */
+import UsuarioLayout from './layouts/UsuarioLayout';
 import Perfil from './pages/Perfil'
+import VerRutina from './pages/usuario/VerRutina';
+import HorarioUsuario from './pages/usuario/HorarioUsuario';
+import Reagendar from './pages/usuario/Reagendar';
+import ActividadUsuario from './pages/usuario/ActividadUsuario';
+
 import Profesor from './pages/Profesor'
-import FormRutina from './pages/FormRutina'
-import AlumnosPorProfesor from './pages/AlumnosPorProfesor'
+import ProfesorLayout from './layouts/ProfesorLayout';
+import FormRutina from './pages/profesor/FormRutina'
+import AlumnosPorProfesor from './pages/profesor/AlumnosPorProfesor'
 
 /* Admin */
 import AdminLayout from "./layouts/AdminLayout";
@@ -67,11 +74,25 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           {/* Rutas Perfiles */}
+          <Route path="/perfil" element={<UsuarioLayout />}>
+            <Route index element={<Navigate to="actividad-horario" replace />} />
+            <Route path="actividad-horario" element={<ActividadUsuario />} />
 
-          <Route path="/perfil" element={<Perfil />} />
-          <Route path="/profesor" element={<Profesor />} />
-          <Route path="/form-rutina" element={<FormRutina />} />
-          <Route path="/alumnos-profesor" element={<AlumnosPorProfesor />} />
+            <Route path="ver-rutina" element={<VerRutina />} />
+            <Route path="horario-usuario" element={<HorarioUsuario />} />
+            <Route path="reagendar-turno" element={<Reagendar />} />
+          </Route>
+         
+
+
+        {/* Rutas Profesor */}
+          <Route path="/profesor" element={<ProfesorLayout />}>
+           
+            <Route index element={<Navigate to="alumnos-profesor" replace />} />
+            <Route path="form-rutina" element={<FormRutina />} />
+            <Route path="alumnos-profesor" element={<AlumnosPorProfesor />} />
+          </Route>
+          
 
           {/* Rutas Admin */}
           <Route path="/admin" element={<AdminLayout />}>

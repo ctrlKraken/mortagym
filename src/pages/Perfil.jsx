@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Profesor() {
+export default function Perfil() {
   const navigate = useNavigate();
 
   const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
