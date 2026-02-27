@@ -282,7 +282,7 @@ export default function VerRutina() {
                         <th className="">Ejercicio</th>
                         <th className="-">Serie</th>
                         <th className="-">
-                            <span className="desktop-label">Repeticiones</span>
+                            <span className="desktop-label" translate="no">Repeticiones</span>
                             <span className="mobile-label">Reps</span>
                         </th>
                         <th className="">Carga</th> 
@@ -290,7 +290,7 @@ export default function VerRutina() {
                         <React.Fragment key={semana}>
                             <th>Serie</th>
                             <th>
-                                <span className="desktop-label">Repeticiones</span>
+                                <span className="desktop-label" translate="no">Repeticiones</span>
                                 <span className="mobile-label">Reps</span>
                             </th>
                             <th>Carga</th>
@@ -378,10 +378,10 @@ export default function VerRutina() {
                                     value={rangoSemana}
                                     onChange={(e) => setRangoSemana(Number(e.target.value))}
                                 >
-                                    <option value="semana1">Semana 1</option>
-                                    <option value="semana2">Semana 2</option>
-                                    <option value="semana3">Semana 3</option>
-                                    <option value="semana4">Semana 4</option>
+                                    <option value="">Semana 1</option>
+                                    <option value="">Semana 2</option>
+                                    <option value="">Semana 3</option>
+                                    <option value="">Semana 4</option>
                                 </select>
                             </div>
                             <div className="col">
@@ -419,7 +419,7 @@ export default function VerRutina() {
                                 <input type="number" className="form-control" id="" placeholder="0" required/>
                             </div>
                             <div className=" col-4 col-md-3 mb-3">
-                            <label for="" className="form-label">Reps</label>
+                            <label for="" className="form-label" translate="no">Reps</label>
                                 <input type="number" className="form-control" id="" placeholder="0" required/>
                             </div>
                             <div className="col-4 col-md-3 mb-3">
