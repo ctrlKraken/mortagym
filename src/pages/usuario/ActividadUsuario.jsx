@@ -6,7 +6,6 @@ export default function ActividadUsuario() {
     return(
        
         <div className="contenido-actividades text-center">
-        
             <div className="row">
                 <div className="col estado-user">
                     <EstadoItem 
@@ -26,9 +25,7 @@ export default function ActividadUsuario() {
                     />
                 </div>
             </div>
-
             <div className="actividades-user mt-5">
-
                 <CardActividad
                     titulo="Natación"
                     horario="Martes y Jueves - 8:00 Hs"

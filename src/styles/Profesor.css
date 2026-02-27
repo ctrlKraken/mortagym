@@ -1,0 +1,49 @@
+
+/* Formulario Rutina */
+
+.rutina-accordion .accordion-item {
+  /*border: 1px solid var(--color-primary);*/
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.rutina-accordion .accordion-button {
+  border-bottom: 1px solid gray;
+  background-color: #fff !important;
+  box-shadow: none !important;
+  font-weight: 500;
+  padding: 14px 18px;
+}
+
+.rutina-accordion .accordion-button:not(.collapsed) {
+  background-color: #fff !important;
+  color: #000;
+}
+
+.rutina-accordion .accordion-button::after {
+  filter: grayscale(1);
+}
+
+.rutina-accordion .accordion-body {
+  border-top: 1px solid #eee;
+  background-color: #fff;
+}
+
+.btn-ejercicio{
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-ejercicio:hover{
+    background-color: var(--color-primary) ;
+    color: white;
+}
+
+.input-patologias{
+    background-color: #F5F5F5 !important;
+}
+
+@media (max-width: 460px) {
+
+}
