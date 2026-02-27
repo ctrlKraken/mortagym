@@ -8,67 +8,72 @@ import Modal from 'react-modal';
 export default function VerRutina() {
 
     const [rutinaData, setRutinaData] = useState([
-        { id:1, dia: 1, ejercicio: "Bíceps", series: 4, reps: 6, carga: "15KG", 
+        { id:1, dia: 1, ejercicio: "Sentadillas con barra", series: 4, reps: 6, carga: "15KG", 
              progreso: {
                 1: { serie: "", reps: "", carga: "" },
                 2: { serie: "", reps: "", carga: "" },
                 3: { serie: "", reps: "", carga: "" },
                 4: { serie: "", reps: "", carga: "" },
             }},
-        { id:2,  dia: 1, ejercicio: "Piernas", series: 4, reps: 8, carga: "15KG",
+        { id:2,  dia: 1, ejercicio: "Plancha", series: 4, reps: 8, carga: "15KG",
              progreso: {
                 1: { serie: "", reps: "", carga: "" },
                 2: { serie: "", reps: "", carga: "" },
                 3: { serie: "", reps: "", carga: "" },
                 4: { serie: "", reps: "", carga: "" },
             }},
-        { id:3, dia: 1, ejercicio: "Pecho", series: 4, reps: 8, carga: "15KG",
+        { id:3, dia: 1, ejercicio: "Martillo", series: 4, reps: 8, carga: "15KG",
              progreso: {
-    1: { serie: "", reps: "", carga: "" },
-    2: { serie: "", reps: "", carga: "" },
-    3: { serie: "", reps: "", carga: "" },
-    4: { serie: "", reps: "", carga: "" },
-  } },
-        { id:4, dia: 1, ejercicio: "Espalda", series: 4, reps: 12, carga: "15KG",
+                1: { serie: "", reps: "", carga: "" },
+                2: { serie: "", reps: "", carga: "" },
+                3: { serie: "", reps: "", carga: "" },
+                4: { serie: "", reps: "", carga: "" },
+            }},
+        { id:4, dia: 1, ejercicio: "Estocadas", series: 4, reps: 12, carga: "15KG",
              progreso: {
-    1: { serie: "", reps: "", carga: "" },
-    2: { serie: "", reps: "", carga: "" },
-    3: { serie: "", reps: "", carga: "" },
-    4: { serie: "", reps: "", carga: "" },
-  }},
-        { id:5, dia: 2, ejercicio: "Bíceps", series: 4, reps: 6, carga: "15KG", 
+                1: { serie: "", reps: "", carga: "" },
+                2: { serie: "", reps: "", carga: "" },
+                3: { serie: "", reps: "", carga: "" },
+                4: { serie: "", reps: "", carga: "" },
+            }},
+        { id:5, dia: 2, ejercicio: "⁠Prensa", series: 4, reps: 6, carga: "15KG", 
              progreso: {
-    1: { serie: "", reps: "", carga: "" },
-    2: { serie: "", reps: "", carga: "" },
-    3: { serie: "", reps: "", carga: "" },
-    4: { serie: "", reps: "", carga: "" },
-  } },
-        { id:6, dia: 2, ejercicio: "Piernas", series: 4, reps: 8, carga: "15KG", 
+            1: { serie: "", reps: "", carga: "" },
+            2: { serie: "", reps: "", carga: "" },
+            3: { serie: "", reps: "", carga: "" },
+            4: { serie: "", reps: "", carga: "" },
+            }},
+        { id:6, dia: 2, ejercicio: "Martillo", series: 4, reps: 8, carga: "15KG", 
              progreso: {
-    1: { serie: "", reps: "", carga: "" },
-    2: { serie: "", reps: "", carga: "" },
-    3: { serie: "", reps: "", carga: "" },
-    4: { serie: "", reps: "", carga: "" },
-  }},
-        { id:7, dia: 3, ejercicio: "Pecho", series: 4, reps: 8, carga: "15KG", 
+                1: { serie: "", reps: "", carga: "" },
+                2: { serie: "", reps: "", carga: "" },
+                3: { serie: "", reps: "", carga: "" },
+                4: { serie: "", reps: "", carga: "" },
+            }},
+        { id:7, dia: 3, ejercicio: "Estocadas", series: 4, reps: 8, carga: "15KG", 
              progreso: {
-    1: { serie: "", reps: "", carga: "" },
-    2: { serie: "", reps: "", carga: "" },
-    3: { serie: "", reps: "", carga: "" },
-    4: { serie: "", reps: "", carga: "" },
-  } },
-        { id:8, dia: 3, ejercicio: "Espalda", series: 4, reps: 12, carga: "15KG",
+                1: { serie: "", reps: "", carga: "" },
+                2: { serie: "", reps: "", carga: "" },
+                3: { serie: "", reps: "", carga: "" },
+                4: { serie: "", reps: "", carga: "" },
+            }},
+        { id:8, dia: 3, ejercicio: "Martillo", series: 4, reps: 12, carga: "15KG",
              progreso: {
-    1: { serie: "", reps: "", carga: "" },
-    2: { serie: "", reps: "", carga: "" },
-    3: { serie: "", reps: "", carga: "" },
-    4: { serie: "", reps: "", carga: "" },
-  } }
+                1: { serie: "", reps: "", carga: "" },
+                2: { serie: "", reps: "", carga: "" },
+                3: { serie: "", reps: "", carga: "" },
+                4: { serie: "", reps: "", carga: "" },
+            }}
     ]);
     
-    const [filtroDia, setFiltroDia] = useState("mensual");
+    const [diaSeleccionado, setDiaSeleccionado] = useState("");
+    const [ejercicioSeleccionado, setEjercicioSeleccionado] = useState("");
 
-    const [modoEdicion, setModoEdicion] = useState(false);
+    const ejerciciosFiltrados = rutinaData.filter(ex => ex.dia === parseInt(diaSeleccionado));
+
+    const diasUnicos = [...new Set(rutinaData.map(item => item.dia))];
+
+    const [filtroDia, setFiltroDia] = useState("mensual");
 
     const handleProgresoChange = (id, semana, campo, valor) => {
         setRutinaData((prev) =>
@@ -89,13 +94,15 @@ export default function VerRutina() {
         );
     };
 
-
     const rutinaFiltrada =
         filtroDia === "mensual"
         ? rutinaData
         : rutinaData.filter(r => r.dia === Number(filtroDia));
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [showVideo, setShowVideo] = useState(false);
+    const [showEditar, setShowEditar] = useState(false);
+    
+    const videoUrl = "https://www.youtube.com/embed/a_1gQmdwfUQ?si=zLVVO6sYe4yEKAKk";
 
     const [rangoSemana, setRangoSemana] = useState(1);
 
@@ -105,11 +112,9 @@ export default function VerRutina() {
         3: [3, 4],
     }[rangoSemana];
 
-
     const guardarProgreso = () => {
         
     };
-
 
     const generarPDF = async () => {
         const pdf = new jsPDF("landscape", "pt", "a3");
@@ -190,32 +195,19 @@ export default function VerRutina() {
 
         <div className="">
 
-            <div className="acciones-rutina d-flex gap-2 mb-4">
-                <button className="btn btn-principal w-auto" onClick={generarPDF}>
-                   <i class="ri-file-text-line me-1"/>Descargar Rutina
+            <div className="acciones-rutina d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-md-end">
+                <button className="btn btn-principal btn-user" onClick={generarPDF}>
+                   <i class="ri-file-text-line me-1"/>Descargar
                 </button>
-
-                {modoEdicion ? (
-                    <div className="d-flex gap-2">
-                        <button className="btn btn-success w-auto" onClick={guardarProgreso}>
-                        <i className="ri-check-line me-1" />
-                        Guardar
-                        </button>
-                        <button className="btn btn-outline-secondary w-auto" onClick={() => setModoEdicion(false)}>
-                        Cancelar
-                        </button>
-                    </div>
-                    ) : (
-                    <button className="btn btn-principal w-auto" onClick={() => setModoEdicion(true)}>
-                        <i className="ri-pencil-line me-1" />
-                        Agregar Progreso
-                    </button>
-                )}
-
-                <button className="btn btn-principal w-auto" onClick={generarPDF}>
+                <button className="btn btn-principal btn-user flex" 
+                    onClick={() => setShowEditar(true)}>
+                    <i className="ri-pencil-line me-1" />
+                    + Progreso
+                </button>
+                <button className="btn btn-principal btn-user-video" 
+                    onClick={() => setShowVideo(true)}>
                    <i class="ri-open-arm-fill me-1"/>Calentamiento
                 </button>
-
             </div>
             <div className="row mb-3 align-items-center filtros-rutina">
                 <div className="col-md-4">
@@ -241,9 +233,37 @@ export default function VerRutina() {
                         <option value={3}>Semana 3 y 4</option>
                     </select>
                 </div>
-                <p>Acuerdate de hacer tu ejercicio de Calentamiento</p>
             </div>
-{/* */}
+            <Modal
+                isOpen={showVideo} 
+                onRequestClose={() => setShowVideo(false)}
+                contentLabel="Video Calentamiento"
+                className="modal-react"
+                overlayClassName="modal-overlay"
+            >
+                <div className="modal-header">
+                    <h5 className="modal-title">Calentamiento</h5>
+                    <button type="button" className="close" onClick={() => setShowVideo(false)}>
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div className="modal-body my-2">
+                    <p>Recuerda hacer tus ejercicios de calentamiento</p>
+                    <div className="ratio ratio-16x9">
+                        <iframe
+                            src={showVideo ? videoUrl : ""}
+                            title="Video Ejercicios de Calentamiento"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button className="btn btn-secondary" onClick={() => setShowVideo(false)}>
+                        Cerrar
+                    </button>
+                </div>
+            </Modal>
             <div className="tabla-container">
                 <table className="table table-bordered text-center align-middle tabla-rutinas"  rutinaData={rutinaFiltrada} >
                 <thead className="table-head">
@@ -265,8 +285,7 @@ export default function VerRutina() {
                             <span className="desktop-label">Repeticiones</span>
                             <span className="mobile-label">Reps</span>
                         </th>
-                        <th className="">Carga</th>
-                        
+                        <th className="">Carga</th> 
                         {semanasVisibles.map((semana) => (
                         <React.Fragment key={semana}>
                             <th>Serie</th>
@@ -297,35 +316,30 @@ export default function VerRutina() {
                             <td className="">{r.series}</td>
                             <td className="">{r.reps}</td>
                             <td className="">{r.carga}</td>
-                            
                             {semanasVisibles.map((semana) => (
                                 <React.Fragment key={semana}>
                                 <td>
-                                    {modoEdicion ? (
-                                        <input 
-                                            type="number" 
-                                            value={r.progreso?.[semana]?.serie || ""}
-                                            onChange={(e) => handleProgresoChange(r.id, semana, "serie", e.target.value)}
-                                            className="input-progreso form-control form-control-sm"
-                                        />
-                                    ):(
-                                         r.progreso?.[semana]?.serie || ""
-                                    )}
+                                    
+                                    <input 
+                                        type="number" 
+                                        value={r.progreso?.[semana]?.serie || ""}
+                                        onChange={(e) => handleProgresoChange(r.id, semana, "serie", e.target.value)}
+                                        className="input-progreso form-control form-control-sm"
+                                    />
+                                    
                                 </td>
                             <td>
-                                {modoEdicion ? (
+                              
                                     <input 
                                         type="number" 
                                         className="input-progreso"
                                         value={r.progreso?.[semana]?.reps || ""} 
                                         onChange={(e) =>  handleProgresoChange(r.id, semana, "reps", e.target.value)} 
                                     />
-                                ):(
-                                    r.progreso?.[semana]?.reps || ""
-                                )}
+                                
                             </td>
                             <td>
-                                {modoEdicion ? (
+                                
                                     <input 
                                         type="text" 
                                         className="input-progreso"
@@ -333,58 +347,97 @@ export default function VerRutina() {
                                         value={r.progreso?.[semana]?.carga || ""} 
                                         onChange={(e) => handleProgresoChange(r.id, semana, "carga", e.target.value)} 
                                     />
-                                ):(
-                                    r.progreso?.[semana]?.carga || ""
-                                )}
+                            
                             </td>
                                 </React.Fragment>
                             ))}
                             </tr>
-
                         );
                     })}
                 </tbody>
                 </table>
-
                 <Modal
-                    isOpen={isModalOpen}
-                    onRequestClose={() => setIsModalOpen(false)}
+                    isOpen={showEditar}
+                    onRequestClose={() => setShowEditar(false)}
                     contentLabel="Progreso"
                     className="modal-react"
                     overlayClassName="modal-overlay"
                 >
-                    <div className="modal-header">
+                    <div className="modal-header py-1">
                         <h5 className="modal-title">Agregar Progreso</h5>
                         <button type="button" className="close"
-                            onClick={() => setIsModalOpen(false)}>
+                            onClick={() => setShowEditar(false)}>
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                        <div className="modal-body">
-                            <p className="text-muted my-3">Semana 1</p>
-                             <form onSubmit={guardarProgreso}>
-
-                                <div className="mb-3">
-                                    <label className="form-label">Series</label>
-                                    <input type="number" className="form-control" id="" placeholder="0" required/>
-                                </div>
-                                <div className="mb-3">
-                                <label for="" className="form-label">Repeticiones</label>
-                                    <input type="number" className="form-control" id="" placeholder="0" required/>
-                                </div>
-                                <div className="mb-3">
-                                    <label for="" className="form-label">Peso</label>
-                                    <input type="text" className="form-control" id="" placeholder="0" required/>
-                                </div>
-
+                    <div className="modal-body">
+                        <div className="filtros-modal row my-3">
+                            <div className="col">
+                                <select
+                                    className="form-select"
+                                    value={rangoSemana}
+                                    onChange={(e) => setRangoSemana(Number(e.target.value))}
+                                >
+                                    <option value="semana1">Semana 1</option>
+                                    <option value="semana2">Semana 2</option>
+                                    <option value="semana3">Semana 3</option>
+                                    <option value="semana4">Semana 4</option>
+                                </select>
+                            </div>
+                            <div className="col">
+                                <select
+                                    className="form-select"
+                                    value={diaSeleccionado}
+                                    onChange={(e) => {
+                                        setDiaSeleccionado(e.target.value);
+                                        setEjercicioSeleccionado("");
+                                    }}
+                                >
+                                    <option value="">Elegir Día...</option>
+                                    {diasUnicos.map(dia => (
+                                    <option key={dia} value={dia}>Día {dia}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                        <select
+                            className="form-select"
+                            disabled={!diaSeleccionado}
+                            value={ejercicioSeleccionado}
+                            onChange={(e) => setEjercicioSeleccionado(e.target.value)}
+                        >
+                            <option value="">{diaSeleccionado ? "Elegir Ejercicio..." : "Primero elige un día"}</option>
+                            {ejerciciosFiltrados.map(ex => (
+                            <option key={ex.id} value={ex.id}>
+                                {ex.ejercicio}
+                            </option>
+                            ))}
+                        </select>
+                        <form onSubmit={guardarProgreso} className="mt-3 row">
+                            <div className="col-4 col-md-3 mb-3">
+                                <label className="form-label">Series</label>
+                                <input type="number" className="form-control" id="" placeholder="0" required/>
+                            </div>
+                            <div className=" col-4 col-md-3 mb-3">
+                            <label for="" className="form-label">Reps</label>
+                                <input type="number" className="form-control" id="" placeholder="0" required/>
+                            </div>
+                            <div className="col-4 col-md-3 mb-3">
+                                <label for="" className="form-label">Peso</label>
+                                <input type="text" className="form-control" id="" placeholder="0" required/>
+                            </div>
                         <div className="modal-footer px-0">
-                            <button type="button" className="btn btn-secondary me-2" onClick={() => setIsModalOpen(false)}>Cancelar</button>
-                            <button type="submit" className="btn btn-principal" >Guardar</button>
+                            <button type="button" className="btn btn-secondary me-2" onClick={() => setShowEditar(false)}>Cancelar</button>
+                            <button type="submit" className="btn btn-success" >Guardar</button>
                         </div>                  
                         </form>
                     </div>
                 </Modal>      
             </div>
+
+            
         </div>
+
+        
     );
 }

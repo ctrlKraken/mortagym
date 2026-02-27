@@ -29,7 +29,6 @@
   object-fit: contain;
 }
 
-
 .badge {
   font-size: 1rem;
   padding: 0.6em 1em;
@@ -67,32 +66,9 @@
 /***** Perfil Profesor ******/
 
 .titulo-seccion-perfiles{
-  
   font-family: var(--font-titulo);
   font-size: 25px;
   margin-bottom: 30px;
-
-}
-
-.cargar-rutina{
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.form-rutina .campo{
-  padding-bottom: 20px;
-  width: 800px;
-}
-
-.form-rutina select{
-  color: darkslategray;
-}
-.filtro-alumnos{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  
 }
 
 .btn-guardar{
@@ -100,6 +76,7 @@
   margin: 10px auto;
 }
 
+/* Reagendar */
 
 .disponible:hover{
   background-color: lightgreen;
@@ -134,25 +111,30 @@
 .nav-link{
   text-transform: uppercase;
   font-weight: bold !important;
- 
 }
+
+/* Activdiades Usuario */
 
 .contenido-actividades{
   margin: 0 auto;
-  max-width: 1000px;
   display: grid;
   justify-items: center;
 }
 
 .actividades-user{
-  gap: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+ justify-content: center;
 }
 
 .actividades-user .card{
-  padding: 10px 20px;
+  padding: 10px 30px;
   background-color: transparent;
-  width: 350px;
+  width: 300px;
 }
+
+/* Tabla Rutina */
 
 .sub-head th {
   font-weight: 600;
@@ -182,7 +164,6 @@
   overflow-x: auto;
   white-space: nowrap;
 }
-
 
 .input-progreso {
   width: 55px;
@@ -245,49 +226,34 @@
   gap: 30px;
 }
 
-.actividades-user {
+.estado-text{
   display: flex;
-  gap: 20px;
+  flex-direction: column;
 }
 
-.rutina-accordion .accordion-item {
-  /*border: 1px solid var(--color-primary);*/
-  border-radius: 8px;
-  margin-bottom: 10px;
-  background-color: #fff;
-}
 
-.rutina-accordion .accordion-button {
-  border-bottom: 1px solid gray;
-  background-color: #fff !important;
-  box-shadow: none !important;
-  font-weight: 500;
-  padding: 14px 18px;
-}
-
-.rutina-accordion .accordion-button:not(.collapsed) {
-  background-color: #fff !important;
-  color: #000;
-}
-
-.rutina-accordion .accordion-button::after {
-  filter: grayscale(1);
-}
-
-.rutina-accordion .accordion-body {
-  border-top: 1px solid #eee;
-  background-color: #fff;
-}
-
-@media (max-width: 460px) {
-
+@media (max-width: 768px) {
   .estado-user {
+    gap: 5px;
+  }
+
+  .actividades-user {
     flex-direction: column;
     align-items: center;
   }
 
+  .actividades-user .card {
+    width: 100%;
+  }
+} 
+
+@media (max-width: 460px) {
+  .estado-user {
+    flex-direction: column;
+    align-items: start;
+  }
+
   .estado-user span {
-    text-align: center;
     background: #f8f9fa;
     padding: 4px !important;
   }
@@ -299,18 +265,11 @@
 
   .actividades-user .card {
     width: 100%;
-   
   }
 
   .acciones-rutina {
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-  }
-
-  .acciones-rutina .btn {
-    width: 90%;
-    max-width: 320px;
   }
 
   .filtros-rutina {
@@ -329,7 +288,7 @@
   }
 
   .tabla-rutinas{
-    font-size: 14px;
+    font-size: 15px;
   }
 
    .desktop-label {
@@ -338,5 +297,30 @@
 
   .mobile-label {
     display: inline;
+  }
+
+  .estado-text {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .estado-text small {
+    font-size: 0.75rem;
+  }
+
+  .btn-user-video {
+    width: 90%;
+    background-color: #0081cb; /* Tu azul */
+    color: white;
+    border-radius: 8px;
+  }
+
+  .btn-user {
+    width: 40%;
+    background-color: #f8f9fa;
+    border: 1px solid #0081cb;
+    color: #333;
+    font-size: 0.9rem;
   }
 }

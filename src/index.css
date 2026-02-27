@@ -37,11 +37,10 @@ body {
 
 .btn-principal {
   height: 40px;
-  width: 140px;
+  width: 150px;
   background-color: var(--color-primary);
- 
   color: var(--white);
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .btn-principal:hover,
@@ -59,14 +58,13 @@ body {
   text-transform: uppercase;
 }
 
-
 /* TITULO POR PAGINA */
+
 .titulo-pagina {
   text-transform: uppercase;
   font-family: var(--font-titulo);
   background: linear-gradient(90deg, rgba(0, 147, 216, 1) 0%, rgba(165, 78, 158, 1) 100%);
   -webkit-background-clip: text;
-  /* Recorta el degradado al texto */
   -webkit-text-fill-color: transparent;
   font-size: 40px;
   width: 300px;
@@ -93,6 +91,10 @@ body {
   select.form-select {
     display: block;
     margin: 0 auto;
+  }
+
+  .btn-principal {
+    font-weight: 600;
   }
 }
 

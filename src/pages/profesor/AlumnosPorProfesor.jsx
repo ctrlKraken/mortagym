@@ -24,7 +24,7 @@ export default function AlumnosPorProfesor() {
 
    const disciplinas = [...new Set(alumnos.map(e => e.disciplina))];
 
-const manejarOrdenar = (key) => {
+  const manejarOrdenar = (key) => {
     setAlumnos([...alumnos].sort((a, b) => (a[key] > b[key] ? 1 : -1)));
   };
 
@@ -33,20 +33,9 @@ const manejarOrdenar = (key) => {
       (!disciplina ||
         a.disciplina.toLowerCase().includes(disciplina.toLowerCase()))
     );
-
-
-    /*const ordenarPor = (criterio) => {
-      const listaOrdenada = [...alumnos].sort((a, b) => {
-        if (a[criterio] < b[criterio]) return -1;
-        if (a[criterio] > b[criterio]) return 1;
-        return 0;
-      });
-      setListadoalumnos(listaOrdenada);
-    };*/
     
     return(
       <div className="">
-
         <div className="row mb-3">
           <div className="col-md-4">
             <input
@@ -56,7 +45,6 @@ const manejarOrdenar = (key) => {
               onChange={e => setBusqueda(e.target.value)}
             />
           </div>
-
           <div className="col-md-4">
             <select
               className="form-select"
@@ -69,21 +57,18 @@ const manejarOrdenar = (key) => {
               ))}
             </select>
           </div>
-
           <button className="btn btn-principal btn-horario" hidden>
-                    Ver Horario
+              Ver Horario
           </button>
-
         </div>
-
-          <TablaPerfil
-            columnas={columnas}
-            datos={filtrados}
-            paginaActual={paginaActual}
-            setPaginaActual={setPaginaActual}
-            onOrdenar={manejarOrdenar}
-          />
-        </div>
+        <TablaPerfil
+          columnas={columnas}
+          datos={filtrados}
+          paginaActual={paginaActual}
+          setPaginaActual={setPaginaActual}
+          onOrdenar={manejarOrdenar}
+        />
+      </div>
     );
     
 }
