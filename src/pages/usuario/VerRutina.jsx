@@ -193,7 +193,7 @@ export default function VerRutina() {
     
     return(
 
-        <div className="">
+        <div className="" translate="no">
 
             <div className="acciones-rutina d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-md-end">
                 <button className="btn btn-principal btn-user" onClick={generarPDF}>
@@ -283,7 +283,7 @@ export default function VerRutina() {
                         <th className="-">Serie</th>
                         <th className="-">
                             <span className="desktop-label" translate="no">Repeticiones</span>
-                            <span className="mobile-label">Reps</span>
+                            <span className="mobile-label" translate="no">Reps</span>
                         </th>
                         <th className="">Carga</th> 
                         {semanasVisibles.map((semana) => (
@@ -291,7 +291,7 @@ export default function VerRutina() {
                             <th>Serie</th>
                             <th>
                                 <span className="desktop-label" translate="no">Repeticiones</span>
-                                <span className="mobile-label">Reps</span>
+                                <span className="mobile-label" translate="no">Reps</span>
                             </th>
                             <th>Carga</th>
                         </React.Fragment>
