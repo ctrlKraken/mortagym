@@ -46,14 +46,17 @@ export default function HorarioUsuario() {
 
     return(
         <>
-            <div className="d-flex justify-content-end gap-2 mb-4">
-                <button 
-                    className="btn btn-principal" 
-                    onClick={() => navigate("/perfil/reagendar-turno")}>
-                    Cambiar Turno
-                </button>
-            </div>
-            <table className="table table-bordered text-center align-middle">
+          <div className="d-flex justify-content-center justify-content-md-end gap-2 mb-4" translate="no">
+              
+              <button 
+                  className="btn btn-principal btn-reagendar" 
+                  onClick={() => navigate("/perfil/reagendar-turno")}>
+                  <i className="ri-calendar-event-line me-2"></i>
+                  Cambiar Turno
+              </button>
+          </div>
+          <div className="tabla-container">
+            <table className="table table-bordered table-hover text-center align-middle">
               <thead className="table-head">
                 <tr>
                   <th className="">Hora</th>
@@ -93,7 +96,7 @@ export default function HorarioUsuario() {
                 ))}
               </tbody>
             </table>
-        
+          </div>
         </>
     );
     

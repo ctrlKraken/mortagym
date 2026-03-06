@@ -1,5 +1,5 @@
 
-const CardActividad = ({ titulo, horario, turnos }) => {
+const CardActividad = ({ titulo, horario, turnos, cuota, vencimiento }) => {
 
   return (
     <div className="card">
@@ -10,6 +10,12 @@ const CardActividad = ({ titulo, horario, turnos }) => {
                 Turnos restantes:{" "}
                 <span className="text-primary"><strong>{turnos}</strong></span>
             </p>
+             <div className="cuota-text d-flex align-items-center gap-1 text-start">
+                <span className="fs-6">{cuota}</span>
+                <small className="text-muted">
+                - Vencimiento: {vencimiento || "---"}
+                </small>
+            </div>
         </div>
     </div>
     );

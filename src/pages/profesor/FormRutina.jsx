@@ -1,11 +1,28 @@
 import {useState, useEffect} from "react";
+import { useLocation } from "react-router-dom";
 import { ejercicios } from "../../data/ejercicios";
 
 import '../../styles/Profesor.css'
 
 export default function FormRutina() {
 
-    const alumnos = ["Julián Rodríguez","Sofía Martínez","Lucas Ferrero", "Valentina Gómez"];
+
+    const [alumnos] = useState([
+      { id: 1, nombre: "Julián Rodríguez", disciplina: "Funcional", horario: "Lunes y Miércoles 08:00 - 09:30", rutina: "-"},
+      { id: 2, nombre: "Sofía Martínez", disciplina: "Musculación", horario: "Martes y Jueves 18:00 - 19:00", rutina: false},
+      { id: 3, nombre: "Valentina Gómez", disciplina: "Funcional", horario: "Lunes y Miércoles 08:00 - 09:30", rutina: "-"},
+      { id: 4, nombre: "Mateo Casas", disciplina: "Musculación", horario: "Lunes, Miércoles y Viernes 20:00 - 21:00", rutina: true},
+      { id: 5, nombre: "Diego Fernández", disciplina: "Musculación", horario: "Martes y Jueves 18:00 - 19:00", rutina: true},
+      { id: 6, nombre: "Gustavo Martínez", disciplina: "Musculación", horario: "Martes y Jueves 18:00 - 19:00", rutina: false},
+      { id: 7, nombre: "Melisa Segovia", disciplina: "Musculación", horario: "Martes y Jueves 18:00 - 19:00", rutina: false},
+      { id: 8, nombre: "Marta Gómez", disciplina: "Funcional", horario: "Lunes y Miércoles 08:00 - 09:30", rutina: "-"},
+    ]);
+
+    const location = useLocation();
+    const alumnoSeleccionado = location.state?.alumno || null;
+    const [alumnoId, setAlumnoId] = useState(
+        alumnoSeleccionado ? alumnoSeleccionado.id : ""
+    );
 
     const musculos = [...new Set(ejercicios.map(e => e.musculo))];
 
@@ -82,15 +99,17 @@ export default function FormRutina() {
 
     return(
         <div>
-            <form className="card p-4 shadow-sm" >
+            <form className="card p-4 shadow-sm" translate="no">
                 <h4 className="fw-bold mb-4 text-center">Cargar rutina</h4>
                 <div className="row mb-3">
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-md-6 mb-3">
                         <label className="form-label">Alumno</label>
-                        <select className="form-select" id="">
+                        <select className="form-select"  value={alumnoId}
+                            onChange={(e) => setAlumnoId(Number(e.target.value))}>
+                            <option value="">Seleccionar alumno</option>
                             {alumnos.map((a) => (
-                                <option key={a} value={a} translate="no">
-                                {a}
+                                <option key={a.id} value={a.id} translate="no">
+                                {a.nombre}
                                 </option>
                             ))}
                         </select>
@@ -106,7 +125,7 @@ export default function FormRutina() {
                     const collapseId = `flush-collapse-${diaIndex}`;
                     const headingId = `flush-heading-${diaIndex}`;
                     return(
-                        <div key={dia.dia} className="mb-4">
+                        <div key={dia.dia} className="mb-2">
                             <div className="accordion accordion-flush rutina-accordion" id="accordionRutina">
                                 <div className="accordion-item">
                                     <h2 className="accordion-header" id={headingId}>

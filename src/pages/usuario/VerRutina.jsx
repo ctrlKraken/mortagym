@@ -193,7 +193,7 @@ export default function VerRutina() {
     
     return(
 
-        <div className="">
+        <div className="" translate="no">
 
             <div className="acciones-rutina d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-md-end">
                 <button className="btn btn-principal btn-user" onClick={generarPDF}>
@@ -375,8 +375,6 @@ export default function VerRutina() {
                             <div className="col">
                                 <select
                                     className="form-select"
-                                    value={rangoSemana}
-                                    onChange={(e) => setRangoSemana(Number(e.target.value))}
                                 >
                                     <option value="semana1">Semana 1</option>
                                     <option value="semana2">Semana 2</option>

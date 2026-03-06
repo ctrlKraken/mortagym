@@ -76,6 +76,11 @@
   margin: 10px auto;
 }
 
+.btn-reagendar{
+  width: auto;
+  margin: 5px auto;
+}
+
 /* Reagendar */
 
 .disponible:hover{
@@ -89,7 +94,7 @@
   cursor: pointer;
 }
 .seleccionado {
-  outline: 3px solid #FFD700;
+  outline: 3px solid aqua;
   transform: scale(1.05);
 }
 
@@ -231,7 +236,6 @@
   flex-direction: column;
 }
 
-
 @media (max-width: 768px) {
   .estado-user {
     gap: 5px;
@@ -258,9 +262,10 @@
     padding: 4px !important;
   }
 
-   .actividades-user {
+  .actividades-user {
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem !important;
   }
 
   .actividades-user .card {
@@ -306,7 +311,7 @@
   }
 
   .estado-text small {
-    font-size: 0.75rem;
+    font-size: 14px;
   }
 
   .btn-user-video {
