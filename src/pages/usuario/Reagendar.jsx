@@ -3,13 +3,13 @@ import Swal from "sweetalert2";
 
 export default function Reagendar() {
 
-    const fechaInscripcion = new Date("2026-02-5");
+    const fechaInscripcion = new Date("2026-03-3");
 
     const [misTurnos] = useState([
-        { dia: "2026-02-20", hora: "10:00" },
-        { dia: "2026-02-23", hora: "10:00" },
-        { dia: "2026-02-25", hora: "10:00" },
-        { dia: "2026-02-27", hora: "10:00" },
+        { dia: "2026-03-10", hora: "10:00" },
+        { dia: "2026-03-13", hora: "10:00" },
+        { dia: "2026-03-15", hora: "10:00" },
+        { dia: "2026-03-17", hora: "10:00" },
     ]);
 
     const esMiTurno = (dia, hora) =>
@@ -118,27 +118,22 @@ export default function Reagendar() {
             text: "¿Querés cambiar solo por este día o todos los turnos de la semana?",
             icon: "question",
             showCancelButton: true,
-            showDenyButton: true,
-            confirmButtonText: "Solo este día",
-            denyButtonText: "Toda la semana",
+            confirmButtonText: "Reagendar",
             cancelButtonText: "Cancelar",
             confirmButtonColor: "#0093D8",
-            denyButtonColor: "#A54E9E",
             cancelButtonColor: "#6c757d"
         }).then((result) => {
             if (result.isConfirmed) {
             
             console.log("Cambiar solo este día", anterior, nuevo);
-            } else if (result.isDenied) {
-            
-            console.log("Cambiar toda la semana", anterior, nuevo);
             }
         });
     };
 
     return(
-        <div className="pages-section reagendar">
+        <div className="reagendar" translate="no">
             <h5 className="card-title mb-3">Reagendar Turno</h5>
+            <p>Elige el turno que quieres reagendar</p>
             <div className="d-flex justify-content-between mb-3">
                 <button
                     className="btn btn-outline-secondary"
@@ -154,77 +149,78 @@ export default function Reagendar() {
                     siguiente →
                 </button>
             </div>
+            <div className="tabla-container">
+                <table className="table table-bordered text-center align-middle tabla-perfiles">
+                    <thead className="table-light">
+                        <tr className="a">
+                            <th>Hora</th>
+                            {semana.map((dia) => (
+                                <th key={dia}>
+                                    {dia.toLocaleDateString("es-AR", {
+                                        weekday: "short",
+                                        day: "numeric",
+                                    })}
+                                </th>
+                            ))}
+                        </tr>
+                    </thead>
 
-            <table className="table table-bordered text-center align-middle tabla-perfiles">
-                <thead className="table-light">
-                    <tr className="a">
-                        <th>Hora</th>
-                        {semana.map((dia) => (
-                            <th key={dia}>
-                                {dia.toLocaleDateString("es-AR", {
-                                    weekday: "short",
-                                    day: "numeric",
-                                })}
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
+                    <tbody>
+                        {horas.map((hora) => (
+                        <tr key={hora}>
+                            <td>{hora}</td>
+                            {semana.map((dia) => {
+                                const fecha = formatearFecha(dia);
+                                const ocupado = estaOcupado(fecha, hora);
+                                const bloqueado = estaBloqueado(fecha, hora);
+                                const miTurno = esMiTurno(fecha, hora);
 
-                <tbody>
-                    {horas.map((hora) => (
-                    <tr key={hora}>
-                        <td>{hora}</td>
-                        {semana.map((dia) => {
-                            const fecha = formatearFecha(dia);
-                            const ocupado = estaOcupado(fecha, hora);
-                            const bloqueado = estaBloqueado(fecha, hora);
-                            const miTurno = esMiTurno(fecha, hora);
-
-                            return (
-                                <td
-                                    key={fecha + hora}
-                                    className={
-                                        turnoSeleccionado?.fecha === fecha &&
-                                        turnoSeleccionado?.hora === hora
-                                            ? "mi-turno seleccionado"
-                                            : miTurno
-                                            ? "mi-turno"
-                                            : bloqueado
-                                            ? "bloqueado"
-                                            : ocupado
-                                            ? "ocupado"
-                                            : "disponible"
-                                    }
-                                    onClick={() => {
-                                        if (miTurno) {
-                                            setTurnoSeleccionado({ fecha, hora });
-                                        } 
-                                        else if (
-                                            turnoSeleccionado &&
-                                            !ocupado &&
-                                            !bloqueado
-                                        ) {
-                                            confirmarCambioTurno({
-                                            anterior: turnoSeleccionado,
-                                            nuevo: { fecha, hora }
-                                            });
+                                return (
+                                    <td
+                                        key={fecha + hora}
+                                        className={
+                                            turnoSeleccionado?.fecha === fecha &&
+                                            turnoSeleccionado?.hora === hora
+                                                ? "mi-turno seleccionado"
+                                                : miTurno
+                                                ? "mi-turno"
+                                                : bloqueado
+                                                ? "bloqueado"
+                                                : ocupado
+                                                ? "ocupado"
+                                                : "disponible"
                                         }
-                                    }}
-                                >
-                                {miTurno
-                                    ? "Tu turno"
-                                    : bloqueado
-                                    ? "No disponible"
-                                    : ocupado
-                                    ? "Ocupado"
-                                    : "Disponible"}
-                                </td>
-                            );
-                        })}
-                    </tr>
-                    ))}
-                </tbody>
-            </table>
+                                        onClick={() => {
+                                            if (miTurno) {
+                                                setTurnoSeleccionado({ fecha, hora });
+                                            } 
+                                            else if (
+                                                turnoSeleccionado &&
+                                                !ocupado &&
+                                                !bloqueado
+                                            ) {
+                                                confirmarCambioTurno({
+                                                anterior: turnoSeleccionado,
+                                                nuevo: { fecha, hora }
+                                                });
+                                            }
+                                        }}
+                                    >
+                                    {miTurno
+                                        ? "Tu turno"
+                                        : bloqueado
+                                        ? "No disponible"
+                                        : ocupado
+                                        ? "Ocupado"
+                                        : "Disponible"}
+                                    </td>
+                                );
+                            })}
+                        </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 };

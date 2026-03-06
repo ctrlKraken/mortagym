@@ -375,8 +375,6 @@ export default function VerRutina() {
                             <div className="col">
                                 <select
                                     className="form-select"
-                                    value={rangoSemana}
-                                    onChange={(e) => setRangoSemana(Number(e.target.value))}
                                 >
                                     <option value="">Semana 1</option>
                                     <option value="">Semana 2</option>

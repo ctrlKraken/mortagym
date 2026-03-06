@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 export default function ProfesorLayout() {
   return (
 
-    <div className="container perfil">
+    <div className="container perfil" translate="no">
       <ul className="nav nav-tabs justify-content-center mb-4">
         <li className="nav-item">
           <NavLink
