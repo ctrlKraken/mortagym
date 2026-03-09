@@ -63,38 +63,269 @@
   background-color: var(--color-tertiary);
 }
 
-
 /***** Perfil Profesor ******/
-.breadcrumb{
-  color: darkslategrey;
-}
 
-.pages-section {
-  padding: 4rem 1rem;
-}
-
-.cargar-rutina{
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.form-rutina .campo{
-  padding-bottom: 20px;
-  width: 600px;
-}
-
-.form-rutina select{
-  color: darkslategray;
-}
-.filtro-alumnos{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  
+.titulo-seccion-perfiles{
+  font-family: var(--font-titulo);
+  font-size: 25px;
+  margin-bottom: 30px;
 }
 
 .btn-guardar{
   width: auto;
   margin: 10px auto;
+}
+
+.btn-reagendar{
+  width: auto;
+  margin: 5px auto;
+}
+
+/* Reagendar */
+
+.disponible:hover{
+  background-color: lightgreen;
+}
+
+.mi-turno {
+  background-color: #0093D8 !important;
+  color: white !important;
+  font-weight: 600;
+  cursor: pointer;
+}
+.seleccionado {
+  outline: 3px solid aqua;
+  transform: scale(1.05);
+}
+
+.disponible {
+  background-color: #e8f5e9;
+  cursor: pointer;
+}
+
+.ocupado {
+  background-color: #f8d7da;
+  color: #842029 !important;
+}
+
+.bloqueado {
+  background-color: #f1f1f1;
+  color: #aaa !important;
+}
+
+.nav-link{
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+
+/* Activdiades Usuario */
+
+.contenido-actividades{
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+}
+
+.actividades-user{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+ justify-content: center;
+}
+
+.actividades-user .card{
+  padding: 10px 30px;
+  background-color: transparent;
+  width: 300px;
+}
+
+/* Tabla Rutina */
+
+.sub-head th {
+  font-weight: 600;
+}
+
+.tabla-rutinas td:first-child {
+  text-align: left;
+}
+
+.grupo-dia {
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.grupo-progreso{
+  width: 330px;
+}
+.grupo-rutina{
+  width: 480px;
+}
+
+.tabla-rutinas{
+  width: auto;
+  
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.input-progreso {
+  width: 55px;
+  box-sizing: border-box;
+  border: none;
+  text-align: center;
+  outline: none;
+  padding: 4px;
+}
+
+.input-progreso:focus {
+    background-color: #f0f8ff;
+    border-bottom: 2px solid #007bff;
+}
+
+.input-progreso::-webkit-inner-spin-button,
+.input-progreso::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.btn-linea-secundario{
+  height: 40px;
+  width: 100px;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-linea-secundario:hover {
+  background-color: var(--color-secondary);
+  color: var(--white);
+}
+
+.titulo-grupo-rutina{
+  color: var(--color-primary);
+}
+.titulo-grupo-progreso{
+  color: var(--color-secondary);
+}
+
+.titulo-grupo-progreso,
+.titulo-grupo-rutina{
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.acciones-rutina {
+  justify-content: flex-end;
+}
+
+.mobile-label {
+  display: none;
+}
+
+.estado-user {
+  display: flex;
+  gap: 30px;
+}
+
+.estado-text{
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .estado-user {
+    gap: 5px;
+  }
+
+  .actividades-user {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .actividades-user .card {
+    width: 100%;
+  }
+} 
+
+@media (max-width: 460px) {
+  .estado-user {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .estado-user span {
+    background: #f8f9fa;
+    padding: 4px !important;
+  }
+
+  .actividades-user {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem !important;
+  }
+
+  .actividades-user .card {
+    width: 100%;
+  }
+
+  .acciones-rutina {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .filtros-rutina {
+    text-align: center;
+  }
+
+  .filtros-rutina .col-md-4 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .filtros-rutina .form-select {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  .tabla-rutinas{
+    font-size: 15px;
+  }
+
+   .desktop-label {
+    display: none;
+  }
+
+  .mobile-label {
+    display: inline;
+  }
+
+  .estado-text {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .estado-text small {
+    font-size: 14px;
+  }
+
+  .btn-user-video {
+    width: 90%;
+    background-color: #0081cb; /* Tu azul */
+    color: white;
+    border-radius: 8px;
+  }
+
+  .btn-user {
+    width: 40%;
+    background-color: #f8f9fa;
+    border: 1px solid #0081cb;
+    color: #333;
+    font-size: 0.9rem;
+  }
 }

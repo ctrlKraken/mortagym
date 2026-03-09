@@ -47,7 +47,11 @@ export default function TablaPerfil({
                 <tr key={fila.id}>
                   {columnas.map((col) => (
                     <td key={col.key}>
-                      {renderValor(fila[col.key])}
+                      {/*renderValor(fila[col.key])*/}
+
+                      {col.render
+                        ? col.render(fila)
+                        : renderValor(fila[col.key])}
                     </td>
                   ))}
                 </tr>
