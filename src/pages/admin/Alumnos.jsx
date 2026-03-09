@@ -109,23 +109,22 @@ export default function Alumnos() {
           <tbody>
             {alumnosPagina.map((a) => (
               <tr key={a.id}>
-                <td>{a.nombre}</td>
-                <td>{a.dni}</td>
-                <td>{a.disciplinas}</td>
-                <td>
-                  <span className={`badge ${a.cuota ? "bg-success" : "bg-danger"}`}>
-                    {a.cuota ? "Sí" : "No"}
-                  </span>
-                </td>
-                <td>
-                  <span
-                    className={`badge ${a.ficha ? "bg-success" : "bg-warning text-dark"
-                      }`}
-                  >
-                    {a.ficha ? "Sí" : "Pendiente"}
-                  </span>
-                </td>
-                <td className="text-center">
+                <td data-label="Nombre">{a.nombre}</td>
+  <td data-label="DNI">{a.dni}</td>
+  <td data-label="Disciplinas">{a.disciplinas}</td>
+
+  <td data-label="Cuota">
+    <span className={`badge ${a.cuota ? "bg-success" : "bg-danger"}`}>
+      {a.cuota ? "Sí" : "No"}
+    </span>
+  </td>
+
+  <td data-label="Ficha médica">
+    <span className={`badge ${a.ficha ? "bg-success" : "bg-warning text-dark"}`}>
+      {a.ficha ? "Sí" : "Pendiente"}
+    </span>
+  </td>
+                <td data-label="Opciones" className="text-center">
                   <button
                     className="btn btn-sm btn-outline-secondary me-2"
                     onClick={() => {

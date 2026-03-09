@@ -221,6 +221,8 @@ export default function FichaInscripcion({ onSubmit }) {
         />
       </div>
 
+      {/* AGREGAR BOTON que pueda armar un nuevo PLANES para el mismo alumno */}
+
       {/* HORARIOS */}
       <h6 className="fw-bold mb-3">Horarios abonados</h6>
 
