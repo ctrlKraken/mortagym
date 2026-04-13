@@ -134,9 +134,7 @@ export default function Disciplinas() {
             <tr>
               <th>Nombre</th>
               <th>Descripción</th>
-              <th>Profesor</th>
-              <th>Cupo máx.</th>
-              <th>Alumnos</th>
+              <th>Precio</th>
               <th>Activo</th>
               <th className="text-center">Opciones</th>
             </tr>
@@ -146,6 +144,148 @@ export default function Disciplinas() {
               <tr key={d.id}>
                 <td>{d.nombre}</td>
                 <td>{d.descripcion}</td>
+                <td>
+                  <span
+                    className={`badge ${d.activo ? "bg-success" : "bg-danger"}`}
+                  >
+                    {d.activo ? "Sí" : "No"}
+                  </span>
+                </td>
+                <td className="text-center">
+                  <button
+                    className="btn btn-sm btn-outline-secondary me-1"
+                    onClick={() => {
+                      setDisciplinaSeleccionada(d);
+                      setPrecios(preciosMock[d.id]);
+                      setEditandoPrecios(false);
+                      setModalPrecios(true);
+                    }}
+                  >
+                    <i className="ri-money-dollar-circle-line"></i>
+                  </button>
+
+
+
+                  <button
+                    className="btn btn-sm btn-outline-secondary me-1"
+                    onClick={() => {
+                      setDisciplinaSeleccionada(d);
+                      setHorarios(horariosMock[d.id] || []);
+                      setEditandoHorarios(false);
+                      setModalHorarios(true);
+                    }}
+                  >
+                    <i className="ri-time-line"></i>
+                  </button>
+
+
+                  <button
+                    className="btn btn-sm btn-outline-secondary me-1"
+                    onClick={() => {
+                      setModoNuevo(false);
+                      setDisciplinaSeleccionada(d);
+                      setFormDisciplina({
+                        nombre: d.nombre,
+                        descripcion: d.descripcion,
+                        profesor: d.profesor,
+                        cupoMaximo: d.cupoMaximo,
+                        alumnosActuales: d.alumnosActuales,
+                        activo: d.activo,
+                      });
+                      setIsModalOpen(true);
+                    }}
+
+                  >
+                    <i className="ri-pencil-fill"></i>
+                  </button>
+
+                  <button
+                    className="btn btn-sm btn-outline-danger"
+                    onClick={() => {
+                      Swal.fire({
+                        title: "¿Deshabilitar disciplina?",
+                        text: "La disciplina dejará de estar disponible",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#dc3545",
+                        confirmButtonText: "Sí, deshabilitar",
+                        cancelButtonText: "Cancelar",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          console.log("Disciplina deshabilitada:", d.id);
+                        }
+                      });
+                    }}
+                  >
+                    <i className="ri-close-circle-fill"></i>
+                  </button>
+
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* PAGINACIÓN */}
+      <nav className="d-flex justify-content-center">
+        <ul className="pagination">
+          {Array.from({ length: totalPaginas }).map((_, i) => (
+            <li
+              key={i}
+              className={`nav-item ${paginaActual === i + 1 ? "navlink-active" : ""
+                }`}
+            >
+              <button
+                className="nav-link"
+                onClick={() => setPaginaActual(i + 1)}
+              >
+                {i + 1}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+       <div className="d-flex justify-content-between align-items-center mb-4">
+        <h3>Gestión de Actividades </h3>
+        <button
+          className="btn btn-admin"
+          onClick={() => {
+            setModoNuevo(true);
+            setFormDisciplina({
+              nombre: "",
+              descripcion: "",
+              profesor: "",
+              cupoMaximo: "",
+              alumnosActuales: 0,
+              activo: true,
+            });
+            setIsModalOpen(true);
+          }}
+        >
+          <i className="ri-add-line"></i> Nueva Actividad
+        </button>
+
+      </div>
+
+      {/* TABLA */}
+      <div className="table-responsive">
+        <table className="table table-hover align-middle table-disciplinas">
+          <thead className="table-light">
+            <tr>
+              <th>Nombre</th>
+              <th>Profesor</th>              
+              <th>Cupo máx.</th>
+              <th>Cant de Alumnos</th>
+              <th>Activo</th>
+              <th className="text-center">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {disciplinasPagina.map((d) => (
+              <tr key={d.id}>
+                <td>{d.nombre}</td>
                 <td>{d.profesor}</td>
                 <td className="text-center">{d.cupoMaximo}</td>
                 <td className="text-center">{d.alumnosActuales}</td>
