@@ -122,7 +122,7 @@ export default function Profesores() {
                 <td>{a.disciplinas}</td>
                 <td>20%</td>
                 <td className="text-center">
-                  <button
+                  <button /* Tabla de asistencia hidden y al presionar boton asistencia mostrarla*/
                     className="btn btn-sm btn-outline-secondary me-2"
                     onClick={() => {
                       setProfeSeleccionado(a);
@@ -132,11 +132,11 @@ export default function Profesores() {
                     <i className="ri-eye-fill"></i>
                   </button>
 
-                  <button
+                  <button /* AGREGAR LIQUIDACION DE SUELDOS: profe, disciplina, cantidad de alumnos, total recaudado, porcentaje --> sueldo. */
                     className="btn btn-sm btn-outline-secondary me-2"
                     onClick={() => setMostrarAsistencia(true)}
                   >
-                    <i className="ri-calendar-2-fill"></i>
+                    <i className="ri-wallet-3-line"></i>
                   </button>
 
 

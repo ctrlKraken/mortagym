@@ -57,9 +57,10 @@ function App() {
 
   if (esAdmin) {
     tipoBanner = "none";
-  } else if (esRecepcion || esPerfil || esProfesor) {
+  } else if (esRecepcion || esPerfil || esProfesor  ) { 
     tipoBanner = "alternativo";
-  }
+  } else 
+    tipoBanner = "alternativo"
 
   return (
     <>

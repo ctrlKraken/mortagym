@@ -39,11 +39,11 @@ export default function Navbar({ tipoBanner = "normal" }) {
 
           <div className={`py-2 collapse navbar-collapse ${menuAbierto ? "show" : "py-2"}`} id="mainNav">
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item"><NavLink className="nav-link" to="/" onClick={cerrarMenu}>Inicio</NavLink></li>
-              <li className="nav-item"><NavLink className="nav-link" to="/actividades" onClick={cerrarMenu}>Disciplinas</NavLink></li>
-              <li className="nav-item"><NavLink className="nav-link" to="/horarios" onClick={cerrarMenu}>Horarios</NavLink></li>
+              <li className="nav-item"><NavLink className="nav-link-header" to="/" onClick={cerrarMenu}>Inicio</NavLink></li>
+              <li className="nav-item"><NavLink className="nav-link-header" to="/actividades" onClick={cerrarMenu}>Disciplinas</NavLink></li>
+              <li className="nav-item"><NavLink className="nav-link-header" to="/horarios" onClick={cerrarMenu}>Horarios</NavLink></li>
               <li className="nav-item" >
-                <NavLink className="nav-link nav-btn px-4" to="/login" onClick={cerrarMenu}>
+                <NavLink className="nav-link-header nav-btn px-4" to="/login" onClick={cerrarMenu}>
                   <BsBoxArrowInRight className="me-2" /> Ingresar
                 </NavLink>
               </li>

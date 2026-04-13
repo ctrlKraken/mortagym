@@ -51,11 +51,7 @@ export default function AdminSidebar({ collapsed, setCollapsed }) {
           <i className="ri-boxing-line"></i>
           <span>Servicios</span>
         </NavLink>
-
-        <NavLink to="" className="sidebar-item">
-          <i className="ri-currency-fill"></i>
-          <span>Sueldos</span> {/* AGREGAR PAGE DE SUELDOS CON: profe, disciplina, cantidad, total, porcentaje, sueldo. */}
-        </NavLink>
+       
       </nav>
     </div>
   );

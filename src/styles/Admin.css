@@ -122,3 +122,7 @@
     gap: 0.25rem;
   }
 }
+
+.admin-card{
+  margin: 5px 0px;
+}

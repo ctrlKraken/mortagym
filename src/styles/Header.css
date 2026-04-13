@@ -12,24 +12,27 @@
   text-align: end;
 }
 
-.navbar-nav .nav-link {
+.navbar-nav .nav-link-header {
   font-size: 1.1rem;
   font-weight: 600;
   color: #333;
   padding: 0.7rem 1.2rem;
   transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: flex;              
+  align-items: center; 
 }
 
-.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link-header:hover,
 .navbar-nav {
   transform: scale(1);
 }
 
-.nav-item:hover, .nav-link:hover{
+.nav-item:hover, .nav-link-header:hover{
   color: var(--color-secondary);
 }
 
-.nav-link:not(.nav-btn).active{
+.nav-link-header:not(.nav-btn).active{
   color: var(--color-primary) !important;
 }
 
