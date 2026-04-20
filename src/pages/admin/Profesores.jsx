@@ -11,6 +11,7 @@ export default function Profesores() {
   const navigate = useNavigate();
   const [paginaActual, setPaginaActual] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalSueldo, setModalSueldo] = useState(false);
   const [profeSeleccionado, setProfeSeleccionado] = useState(null);
 
   const asistenciasMock = [
@@ -87,6 +88,19 @@ export default function Profesores() {
     },
   ];
 
+  // ----- SUELDO -----
+  const [datosSueldo, setDatosSueldo] = useState({
+    alumnos: "",
+    precio: "",
+    porcentaje: "",
+  });
+
+  const totalRecaudado =
+    datosSueldo.alumnos * datosSueldo.precio || 0;
+
+  const sueldo =
+    (totalRecaudado * datosSueldo.porcentaje) / 100 || 0;
+
   const filasPorPagina = 5; //Colocar el valor real, este es para probar
   const inicio = (paginaActual - 1) * filasPorPagina;
   const profesPagina = profes.slice(inicio, inicio + filasPorPagina);
@@ -132,13 +146,20 @@ export default function Profesores() {
                     <i className="ri-eye-fill"></i>
                   </button>
 
-                  <button /* AGREGAR LIQUIDACION DE SUELDOS: profe, disciplina, cantidad de alumnos, total recaudado, porcentaje --> sueldo. */
+                  <button
                     className="btn btn-sm btn-outline-secondary me-2"
-                    onClick={() => setMostrarAsistencia(true)}
+                    onClick={() => {
+                      setProfeSeleccionado(a);
+                      setDatosSueldo({
+                        alumnos: "",
+                        precio: "",
+                        porcentaje: a.porcentaje,
+                      });
+                      setModalSueldo(true);
+                    }}
                   >
                     <i className="ri-wallet-3-line"></i>
                   </button>
-
 
                   <button className="btn btn-sm btn-outline-secondary me-2" onClick={() => navigate("/admin/profesores/nuevoprofesor")}>
                     <i className="ri-pencil-fill"></i>
@@ -191,7 +212,7 @@ export default function Profesores() {
         </ul>
       </nav>
 
-      {/* MODALES */}
+      {/* MODAL INFO */}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={() => {
@@ -214,26 +235,55 @@ export default function Profesores() {
         </div>
 
         <div className="modal-body">
-          {profeSeleccionado && (
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">
-                <strong>Nombre completo:</strong> {profeSeleccionado.nombre}
-              </li>
-              <li className="list-group-item">
-                <strong>DNI:</strong> {profeSeleccionado.dni}
-              </li>
-              <li className="list-group-item">
-                <strong>Disciplinas:</strong> {profeSeleccionado.disciplinas}
-              </li>
-              <li className="list-group-item">
-                <strong>Porcentaje:</strong> 20%
-              </li>
-            </ul>
-          )}
+          <>
+            {profeSeleccionado && (
+              <>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <strong>Nombre completo:</strong> {profeSeleccionado.nombre}
+                  </li>
+                  <li className="list-group-item">
+                    <strong>DNI:</strong> {profeSeleccionado.dni}
+                  </li>
+                  <li className="list-group-item">
+                    <strong>Disciplinas:</strong> {profeSeleccionado.disciplinas}
+                  </li>
+                  <li className="list-group-item">
+                    <strong>Porcentaje:</strong> 20%
+                  </li>
+                </ul>
+
+                {mostrarAsistencia && (
+                  <table className="table table-bordered text-center mt-3">
+                    <thead className="table-light">
+                      <tr>
+                        <th>Fecha</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {asistenciasMock.map((a, i) => (
+                        <tr key={i}>
+                          <td>{a.fecha}</td>
+                          <td>{a.entrada}</td>
+                          <td>{a.salida}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </>
+            )}
+          </>
         </div>
 
         <div className="modal-footer">
-          <button className="btn btn-admin me-2"> Ver Asistencia </button>
+          <button className="btn btn-admin me-2" onClick={() =>
+            setMostrarAsistencia(!mostrarAsistencia)
+          }> {mostrarAsistencia
+            ? "Ocultar asistencia"
+            : "Ver asistencia"} </button>
           <button
             className="btn btn-secondary"
             onClick={() => setIsModalOpen(false)}
@@ -243,11 +293,94 @@ export default function Profesores() {
         </div>
       </Modal>
 
-      <ModalAsistencia
-        isOpen={mostrarAsistencia}
-        onClose={() => setMostrarAsistencia(false)}
-        asistencias={asistenciasMock}
-      />
+      {/* MODAL SUELDO */}
+      <Modal
+        isOpen={modalSueldo}
+        onRequestClose={() => {
+          setModalSueldo(false);
+          setProfeSeleccionado(null);
+        }}
+        contentLabel="Detalle del sueldo"
+        className="modal-react"
+        overlayClassName="modal-overlay"
+      >
+        <div className="modal-header">
+          <h5 className="modal-title">Calcular Sueldo</h5>
+          <button
+            type="button"
+            className="close"
+            onClick={() => setModalSueldo(false)}
+          >
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <div className="modal-body">
+          <div className="mb-3">
+            <label>Alumnos</label>
+            <input
+              type="number"
+              className="form-control"
+              value={datosSueldo.alumnos}
+              onChange={(e) =>
+                setDatosSueldo({
+                  ...datosSueldo,
+                  alumnos: e.target.value,
+                })
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <label>Precio clase</label>
+            <input
+              type="number"
+              className="form-control"
+              value={datosSueldo.precio}
+              onChange={(e) =>
+                setDatosSueldo({
+                  ...datosSueldo,
+                  precio: e.target.value,
+                })
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <label>Porcentaje (%)</label>
+            <input
+              type="number"
+              className="form-control"
+              value={datosSueldo.porcentaje}
+              onChange={(e) =>
+                setDatosSueldo({
+                  ...datosSueldo,
+                  porcentaje: e.target.value,
+                })
+              }
+            />
+          </div>
+
+          <hr />
+
+          <p>
+            <strong>Total recaudado:</strong> ${totalRecaudado}
+          </p>
+          <p>
+            <strong>Sueldo:</strong> ${sueldo}
+          </p>
+        </div>
+
+        <div className="modal-footer">
+          <button
+            className="btn btn-secondary"
+            onClick={() => setModalSueldo(false)}
+          >
+            Cerrar
+          </button>
+        </div>
+      </Modal>
+
 
     </>
   );

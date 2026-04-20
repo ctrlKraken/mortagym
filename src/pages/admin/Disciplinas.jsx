@@ -33,6 +33,7 @@ export default function Disciplinas() {
       id: 1,
       nombre: "Natación",
       descripcion: "Clases de natación para todas las edades y niveles.",
+      precio: "$30000",
       profesor: "Carlos Gómez",
       cupoMaximo: 30,
       alumnosActuales: 24,
@@ -42,6 +43,7 @@ export default function Disciplinas() {
       id: 2,
       nombre: "Funcional",
       descripcion: "Entrenamiento funcional de alta intensidad.",
+      precio: "$60000",
       profesor: "Laura Fernández",
       cupoMaximo: 20,
       alumnosActuales: 18,
@@ -51,6 +53,7 @@ export default function Disciplinas() {
       id: 3,
       nombre: "Pilates",
       descripcion: "Ejercicios de fortalecimiento y flexibilidad.",
+      precio: "$45000",
       profesor: "María López",
       cupoMaximo: 15,
       alumnosActuales: 15,
@@ -114,6 +117,7 @@ export default function Disciplinas() {
             setFormDisciplina({
               nombre: "",
               descripcion: "",
+              precio: "",
               profesor: "",
               cupoMaximo: "",
               alumnosActuales: 0,
@@ -144,6 +148,7 @@ export default function Disciplinas() {
               <tr key={d.id}>
                 <td>{d.nombre}</td>
                 <td>{d.descripcion}</td>
+                <td>{d.precio}</td>
                 <td>
                   <span
                     className={`badge ${d.activo ? "bg-success" : "bg-danger"}`}

@@ -268,21 +268,12 @@ export default function FichaInscripcion({ onSubmit }) {
               </div>
 
 
-              <div className="mb-3">
-                <label className="form-label">Valor mensual</label>
-                <input
-                  type="number"
-                  className="form-control"
-                  name="valorMensual"
-                  value={formData.valorMensual}
-                  onChange={handleChange}
-                />
-              </div>
+
 
 
               <div className="row mb-3">
 
-                <div className="col-md-6">
+                <div className="col-md-4">
                   <label className="form-label">Días</label>
 
                   <select
@@ -302,7 +293,7 @@ export default function FichaInscripcion({ onSubmit }) {
 
                 </div>
 
-                <div className="col-md-6">
+                <div className="col-md-4">
 
                   <label className="form-label">Horarios</label>
 
@@ -321,6 +312,16 @@ export default function FichaInscripcion({ onSubmit }) {
 
                   </select>
 
+                </div>
+                <div className="col-md-4">
+                  <label className="form-label">Valor mensual</label>
+                  <input disabled
+                    type="number"
+                    className="form-control"
+                    name="valorMensual"
+                    value={formData.valorMensual}
+                    onChange={handleChange}
+                  />
                 </div>
 
               </div>
@@ -616,6 +617,5 @@ export default function FichaInscripcion({ onSubmit }) {
       </div>
 
     </form>
-
   );
 }
